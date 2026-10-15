@@ -41,6 +41,9 @@ class _DuelScreenState extends State<DuelScreen>
 
   /// Lo que eligió el usuario en cada pregunta (null = se le pasó el tiempo).
   final List<String?> _myAnswers = [];
+
+  /// Cuánto tardó el usuario en cada pregunta, en ms (10.000 si no respondió).
+  final List<int> _myTimes = [];
   bool _revealed = false;
   bool _rivalAnswered = false;
 
@@ -87,6 +90,8 @@ class _DuelScreenState extends State<DuelScreen>
   void _answer(String? option) {
     if (_revealed) return;
     _clock.stop();
+    final elapsed = (_clock.value * DuelScreen.questionTime.inMilliseconds)
+        .round();
     if (option == _question.answer) {
       HapticFeedback.selectionClick();
     } else {
@@ -94,6 +99,9 @@ class _DuelScreenState extends State<DuelScreen>
     }
     setState(() {
       _myAnswers.add(option);
+      _myTimes.add(
+        option == null ? DuelScreen.questionTime.inMilliseconds : elapsed,
+      );
       _revealed = true;
     });
     _nextTimer = Timer(DuelScreen.revealTime, _advance);
@@ -114,9 +122,19 @@ class _DuelScreenState extends State<DuelScreen>
   }
 
   void _finish() {
-    final outcome = DuelOutcome.compare(_myScore, _rivalScore);
+    final myMs = _myTimes.fold(0, (a, b) => a + b);
+    final rivalMs = _setup.rivalAnswers.fold(0, (a, r) => a + r.timeMs);
+    final outcome = DuelOutcome.compare(
+      _myScore,
+      _rivalScore,
+      myMs: myMs,
+      rivalMs: rivalMs,
+    );
     context.read<DuelProvider>().recordResult(
       outcome,
+      friend: _setup.friend,
+      myScore: _myScore,
+      rivalScore: _rivalScore,
       pendingId: _setup.pendingId,
     );
     context.read<ProgressProvider>().addXp(outcome.xp);
@@ -126,6 +144,8 @@ class _DuelScreenState extends State<DuelScreen>
         builder: (_) => DuelResultScreen(
           setup: _setup,
           myAnswers: List.unmodifiable(_myAnswers),
+          myMs: myMs,
+          rivalMs: rivalMs,
           outcome: outcome,
         ),
       ),

@@ -75,10 +75,14 @@ void main() {
     });
   });
 
-  test('resultado: gana, pierde o empata por cantidad de aciertos', () {
-    expect(DuelOutcome.compare(4, 3), DuelOutcome.win);
-    expect(DuelOutcome.compare(2, 3), DuelOutcome.loss);
-    expect(DuelOutcome.compare(3, 3), DuelOutcome.draw);
+  test('resultado: más aciertos gana; si empatan, el más rápido', () {
+    DuelOutcome c(int a, int b, int ma, int mb) =>
+        DuelOutcome.compare(a, b, myMs: ma, rivalMs: mb);
+    expect(c(4, 3, 40000, 1000), DuelOutcome.win, reason: 'aciertos mandan');
+    expect(c(2, 3, 1000, 40000), DuelOutcome.loss);
+    expect(c(3, 3, 12000, 15000), DuelOutcome.win, reason: 'más rápido');
+    expect(c(3, 3, 15000, 12000), DuelOutcome.loss);
+    expect(c(3, 3, 12000, 12000), DuelOutcome.draw);
   });
 
   test('el rival simulado responde dentro del tiempo', () {
@@ -112,20 +116,39 @@ void main() {
 
     test('jugar un pendiente lo saca de la lista y guarda el récord', () async {
       final p = create();
-      await p.recordResult(DuelOutcome.win, pendingId: p.pending.first.id);
-      await p.recordResult(DuelOutcome.loss);
+      await p.recordResult(
+        DuelOutcome.win,
+        friend: friends.first,
+        myScore: 4,
+        rivalScore: 2,
+        pendingId: p.pending.first.id,
+      );
+      await p.recordResult(
+        DuelOutcome.loss,
+        friend: friends[1],
+        myScore: 1,
+        rivalScore: 3,
+      );
 
       final reloaded = create();
       expect(reloaded.pending, hasLength(1));
       expect(reloaded.wins, 1);
       expect(reloaded.losses, 1);
       expect(reloaded.played, 2);
+      expect(reloaded.history.first.friendId, friends[1].id);
+      expect(reloaded.history.last.myScore, 4);
     });
 
     test('sin pendientes, al otro día llega un desafío nuevo', () async {
       final p = create();
       for (final d in p.pending) {
-        await p.recordResult(DuelOutcome.draw, pendingId: d.id);
+        await p.recordResult(
+          DuelOutcome.draw,
+          friend: d.friend,
+          myScore: 2,
+          rivalScore: 2,
+          pendingId: d.id,
+        );
       }
       expect(create().pending, isEmpty, reason: 'mismo día: no llega otro');
 
@@ -227,7 +250,10 @@ void main() {
       expect(duels.losses, 1);
     });
 
-    testWidgets('mismos aciertos es empate', (tester) async {
+    testWidgets('mismos aciertos: gana el que respondió más rápido', (
+      tester,
+    ) async {
+      // El rival tarda 3 s en cada una; acá se responde al instante.
       await pumpDuel(
         tester,
         DuelSetup(
@@ -242,9 +268,33 @@ void main() {
       await answer(tester, 'no4');
       await answer(tester, 'no5');
 
-      expect(find.text('¡Empate!'), findsOneWidget);
       expect(find.text('3 – 3'), findsOneWidget);
-      expect(duels.draws, 1);
+      expect(find.text('¡Ganaste!'), findsOneWidget);
+      expect(find.textContaining('Desempate por tiempo'), findsOneWidget);
+      expect(find.textContaining('Tiempo total: vos '), findsOneWidget);
+      expect(duels.wins, 1);
+      expect(duels.history.single.myScore, 3);
+    });
+
+    testWidgets('mismos aciertos pero más lento: pierde', (tester) async {
+      // El rival tarda 0,5 s; acá se esperan 2 s antes de cada respuesta.
+      await pumpDuel(
+        tester,
+        DuelSetup(
+          friend: friends.first,
+          questions: _questions,
+          rivalAnswers: _rival([true, true, false, false, false], ms: 500),
+        ),
+      );
+      for (final option in ['si1', 'si2', 'no3', 'no4', 'no5']) {
+        await tester.pump(const Duration(seconds: 2));
+        await answer(tester, option);
+      }
+
+      expect(find.text('2 – 2'), findsOneWidget);
+      expect(find.text('Perdiste'), findsOneWidget);
+      expect(find.textContaining('Desempate por tiempo'), findsOneWidget);
+      expect(duels.losses, 1);
     });
 
     testWidgets('el rival "ya respondió" a su tiempo y se revela al final', (

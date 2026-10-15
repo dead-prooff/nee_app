@@ -1,0 +1,100 @@
+{
+  "_nota": "Textos de los avisos. Cada tipo tiene varios mensajes y la app elige uno al azar sin repetir los últimos. Se pueden agregar, quitar o cambiar libremente. Variables disponibles: {nombre} (amigo), {dias} y {dias_txt} ('día'/'días'), {meta} (XP de la meta diaria), {liga}, {emoji} (de la liga), {puesto}, {marcador} (ej. 4 a 3). Los que tienen \"verificar\": true tienen guaraní que conviene revisar con un hablante nativo.",
+
+  "racha_peligro": [
+    { "titulo": "Hake la nde racha! 🔥", "texto": "Te quedan pocas horas. Una lección y listo." },
+    { "titulo": "Ha upéi? 🤨", "texto": "¿Hoy no vas a practicar? Tu racha de {dias} {dias_txt} te está mirando." },
+    { "titulo": "Ipochy hína tu fueguito 😤", "texto": "Hacé una lección y se le pasa." },
+    { "titulo": "Ani reñembotavy 🙄", "texto": "Son solo 5 minutitos. Tu racha de {dias} {dias_txt} depende de vos." },
+    { "titulo": "Che ra'a, ¿y la lección? 👀", "texto": "Tu racha está temblando más que perro en julio 🥶" },
+    { "titulo": "Mba'e piko ojehu? 🧐", "texto": "Hoy no apareciste. Tu fueguito pide leña 🔥", "verificar": true }
+  ],
+
+  "racha_perdida": [
+    { "titulo": "Omano la nde racha 💀", "texto": "Se terminó tu racha de {dias} {dias_txt}. Hoy arrancamos otra." },
+    { "titulo": "Se apagó el fuego... 💀", "texto": "Pero hoy es otro día, che ra'a. Una lección y vuelve a prender." },
+    { "titulo": "Ndaipóri la racha 😢", "texto": "Se cayó como chipa del bolsillo. Volvé hoy y la levantamos." },
+    { "titulo": "Racha: 0. Drama: 100 😩", "texto": "Tus {dias} {dias_txt} se fueron al cielo de las rachas. Hoy empezás de nuevo." },
+    { "titulo": "Ay, che Dios 😱", "texto": "Perdiste tu racha de {dias} {dias_txt}. Ni el tereré te va a consolar... bueno, un poco sí 🧉" }
+  ],
+
+  "racha_activa": [
+    { "titulo": "Hendy hína tu racha 🔥", "texto": "Ya llevás {dias} {dias_txt}. ¡Así se hace!" },
+    { "titulo": "Upéicha! 🔥", "texto": "{dias} {dias_txt} seguidos. Tu fueguito está contento." },
+    { "titulo": "Iporãite! 🙌", "texto": "Racha de {dias} {dias_txt}. Ni el calor de enero te para.", "verificar": true },
+    { "titulo": "Sigue la llama 🕯️", "texto": "{dias} {dias_txt} al hilo. Mañana te espero, ¿eh?" }
+  ],
+
+  "racha_kavaju": [
+    { "titulo": "Tu racha hendy kavaju resa 🐴✨", "texto": "{dias} días seguidos. ¡Sos imparable!" },
+    { "titulo": "Nivel kavaju resa 🐴🔥", "texto": "{dias} días sin fallar. Tu abuela estaría orgullosa." },
+    { "titulo": "Ndaje sos una máquina 🤖", "texto": "{dias} días de racha. Ya podés pedir tereré gratis... (no, no podés).", "verificar": true },
+    { "titulo": "Racha de {dias} días 🐴✨", "texto": "Hendy kavaju resa y vos ni transpirás." }
+  ],
+
+  "meta_cumplida": [
+    { "titulo": "Iporã! Te ganaste el tereré de hoy 🧉", "texto": "Cumpliste tu meta de {meta} XP." },
+    { "titulo": "Meta cumplida, che ra'a ✅", "texto": "{meta} XP hoy. Andá a descansar a la sombra de un mango 🥭" },
+    { "titulo": "Pea ha'e! 🎯", "texto": "Llegaste a {meta} XP. Mañana, más." },
+    { "titulo": "Nde rory pa? 😄", "texto": "Porque yo sí: cumpliste la meta de hoy.", "verificar": true },
+    { "titulo": "Ya está la mesa servida 🍲", "texto": "Meta del día cumplida. Ahora sí, a comer chipa." }
+  ],
+
+  "duelo_recibido": [
+    { "titulo": "{nombre} te desafió ⚔️", "texto": "¿Vas a dejar que te gane así nomás? 👀" },
+    { "titulo": "Pya'e! ⏰", "texto": "{nombre} te está esperando para un duelo." },
+    { "titulo": "Llegó un desafío 📬", "texto": "{nombre} dice que sabe más guaraní que vos. ¿Le creés?" },
+    { "titulo": "{nombre} anda alzado 😏", "texto": "Te mandó un duelo. Andá y ponelo en su lugar." },
+    { "titulo": "Jaha! ⚔️", "texto": "{nombre} te retó. Cinco preguntas, sin excusas." }
+  ],
+
+  "duelo_ganado": [
+    { "titulo": "Pea ha'e! 🏆", "texto": "Le pasaste el trapo a {nombre} ({marcador})." },
+    { "titulo": "Ganaste {marcador} 😎", "texto": "{nombre} todavía no entiende qué pasó." },
+    { "titulo": "¡Qué crack! 🥇", "texto": "Le ganaste a {nombre}. Ya podés presumir en el grupo." },
+    { "titulo": "Upéicha se hace 💪", "texto": "Victoria contra {nombre}. Tereré de festejo 🧉" }
+  ],
+
+  "duelo_perdido": [
+    { "titulo": "{nombre} te bailó... 💃", "texto": "Perdiste {marcador}. ¿Revancha?" },
+    { "titulo": "Ay, no 😅", "texto": "{nombre} te ganó {marcador}. Pero la revancha está a un toque." },
+    { "titulo": "Ndaikatúi la vez ✋", "texto": "{nombre} se llevó el duelo. ¿Le pedís la revancha?", "verificar": true },
+    { "titulo": "Perdiste, pero con estilo 😎", "texto": "{nombre} ganó esta. La próxima es tuya." }
+  ],
+
+  "duelo_empate": [
+    { "titulo": "Empate técnico 🤝", "texto": "Con {nombre} quedaron iguales. Hasta el reloj empató." },
+    { "titulo": "Ni vos ni {nombre} 🤷", "texto": "Empataron clavado. ¿Desempate?" },
+    { "titulo": "Mitad y mitad 🧉", "texto": "Empate con {nombre}. Compartan el tereré." },
+    { "titulo": "Iguales iguales 🪞", "texto": "{nombre} y vos: mismos aciertos y mismo tiempo. ¿Brujería?" }
+  ],
+
+  "liga_subiste": [
+    { "titulo": "Upéicha! Ya estás en Liga {liga} ✨", "texto": "Terminaste en el puesto {puesto}." },
+    { "titulo": "¡Subiste a Liga {liga}! {emoji}", "texto": "Puesto {puesto}. Ahora a defender el lugar." },
+    { "titulo": "Jajupi! ⬆️", "texto": "Liga {liga} {emoji}. Más arriba que el precio del tomate.", "verificar": true },
+    { "titulo": "Ascenso confirmado 🚀", "texto": "Liga {liga}. Tus amigos ya te miran desde abajo." }
+  ],
+
+  "liga_bajaste": [
+    { "titulo": "Bajaste a Liga {liga} 😬", "texto": "Puesto {puesto}. Esta semana te recuperás, che ra'a." },
+    { "titulo": "Ho'a la nde liga 📉", "texto": "Ahora estás en Liga {liga}. Nada que un par de lecciones no arregle.", "verificar": true },
+    { "titulo": "Un pasito atrás 🙈", "texto": "Liga {liga}. Para tomar impulso, dicen." },
+    { "titulo": "Ay, la liga 🫣", "texto": "Bajaste a Liga {liga}. El que bajó, sube. Ley de la vida." }
+  ],
+
+  "liga_mantuviste": [
+    { "titulo": "Te quedaste en Liga {liga} {emoji}", "texto": "Puesto {puesto}. Firme como un lapacho 🌳" },
+    { "titulo": "Ni sube ni baja 😌", "texto": "Seguís en Liga {liga}, puesto {puesto}. Tranqui pero constante." },
+    { "titulo": "Liga {liga}, de nuevo {emoji}", "texto": "Puesto {puesto}. Esta semana metele un poco más." },
+    { "titulo": "Ahí nomás 🤏", "texto": "Te faltó poquito. Seguís en Liga {liga}." }
+  ],
+
+  "bienvenida_liga": [
+    { "titulo": "¡Empezó la liga semanal! 🏆", "texto": "Estás en Liga {liga} {emoji}. Ganá XP para subir." }
+  ],
+
+  "bienvenida_racha": [
+    { "titulo": "Empezá tu racha 🔥", "texto": "Hacé una lección por día y vas a ver cómo se prende el fueguito." }
+  ]
+}

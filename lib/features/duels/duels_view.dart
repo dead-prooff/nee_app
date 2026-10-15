@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/theme/app_theme.dart';
+import '../../core/utils/dates.dart';
 import 'data/duel_models.dart';
 import 'duel_intro_screen.dart';
 import 'duel_provider.dart';
@@ -177,16 +178,6 @@ class _Avatar extends StatelessWidget {
       child: Text(friend.emoji, style: const TextStyle(fontSize: 24)),
     ),
   );
-}
-
-/// "hace 2 h", "ayer", "hace 3 días".
-String timeAgo(DateTime date, DateTime now) {
-  final diff = now.difference(date);
-  if (diff.inMinutes < 1) return 'recién';
-  if (diff.inMinutes < 60) return 'hace ${diff.inMinutes} min';
-  if (diff.inHours < 24) return 'hace ${diff.inHours} h';
-  if (diff.inDays == 1) return 'ayer';
-  return 'hace ${diff.inDays} días';
 }
 
 class _PendingCard extends StatelessWidget {

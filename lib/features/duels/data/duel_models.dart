@@ -1,70 +1,8 @@
 import 'dart:math';
 
-/// Amigo simulado (todavía no hay servidor ni amigos reales).
-class Friend {
-  const Friend({
-    required this.id,
-    required this.name,
-    required this.username,
-    required this.emoji,
-    required this.tagline,
-    required this.skill,
-  });
+import '../../social/friends.dart';
 
-  final String id;
-  final String name;
-  final String username;
-  final String emoji;
-  final String tagline;
-
-  /// Probabilidad de que responda bien (0 a 1). También lo hace más rápido.
-  final double skill;
-}
-
-const friends = [
-  Friend(
-    id: 'lucia',
-    name: 'Lucía',
-    username: 'lu_asu',
-    emoji: '🌸',
-    tagline: 'Racha de 12 días',
-    skill: 0.8,
-  ),
-  Friend(
-    id: 'mati',
-    name: 'Mati',
-    username: 'mati10',
-    emoji: '⚽',
-    tagline: 'Aprendiendo para hablar con su abuela',
-    skill: 0.6,
-  ),
-  Friend(
-    id: 'rosa',
-    name: 'Doña Rosa',
-    username: 'dona_rosa',
-    emoji: '🧉',
-    tagline: 'Habla guaraní desde chiquita',
-    skill: 0.95,
-  ),
-  Friend(
-    id: 'nico',
-    name: 'Nico',
-    username: 'nico_cde',
-    emoji: '🎸',
-    tagline: 'Recién empieza',
-    skill: 0.45,
-  ),
-  Friend(
-    id: 'caro',
-    name: 'Caro',
-    username: 'caro_py',
-    emoji: '📚',
-    tagline: 'Liga Oro esta semana',
-    skill: 0.7,
-  ),
-];
-
-Friend friendById(String id) => friends.firstWhere((f) => f.id == id);
+export '../../social/friends.dart';
 
 /// Pregunta rápida de opción múltiple.
 class DuelQuestion {
@@ -90,6 +28,9 @@ class RivalAnswer {
   final int? ms;
 
   bool get scored => correct && ms != null;
+
+  /// Tiempo que cuenta para el desempate (si no respondió, el máximo).
+  int get timeMs => ms ?? 10000;
 
   /// Simula cómo responde [friend]: cuanto más sabe, más acierta y más
   /// rápido contesta.
@@ -163,11 +104,58 @@ enum DuelOutcome {
   /// XP que da el duelo (perder también suma un poco por participar).
   final int xp;
 
-  static DuelOutcome compare(int mine, int rival) => mine > rival
-      ? win
-      : mine < rival
-      ? loss
-      : draw;
+  /// Gana quien tiene más aciertos. Si empatan, gana quien tardó menos en
+  /// total ([myMs] y [rivalMs], en milisegundos); si también empatan en
+  /// tiempo, es empate.
+  static DuelOutcome compare(
+    int mine,
+    int rival, {
+    required int myMs,
+    required int rivalMs,
+  }) {
+    if (mine != rival) return mine > rival ? win : loss;
+    if (myMs != rivalMs) return myMs < rivalMs ? win : loss;
+    return draw;
+  }
+}
+
+/// Un duelo ya jugado (para el historial y los avisos).
+class DuelRecord {
+  const DuelRecord({
+    required this.id,
+    required this.friendId,
+    required this.outcome,
+    required this.myScore,
+    required this.rivalScore,
+    required this.playedAt,
+  });
+
+  final String id;
+  final String friendId;
+  final DuelOutcome outcome;
+  final int myScore;
+  final int rivalScore;
+  final DateTime playedAt;
+
+  Friend get friend => friendById(friendId);
+
+  Map<String, Object> toJson() => {
+    'id': id,
+    'friend': friendId,
+    'outcome': outcome.name,
+    'mine': myScore,
+    'rival': rivalScore,
+    'at': playedAt.toIso8601String(),
+  };
+
+  factory DuelRecord.fromJson(Map<String, dynamic> json) => DuelRecord(
+    id: json['id'] as String,
+    friendId: json['friend'] as String,
+    outcome: DuelOutcome.values.byName(json['outcome'] as String),
+    myScore: json['mine'] as int,
+    rivalScore: json['rival'] as int,
+    playedAt: DateTime.parse(json['at'] as String),
+  );
 }
 
 /// Todo lo necesario para jugar un duelo.

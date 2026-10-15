@@ -23,6 +23,10 @@ class DuelProvider extends ChangeNotifier {
       for (final s in _storage.getStringList(_kPending) ?? const <String>[])
         PendingDuel.fromJson(jsonDecode(s) as Map<String, dynamic>),
     ];
+    _history = [
+      for (final s in _storage.getStringList(_kHistory) ?? const <String>[])
+        DuelRecord.fromJson(jsonDecode(s) as Map<String, dynamic>),
+    ];
     _refill();
   }
 
@@ -31,6 +35,10 @@ class DuelProvider extends ChangeNotifier {
   static const _kLosses = 'duels.losses';
   static const _kPending = 'duels.pending';
   static const _kLastRefill = 'duels.lastRefill';
+  static const _kHistory = 'duels.history';
+
+  /// Cuántos duelos jugados se recuerdan.
+  static const historySize = 20;
 
   final StorageService _storage;
   final Random _random;
@@ -40,11 +48,15 @@ class DuelProvider extends ChangeNotifier {
   late int _draws;
   late int _losses;
   late List<PendingDuel> _pending;
+  late List<DuelRecord> _history;
 
   int get wins => _wins;
   int get draws => _draws;
   int get losses => _losses;
   int get played => _wins + _draws + _losses;
+
+  /// Duelos jugados, el más reciente primero.
+  List<DuelRecord> get history => List.unmodifiable(_history.reversed);
 
   /// Desafíos recibidos, el más nuevo primero.
   List<PendingDuel> get pending => List.unmodifiable(_pending);
@@ -92,7 +104,27 @@ class DuelProvider extends ChangeNotifier {
 
   /// Guarda el resultado de un duelo. Si respondía a un desafío
   /// pendiente, lo saca de la lista.
-  Future<void> recordResult(DuelOutcome outcome, {String? pendingId}) async {
+  Future<void> recordResult(
+    DuelOutcome outcome, {
+    required Friend friend,
+    required int myScore,
+    required int rivalScore,
+    String? pendingId,
+  }) async {
+    final now = _clock();
+    _history.add(
+      DuelRecord(
+        id: '${friend.id}-${now.microsecondsSinceEpoch}',
+        friendId: friend.id,
+        outcome: outcome,
+        myScore: myScore,
+        rivalScore: rivalScore,
+        playedAt: now,
+      ),
+    );
+    if (_history.length > historySize) {
+      _history.removeRange(0, _history.length - historySize);
+    }
     switch (outcome) {
       case DuelOutcome.win:
         _wins++;
@@ -109,6 +141,9 @@ class DuelProvider extends ChangeNotifier {
       _storage.setInt(_kDraws, _draws),
       _storage.setInt(_kLosses, _losses),
       _savePending(),
+      _storage.setStringList(_kHistory, [
+        for (final r in _history) jsonEncode(r.toJson()),
+      ]),
     ]);
   }
 }

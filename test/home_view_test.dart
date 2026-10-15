@@ -90,6 +90,7 @@ void main() {
       findsOneWidget,
     );
     expect(find.text('3 días de racha'), findsOneWidget);
+    expect(find.text('Hendy hína 🔥'), findsOneWidget);
     expect(find.text('15 XP'), findsOneWidget);
     expect(find.text('15 / 20 XP'), findsOneWidget);
   });
@@ -100,5 +101,30 @@ void main() {
     await tester.tap(find.text("¡Mba'éichapa!"));
     await tester.pumpAndSettle();
     expect(find.text('Comprobar'), findsOneWidget);
+  });
+
+  testWidgets('con 7 días o más muestra "Hendy kavaju resa"', (tester) async {
+    final today = _day(DateTime.now());
+    await _pumpHome(
+      tester,
+      prefs: {
+        'progress.streak': 8,
+        'progress.lastActiveDate': today,
+        'progress.xpToday': 10,
+        'progress.xpDate': today,
+      },
+    );
+    expect(find.text('8 días de racha'), findsOneWidget);
+    expect(find.text('Hendy kavaju resa 🐴✨'), findsOneWidget);
+  });
+
+  testWidgets('si hoy no practicó, no muestra "Hendy hína"', (tester) async {
+    final yesterday = _day(DateTime.now().subtract(const Duration(days: 1)));
+    await _pumpHome(
+      tester,
+      prefs: {'progress.streak': 2, 'progress.lastActiveDate': yesterday},
+    );
+    expect(find.textContaining('Hendy'), findsNothing);
+    expect(find.text('Hacé una lección hoy para no perderla'), findsOneWidget);
   });
 }

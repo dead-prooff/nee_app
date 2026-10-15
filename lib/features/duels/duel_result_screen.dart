@@ -12,11 +12,17 @@ class DuelResultScreen extends StatelessWidget {
     super.key,
     required this.setup,
     required this.myAnswers,
+    required this.myMs,
+    required this.rivalMs,
     required this.outcome,
   });
 
   final DuelSetup setup;
   final List<String?> myAnswers;
+
+  /// Tiempo total de cada uno, en ms (desempata si hay igual de aciertos).
+  final int myMs;
+  final int rivalMs;
   final DuelOutcome outcome;
 
   bool _iGotRight(int i) => myAnswers[i] == setup.questions[i].answer;
@@ -25,6 +31,10 @@ class DuelResultScreen extends StatelessWidget {
     for (var i = 0; i < myAnswers.length; i++)
       if (_iGotRight(i)) 1,
   ].length;
+
+  /// "23,4 s".
+  static String _seconds(int ms) =>
+      '${(ms / 1000).toStringAsFixed(1).replaceAll('.', ',')} s';
 
   int get rivalScore => setup.rivalAnswers.where((a) => a.scored).length;
 
@@ -105,6 +115,23 @@ class DuelResultScreen extends StatelessWidget {
                       color: scheme.onSurfaceVariant,
                     ),
                   ),
+                  const SizedBox(height: 8),
+                  Text(
+                    'Tiempo total: vos ${_seconds(myMs)} · '
+                    '${friend.name} ${_seconds(rivalMs)}',
+                    textAlign: TextAlign.center,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: scheme.onSurfaceVariant,
+                    ),
+                  ),
+                  if (myScore == rivalScore && outcome != DuelOutcome.draw)
+                    Text(
+                      '⏱️ Desempate por tiempo: '
+                      '${outcome == DuelOutcome.win ? 'fuiste' : 'fue'} '
+                      'más rápido',
+                      textAlign: TextAlign.center,
+                      style: theme.textTheme.titleSmall,
+                    ),
                   const SizedBox(height: 16),
                   Center(
                     child: Container(
@@ -132,6 +159,8 @@ class DuelResultScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 24),
                   Card(
+                    // Cada pregunta se lee por separado.
+                    semanticContainer: false,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8),
                       child: Column(

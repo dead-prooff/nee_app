@@ -20,6 +20,11 @@ class DailyStatsHeader extends StatelessWidget {
     final goal = progress.dailyGoal;
 
     final streakText = streak == 1 ? '1 día de racha' : '$streak días de racha';
+    // Con la racha encendida hoy: "Hendy hína" (o "kavaju resa" desde 7
+    // días), al lado del fuego.
+    final String? mood = progress.practicedToday && streak > 0
+        ? (streak >= 7 ? 'Hendy kavaju resa 🐴✨' : 'Hendy hína 🔥')
+        : null;
     final String streakHint;
     if (progress.practicedToday) {
       streakHint = '¡Ya practicaste hoy!';
@@ -39,7 +44,7 @@ class DailyStatsHeader extends StatelessWidget {
               children: [
                 Expanded(
                   child: Semantics(
-                    label: '$streakText. $streakHint',
+                    label: '$streakText. ${mood ?? streakHint}',
                     excludeSemantics: true,
                     child: Row(
                       children: [
@@ -60,12 +65,32 @@ class DailyStatsHeader extends StatelessWidget {
                                 streakText,
                                 style: theme.textTheme.titleMedium,
                               ),
-                              Text(
-                                streakHint,
-                                style: theme.textTheme.bodySmall?.copyWith(
-                                  color: scheme.onSurfaceVariant,
+                              if (mood != null)
+                                Container(
+                                  margin: const EdgeInsets.only(top: 2),
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 8,
+                                    vertical: 2,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: scheme.secondaryContainer,
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  child: Text(
+                                    mood,
+                                    style: theme.textTheme.labelLarge?.copyWith(
+                                      color: scheme.onSecondaryContainer,
+                                      fontSize: 13,
+                                    ),
+                                  ),
+                                )
+                              else
+                                Text(
+                                  streakHint,
+                                  style: theme.textTheme.bodySmall?.copyWith(
+                                    color: scheme.onSurfaceVariant,
+                                  ),
                                 ),
-                              ),
                             ],
                           ),
                         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../league/league_provider.dart';
 import '../progress/progress_provider.dart';
 import 'settings_provider.dart';
 
@@ -104,6 +105,28 @@ class SettingsScreen extends StatelessWidget {
               title: const Text('Efectos y audio'),
               value: settings.soundEnabled,
               onChanged: settings.setSoundEnabled,
+            ),
+          ),
+          const SizedBox(height: 24),
+          _SectionTitle('Herramientas de prueba'),
+          Card(
+            child: ListTile(
+              leading: const Icon(Icons.emoji_events_outlined),
+              title: const Text('Simular cierre de la liga'),
+              subtitle: const Text(
+                'Cierra la semana con la tabla actual, sin esperar al domingo.',
+              ),
+              onTap: () {
+                final r = context.read<LeagueProvider>().closeWeekNow();
+                final text = r.promoted
+                    ? '¡Subiste a Liga ${r.to.label}! (puesto ${r.rank})'
+                    : r.demoted
+                    ? 'Bajaste a Liga ${r.to.label} (puesto ${r.rank})'
+                    : 'Te mantuviste en Liga ${r.to.label} (puesto ${r.rank})';
+                ScaffoldMessenger.of(context)
+                  ..hideCurrentSnackBar()
+                  ..showSnackBar(SnackBar(content: Text(text)));
+              },
             ),
           ),
         ],
