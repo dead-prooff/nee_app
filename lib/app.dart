@@ -1,7 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'core/theme/app_theme.dart';
+import 'core/widgets/mobile_frame.dart';
 import 'features/onboarding/onboarding_flow.dart';
 import 'features/onboarding/user_provider.dart';
 import 'features/settings/settings_provider.dart';
@@ -24,7 +26,8 @@ class NeeApp extends StatelessWidget {
       darkTheme: AppTheme.dark,
       themeMode: settings.themeMode,
       // Combina el tamaño de texto del sistema con el elegido en la app,
-      // con un tope para que los diseños no se rompan.
+      // con un tope para que los diseños no se rompan. En la web, además,
+      // limita el ancho para que en la compu se vea como en un celular.
       builder: (context, child) {
         final media = MediaQuery.of(context);
         final systemFactor = media.textScaler.scale(14) / 14;
@@ -34,7 +37,7 @@ class NeeApp extends StatelessWidget {
         );
         return MediaQuery(
           data: media.copyWith(textScaler: TextScaler.linear(factor)),
-          child: child!,
+          child: MobileFrame(enabled: kIsWeb, child: child!),
         );
       },
       // El onboarding aparece solo hasta que se completa una vez.

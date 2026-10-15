@@ -27,6 +27,9 @@ class AppColors {
   static const textMuted = Color(0xFF5B6661); // sobre fondo: 5.58
   static const outline = Color(0xFFD9D4C7);
 
+  /// Costados de la columna tipo celular en pantallas anchas (web).
+  static const frameSide = Color(0xFFECE6D8);
+
   static const error = Color(0xFFB42318); // sobre blanco: 6.57
   static const errorLight = Color(0xFFFDE4E1);
   static const errorDark = Color(0xFF7A1A12); // sobre errorLight: 8.75
@@ -42,6 +45,7 @@ class AppColors {
   static const textDark = Color(0xFFE6ECE9); // sobre fondo: 15.27
   static const textMutedDark = Color(0xFFA9B5AF); // sobre superficie: 7.58
   static const outlineDark = Color(0xFF34403B);
+  static const frameSideDark = Color(0xFF0A0F0D);
 
   static const errorDarkMode = Color(0xFFFF8A80);
   static const successContainerDark = Color(0xFF123826);

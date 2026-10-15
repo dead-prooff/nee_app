@@ -38,6 +38,8 @@
     #carga p { margin: 0; font-size: 18px; font-weight: 700; }
     @keyframes latido { 50% { transform: scale(1.12); } }
     @media (prefers-reduced-motion: reduce) { #carga .mate { animation: none; } }
+    /* Mismo fondo de los costados que usa la app en pantallas anchas. */
+    @media (min-width: 528px) { html, body { background: #ECE6D8; } }
   </style>
 </head>
 <body>
