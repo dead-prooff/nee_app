@@ -82,6 +82,14 @@ const avatars = [
     isMyth: false,
   ),
   AvatarInfo(
+    id: 'terere',
+    name: 'Tereré',
+    description:
+        'El alma de la ronda. Frío, con yuyos y entre amigos. Patrimonio de '
+        'la Humanidad desde 2020 🧊',
+    isMyth: false,
+  ),
+  AvatarInfo(
     id: 'kavaju',
     name: 'Kavaju',
     description:

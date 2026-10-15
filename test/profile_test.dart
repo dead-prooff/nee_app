@@ -22,7 +22,7 @@ import 'helpers/pump_app.dart';
 void main() {
   group('Avatares', () {
     test('cada avatar tiene su SVG y su ficha', () {
-      expect(avatars, hasLength(11));
+      expect(avatars, hasLength(12));
       for (final a in avatars) {
         expect(File(a.asset).existsSync(), isTrue, reason: a.asset);
         expect(a.description.length, greaterThan(20), reason: a.id);
