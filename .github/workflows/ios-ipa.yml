@@ -1,0 +1,78 @@
+# Compila la app de iOS SIN firmar y la empaqueta como .ipa descargable,
+# para instalarla con Sideloadly (que la firma con tu Apple ID).
+#
+# Se ejecuta a mano desde la pestaña Actions de GitHub ("Run workflow"),
+# o automáticamente al subir un tag que empiece con "v" (por ejemplo v1.0.1).
+# No corre en cada push porque los minutos de macOS son caros.
+
+name: iOS (.ipa sin firmar)
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+
+# Si se lanza otra compilación mientras corre una, se cancela la vieja.
+concurrency:
+  group: ios-ipa-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Misma versión que se usa en la PC de desarrollo.
+  FLUTTER_VERSION: '3.47.3'
+
+jobs:
+  # Primero analyze + tests en Linux (barato). Si algo falla, no se gasta
+  # tiempo de macOS.
+  checks:
+    name: Analyze y tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+
+      - run: flutter pub get
+      - run: flutter analyze
+      - run: flutter test
+
+  build-ios:
+    name: Compilar .ipa
+    needs: checks
+    runs-on: macos-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+
+      - run: flutter pub get
+
+      # --no-codesign: sin certificado ni perfil; Sideloadly firma después.
+      - name: Compilar para iPhone (release, sin firmar)
+        run: flutter build ios --release --no-codesign
+
+      # Un .ipa es un zip con la app dentro de una carpeta "Payload".
+      - name: Empaquetar .ipa
+        run: |
+          mkdir -p Payload
+          cp -R build/ios/iphoneos/Runner.app Payload/
+          zip -qry "nee_app-${{ github.run_number }}.ipa" Payload
+          ls -lh *.ipa
+
+      - name: Subir .ipa como artefacto descargable
+        uses: actions/upload-artifact@v4
+        with:
+          name: nee_app-ios-${{ github.run_number }}
+          path: '*.ipa'
+          if-no-files-found: error
+          retention-days: 14
