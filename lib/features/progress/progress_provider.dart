@@ -2,6 +2,20 @@ import 'package:flutter/foundation.dart';
 
 import '../../core/services/storage_service.dart';
 
+/// Metas diarias que se pueden elegir: minutos por día y su equivalente en
+/// XP (una lección de ~5 minutos da unos 10 XP).
+enum DailyGoal {
+  relaxed('Tranqui', 5, 10),
+  regular('Normal', 10, 20),
+  intense('Intenso', 15, 30);
+
+  const DailyGoal(this.label, this.minutes, this.xp);
+
+  final String label;
+  final int minutes;
+  final int xp;
+}
+
 /// Progreso del usuario: lecciones completadas, XP, XP del día y racha.
 ///
 /// Todo se guarda en shared_preferences. Las fechas se guardan como día
@@ -15,6 +29,10 @@ class ProgressProvider extends ChangeNotifier {
     _xpDate = _storage.getString(_kXpDate);
     _streak = _storage.getInt(_kStreak) ?? 0;
     _lastActive = _storage.getString(_kLastActive);
+    _goal = DailyGoal.values.firstWhere(
+      (g) => g.name == _storage.getString(_kDailyGoal),
+      orElse: () => DailyGoal.regular,
+    );
   }
 
   static const _kCompleted = 'progress.completedLessons';
@@ -23,9 +41,7 @@ class ProgressProvider extends ChangeNotifier {
   static const _kXpDate = 'progress.xpDate';
   static const _kStreak = 'progress.streak';
   static const _kLastActive = 'progress.lastActiveDate';
-
-  /// XP que hay que ganar por día para cumplir la meta.
-  static const dailyGoal = 20;
+  static const _kDailyGoal = 'progress.dailyGoal';
 
   final StorageService _storage;
   final DateTime Function() _clock;
@@ -36,6 +52,7 @@ class ProgressProvider extends ChangeNotifier {
   String? _xpDate;
   late int _streak;
   String? _lastActive;
+  late DailyGoal _goal;
 
   static String _dayKey(DateTime d) =>
       '${d.year.toString().padLeft(4, '0')}-'
@@ -55,6 +72,17 @@ class ProgressProvider extends ChangeNotifier {
 
   /// XP ganado hoy (vuelve a 0 al cambiar el día).
   int get xpToday => _xpDate == _today ? _xpToday : 0;
+
+  DailyGoal get goal => _goal;
+
+  /// XP que hay que ganar por día para cumplir la meta.
+  int get dailyGoal => _goal.xp;
+
+  void setDailyGoal(DailyGoal goal) {
+    _goal = goal;
+    _storage.setString(_kDailyGoal, goal.name);
+    notifyListeners();
+  }
 
   /// Avance hacia la meta diaria, de 0 a 1.
   double get dailyGoalProgress => (xpToday / dailyGoal).clamp(0.0, 1.0);

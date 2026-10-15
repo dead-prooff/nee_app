@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../progress/progress_provider.dart';
 import 'settings_provider.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -9,6 +10,7 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final settings = context.watch<SettingsProvider>();
+    final progress = context.watch<ProgressProvider>();
     final theme = Theme.of(context);
 
     return Scaffold(
@@ -54,6 +56,38 @@ class SettingsScreen extends StatelessWidget {
                   const SizedBox(height: 16),
                   Text(
                     'Vista previa: Mba\'éichapa! ¿Cómo estás?',
+                    style: theme.textTheme.bodyLarge,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 24),
+          _SectionTitle('Meta diaria'),
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  SegmentedButton<DailyGoal>(
+                    showSelectedIcon: false,
+                    segments: [
+                      for (final goal in DailyGoal.values)
+                        ButtonSegment(
+                          value: goal,
+                          label: Text(
+                            '${goal.minutes} min',
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                    ],
+                    selected: {progress.goal},
+                    onSelectionChanged: (s) => progress.setDailyGoal(s.first),
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    '${progress.goal.label}: ${progress.goal.xp} XP por día',
                     style: theme.textTheme.bodyLarge,
                   ),
                 ],

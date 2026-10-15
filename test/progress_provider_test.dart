@@ -90,4 +90,21 @@ void main() {
     expect(reloaded.totalXp, 15);
     expect(reloaded.streak, 1);
   });
+
+  test('la meta diaria se puede cambiar y se guarda', () async {
+    final p = create();
+    expect(p.goal, DailyGoal.regular);
+    expect(p.dailyGoal, 20);
+
+    await p.completeLesson('u1l1', xp: 10);
+    p.setDailyGoal(DailyGoal.relaxed);
+    expect(p.dailyGoal, 10);
+    expect(p.dailyGoalReached, isTrue);
+
+    expect(create().goal, DailyGoal.relaxed);
+    expect(
+      [for (final g in DailyGoal.values) (g.minutes, g.xp)],
+      [(5, 10), (10, 20), (15, 30)],
+    );
+  });
 }

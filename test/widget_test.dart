@@ -1,30 +1,41 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:nee_app/app.dart';
-import 'package:nee_app/core/services/storage_service.dart';
-import 'package:nee_app/features/lessons/data/lesson_repository.dart';
-import 'package:nee_app/features/progress/progress_provider.dart';
-import 'package:nee_app/features/settings/settings_provider.dart';
-import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
+import 'helpers/pump_app.dart';
 
 void main() {
-  testWidgets('La app arranca y muestra la navegación', (tester) async {
-    SharedPreferences.setMockInitialValues({});
-    final storage = await StorageService.init();
+  testWidgets('la primera vez arranca con el onboarding', (tester) async {
+    await pumpApp(tester);
 
-    await tester.pumpWidget(
-      MultiProvider(
-        providers: [
-          Provider<StorageService>.value(value: storage),
-          Provider(create: (_) => LessonRepository()),
-          ChangeNotifierProvider(create: (_) => SettingsProvider(storage)),
-          ChangeNotifierProvider(create: (_) => ProgressProvider(storage)),
-        ],
-        child: const NeeApp(),
-      ),
-    );
+    expect(find.text('Mba\'éichapa! Esto es Ñe\'ẽ'), findsOneWidget);
+    expect(find.text('Duelos'), findsNothing);
+  });
+
+  testWidgets('después del onboarding muestra la navegación', (tester) async {
+    await pumpApp(tester, prefs: onboardedPrefs);
 
     expect(find.text('Duelos'), findsWidgets);
     expect(find.text('Perfil'), findsWidgets);
+  });
+
+  testWidgets('cambiar la meta en Configuración actualiza la barra de Inicio', (
+    tester,
+  ) async {
+    final storage = await pumpApp(tester, prefs: onboardedPrefs);
+    expect(find.text('0 / 20 XP'), findsOneWidget);
+
+    await tester.tap(find.text('Perfil').last);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Configuración'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('5 min'));
+    await tester.pumpAndSettle();
+    expect(find.text('Tranqui: 10 XP por día'), findsOneWidget);
+
+    await tester.pageBack();
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Inicio'));
+    await tester.pumpAndSettle();
+    expect(find.text('0 / 10 XP'), findsOneWidget);
+    expect(storage.getString('progress.dailyGoal'), 'relaxed');
   });
 }

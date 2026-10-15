@@ -17,7 +17,7 @@ class DailyStatsHeader extends StatelessWidget {
 
     final streak = progress.streak;
     final xp = progress.xpToday;
-    const goal = ProgressProvider.dailyGoal;
+    final goal = progress.dailyGoal;
 
     final streakText = streak == 1 ? '1 día de racha' : '$streak días de racha';
     final String streakHint;
