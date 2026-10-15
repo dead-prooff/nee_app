@@ -34,6 +34,16 @@ class Validators {
     return null;
   }
 
+  /// Código de invitación: opcional, pero si se escribe tiene que tener el
+  /// formato NEE-XXXX.
+  static String? inviteCode(String? value) {
+    final code = value?.trim().toUpperCase() ?? '';
+    if (code.isEmpty || RegExp(r'^NEE-[A-Z0-9]{3,12}$').hasMatch(code)) {
+      return null;
+    }
+    return 'El código es como NEE-WILLY23';
+  }
+
   static const passwordMinLength = 8;
 
   static String? password(String? value) {

@@ -188,5 +188,34 @@ void main() {
       await openRegister(tester, huge: true);
       expect(tester.takeException(), isNull);
     });
+
+    Future<void> openLogin(WidgetTester tester, {bool huge = false}) async {
+      tester.view.physicalSize = const Size(1080, 2070);
+      tester.view.devicePixelRatio = 3;
+      if (huge) tester.platformDispatcher.textScaleFactorTestValue = 2;
+      addTearDown(tester.view.reset);
+      addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
+      await pumpApp(tester, clock: () => clock);
+      await tester.tap(find.text('Saltar'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Ya tengo cuenta'));
+      await tester.pumpAndSettle();
+    }
+
+    testWidgets('iniciar sesión: botones, etiquetas y contraste', (
+      tester,
+    ) async {
+      final semantics = tester.ensureSemantics();
+      await openLogin(tester);
+      await expectLater(tester, meetsGuideline(androidTapTargetGuideline));
+      await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
+      await expectLater(tester, meetsGuideline(textContrastGuideline));
+      semantics.dispose();
+    });
+
+    testWidgets('iniciar sesión con texto muy grande', (tester) async {
+      await openLogin(tester, huge: true);
+      expect(tester.takeException(), isNull);
+    });
   });
 }

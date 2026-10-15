@@ -30,7 +30,7 @@ enum StartLevel {
 }
 
 /// Cómo se registró el usuario.
-enum AuthMethod { email, google }
+enum AuthMethod { email, google, apple }
 
 /// Datos del usuario registrado y si ya completó el onboarding.
 ///

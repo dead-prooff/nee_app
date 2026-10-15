@@ -79,27 +79,16 @@ void main() {
       clock: () => DateTime(2026, 10, 14, 10),
     );
 
-    // --- Bienvenida y registro
-    for (var i = 0; i < 3; i++) {
-      await tap(tester, find.byType(FilledButton));
-    }
-    await tester.enterText(
-      find.widgetWithText(TextFormField, 'Nombre'),
-      'Willy',
-    );
-    await tester.enterText(
-      find.widgetWithText(TextFormField, 'Usuario'),
-      'willy',
-    );
-    await tester.enterText(
-      find.widgetWithText(TextFormField, 'Correo'),
-      'willy@gmail.com',
-    );
-    await tester.enterText(
-      find.widgetWithText(TextFormField, 'Contraseña'),
-      'tereré2026',
-    );
+    // --- Bienvenida y registro en pasos (un dato por pantalla)
+    await tap(tester, find.text('Siguiente'));
+    await tap(tester, find.text('Siguiente'));
     await tap(tester, find.text('Crear cuenta'));
+    for (final value in ['willy@gmail.com', 'tereré2026', 'Willy', 'willy']) {
+      await tester.enterText(find.byType(TextFormField), value);
+      await tester.pump();
+      await tap(tester, find.text('Continuar'));
+    }
+    await tap(tester, find.text('Saltar')); // sin código de invitación
     await tap(tester, find.text('Hablo jopara'));
     await tap(tester, find.text('Continuar'));
     await tap(tester, find.text('Continuar')); // meta diaria

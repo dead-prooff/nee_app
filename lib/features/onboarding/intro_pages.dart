@@ -31,17 +31,29 @@ const _pages = [
 
 /// Las 3 pantallas de bienvenida, deslizables.
 class IntroPages extends StatefulWidget {
-  const IntroPages({super.key, required this.onDone});
+  const IntroPages({
+    super.key,
+    required this.onCreateAccount,
+    required this.onLogin,
+    this.startAtEnd = false,
+  });
 
-  final VoidCallback onDone;
+  final VoidCallback onCreateAccount;
+  final VoidCallback onLogin;
+
+  /// Al volver desde el registro, arranca en la última página (la de los
+  /// botones) en vez de repetir la bienvenida.
+  final bool startAtEnd;
 
   @override
   State<IntroPages> createState() => _IntroPagesState();
 }
 
 class _IntroPagesState extends State<IntroPages> {
-  final _controller = PageController();
-  int _page = 0;
+  late final _controller = PageController(
+    initialPage: widget.startAtEnd ? _pages.length - 1 : 0,
+  );
+  late int _page = widget.startAtEnd ? _pages.length - 1 : 0;
 
   bool get _isLast => _page == _pages.length - 1;
 
@@ -51,16 +63,18 @@ class _IntroPagesState extends State<IntroPages> {
     super.dispose();
   }
 
-  void _next() {
-    if (_isLast) {
-      widget.onDone();
-    } else {
-      _controller.nextPage(
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeOut,
-      );
-    }
-  }
+  void _next() => _controller.nextPage(
+    duration: const Duration(milliseconds: 300),
+    curve: Curves.easeOut,
+  );
+
+  /// "Saltar" lleva a la última página, donde se elige crear cuenta o
+  /// iniciar sesión.
+  void _skip() => _controller.animateToPage(
+    _pages.length - 1,
+    duration: const Duration(milliseconds: 300),
+    curve: Curves.easeOut,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +94,7 @@ class _IntroPagesState extends State<IntroPages> {
                 maintainAnimation: true,
                 maintainState: true,
                 child: TextButton(
-                  onPressed: widget.onDone,
+                  onPressed: _skip,
                   child: const Text('Saltar'),
                 ),
               ),
@@ -150,12 +164,26 @@ class _IntroPagesState extends State<IntroPages> {
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 24, 20, 16),
-            child: SizedBox(
-              width: double.infinity,
-              child: FilledButton(
-                onPressed: _next,
-                child: Text(_isLast ? 'Crear mi cuenta' : 'Siguiente'),
-              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: _isLast
+                  ? [
+                      FilledButton(
+                        onPressed: widget.onCreateAccount,
+                        child: const Text('Crear cuenta'),
+                      ),
+                      const SizedBox(height: 12),
+                      OutlinedButton(
+                        onPressed: widget.onLogin,
+                        child: const Text('Ya tengo cuenta'),
+                      ),
+                    ]
+                  : [
+                      FilledButton(
+                        onPressed: _next,
+                        child: const Text('Siguiente'),
+                      ),
+                    ],
             ),
           ),
         ],
