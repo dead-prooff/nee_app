@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:nee_app/features/duels/duels_view.dart';
+import 'package:nee_app/features/forum/forum_view.dart';
 
 import 'helpers/pump_app.dart';
 
@@ -30,7 +31,33 @@ void main() {
     'Inicio': (t) async {},
     'Duelos': (t) => tab(t, 'Duelos'),
     'Ranking': (t) => tab(t, 'Ranking'),
-    'Avisos': (t) => tab(t, 'Avisos'),
+    'Avisos': (t) => tapAndSettle(t, find.byIcon(Icons.notifications_outlined)),
+    'Foro': (t) => tab(t, 'Foro'),
+    'Tema del foro': (t) async {
+      await tab(t, 'Foro');
+      // El tema más reciente (el primero de la lista); con letra enorme
+      // hay que bajar hasta verlo.
+      final title = find.text('¿Quién más estudia con tereré en la mano? 🧉');
+      await t.scrollUntilVisible(
+        title,
+        200,
+        scrollable: find
+            .descendant(
+              of: find.byType(ForumView),
+              matching: find.byType(Scrollable),
+            )
+            .first,
+      );
+      await tapAndSettle(t, title);
+    },
+    'Nuevo tema': (t) async {
+      await tab(t, 'Foro');
+      await tapAndSettle(t, find.text('Nuevo tema'));
+    },
+    'Comentarios de la lección': (t) async {
+      await tapAndSettle(t, find.text('En la mesa'));
+      await tapAndSettle(t, find.byIcon(Icons.chat_bubble_outline));
+    },
     'Perfil': (t) => tab(t, 'Perfil'),
     'Lección': (t) => tapAndSettle(t, find.text('En la mesa')),
     'Presentación del duelo': (t) async {

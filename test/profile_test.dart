@@ -16,6 +16,7 @@ import 'package:nee_app/features/profile/widgets/badge_widgets.dart';
 import 'package:nee_app/features/progress/progress_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:nee_app/features/forum/forum_provider.dart';
 
 import 'helpers/pump_app.dart';
 
@@ -110,6 +111,11 @@ void main() {
       duels = DuelProvider(storage, clock: () => now);
       league = LeagueProvider(storage, progress, clock: () => now);
       user = UserProvider(storage, clock: () => now);
+      final forum = ForumProvider(
+        storage,
+        seed: testForumSeed(),
+        clock: () => now,
+      );
       return BadgeProvider(
         storage,
         catalog: testBadgeCatalog(),
@@ -117,6 +123,7 @@ void main() {
         duels: duels,
         league: league,
         user: user,
+        forum: forum,
         clock: () => now,
       );
     }

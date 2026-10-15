@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 
 import '../../core/services/storage_service.dart';
 import '../duels/duel_provider.dart';
+import '../forum/forum_provider.dart';
 import '../league/league_models.dart';
 import '../league/league_provider.dart';
 import '../onboarding/user_provider.dart';
@@ -68,6 +69,7 @@ class BadgeProvider extends ChangeNotifier {
     required this._duels,
     required this._league,
     required this._user,
+    required this._forum,
     DateTime Function()? clock,
   }) : _clock = clock ?? DateTime.now {
     _unlocked = {
@@ -81,15 +83,17 @@ class BadgeProvider extends ChangeNotifier {
     final firstRun = _storage.getBool(_kInitialized) != true;
     _check(celebrate: !firstRun);
     if (firstRun) _storage.setBool(_kInitialized, true);
-    for (final source in [_progress, _duels, _league, _user]) {
+    for (final source in _sources) {
       source.addListener(_onChange);
     }
   }
 
+  List<Listenable> get _sources => [_progress, _duels, _league, _user, _forum];
+
   static const _kUnlocked = 'badges.unlocked';
   static const _kInitialized = 'badges.initialized';
 
-  /// Lecciones del curso (para "Ñe'ẽ porã").
+  /// Lecciones del curso (para "Curso completo").
   static const totalLessons = 6;
 
   final StorageService _storage;
@@ -98,6 +102,7 @@ class BadgeProvider extends ChangeNotifier {
   final DuelProvider _duels;
   final LeagueProvider _league;
   final UserProvider _user;
+  final ForumProvider _forum;
   final DateTime Function() _clock;
 
   late Map<String, DateTime> _unlocked;
@@ -121,7 +126,7 @@ class BadgeProvider extends ChangeNotifier {
 
   @override
   void dispose() {
-    for (final source in [_progress, _duels, _league, _user]) {
+    for (final source in _sources) {
       source.removeListener(_onChange);
     }
     super.dispose();
@@ -140,7 +145,9 @@ class BadgeProvider extends ChangeNotifier {
     'che_raa' => _user.invitedFriend,
     'chipa_caliente' => _progress.perfectLessons >= 1,
     'jasy_jatere' => _progress.practicedAtSiesta,
-    'nee_pora' => _progress.completedCount >= totalLessons,
+    'curso_completo' => _progress.completedCount >= totalLessons,
+    'mboehara' => _forum.myUsefulReplies >= 5,
+    'nee_pora_comunidad' => _forum.hasPopularCorrection,
     'pya_e' => _duels.hasPerfectWin,
     _ => false,
   };

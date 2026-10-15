@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 enum NotificationType {
   duel('Duelos', Icons.sports_kabaddi),
   streak('Racha', Icons.local_fire_department),
-  league('Liga', Icons.emoji_events);
+  league('Liga', Icons.emoji_events),
+  forum('Foro', Icons.forum);
 
   const NotificationType(this.label, this.icon);
 

@@ -11,6 +11,8 @@ import 'widgets/feedback_panel.dart';
 import 'widgets/listen_exercise_view.dart';
 import 'widgets/match_exercise_view.dart';
 import '../../core/services/haptics.dart';
+import '../forum/forum_provider.dart';
+import '../forum/lesson_comments_screen.dart';
 
 /// Resultado de una lección, terminada o perdida por quedarse sin vidas.
 class LessonOutcome {
@@ -130,6 +132,8 @@ class _LessonScreenState extends State<LessonScreen> {
     final leave = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
+        // Con letra grande el contenido puede no entrar: se scrollea.
+        scrollable: true,
         title: const Text('¿Salir de la lección?'),
         content: const Text('Vas a perder el progreso de esta lección.'),
         actions: [
@@ -258,6 +262,21 @@ class _LessonScreenState extends State<LessonScreen> {
             ),
           ),
           actions: [
+            if (Provider.of<ForumProvider?>(context) case final forum?)
+              IconButton(
+                tooltip:
+                    'Comentarios de la lección '
+                    '(${forum.lessonCommentCount(widget.lesson.id)})',
+                icon: const Icon(Icons.chat_bubble_outline),
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => LessonCommentsScreen(
+                      lessonId: widget.lesson.id,
+                      lessonTitle: widget.lesson.title,
+                    ),
+                  ),
+                ),
+              ),
             Semantics(
               label: _lives == 1 ? '1 vida' : '$_lives vidas',
               child: ExcludeSemantics(

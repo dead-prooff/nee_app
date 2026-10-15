@@ -1,5 +1,5 @@
 {
-  "_nota": "Textos de los avisos. Cada tipo tiene varios mensajes y la app elige uno al azar sin repetir los últimos. Se pueden agregar, quitar o cambiar libremente. Variables disponibles: {nombre} (amigo), {dias} y {dias_txt} ('día'/'días'), {meta} (XP de la meta diaria), {liga}, {emoji} (de la liga), {puesto}, {marcador} (ej. 4 a 3). Los que tienen \"verificar\": true tienen guaraní que conviene revisar con un hablante nativo.",
+  "_nota": "Textos de los avisos. Cada tipo tiene varios mensajes y la app elige uno al azar sin repetir los últimos. Se pueden agregar, quitar o cambiar libremente. Variables disponibles: {nombre} (amigo), {dias} y {dias_txt} ('día'/'días'), {meta} (XP de la meta diaria), {liga}, {emoji} (de la liga), {puesto}, {marcador} (ej. 4 a 3), {tipo} ('comentario', 'tema' o 'aporte') y {cantidad}. Los que tienen \"verificar\": true tienen guaraní que conviene revisar con un hablante nativo.",
 
   "racha_peligro": [
     { "titulo": "Hake la nde racha! 🔥", "texto": "Te quedan pocas horas. Una lección y listo." },
@@ -88,6 +88,20 @@
     { "titulo": "Ni sube ni baja 😌", "texto": "Seguís en Liga {liga}, puesto {puesto}. Tranqui pero constante." },
     { "titulo": "Liga {liga}, de nuevo {emoji}", "texto": "Puesto {puesto}. Esta semana metele un poco más." },
     { "titulo": "Ahí nomás 🤏", "texto": "Te faltó poquito. Seguís en Liga {liga}." }
+  ],
+
+  "foro_respuesta": [
+    { "titulo": "{nombre} respondió tu {tipo}", "texto": "Entrá a ver qué te dijo 💬" },
+    { "titulo": "¡Te respondieron! 👀", "texto": "{nombre} comentó en tu {tipo}." },
+    { "titulo": "Mirá esto, che ra'a 💬", "texto": "{nombre} te contestó en el foro." },
+    { "titulo": "Hay charla en el foro 🧉", "texto": "{nombre} respondió tu {tipo}. ¿Seguimos?" }
+  ],
+
+  "foro_likes": [
+    { "titulo": "A {cantidad} personas les gustó tu {tipo}", "texto": "Tu aporte está pegando fuerte 💚" },
+    { "titulo": "¡{cantidad} me gusta! 🔥", "texto": "Tu {tipo} se está haciendo famoso en el foro." },
+    { "titulo": "Upéicha! 👏", "texto": "A {cantidad} personas les gustó tu {tipo}." },
+    { "titulo": "Mbarete tu {tipo} 💪", "texto": "Ya tiene {cantidad} me gusta." }
   ],
 
   "bienvenida_liga": [

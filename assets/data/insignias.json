@@ -72,12 +72,11 @@
       "festejo": "Estudiando en plena siesta... ¡cuidado que te lleva!"
     },
     {
-      "id": "nee_pora",
-      "nombre": "Ñe'ẽ porã",
-      "emoji": "📜",
+      "id": "curso_completo",
+      "nombre": "Curso completo",
+      "emoji": "🎓",
       "como": "Completá las 6 lecciones del curso.",
-      "festejo": "Terminaste todas las lecciones. ¡Tu guaraní ya es otra cosa!",
-      "verificar": true
+      "festejo": "Terminaste todas las lecciones. ¡Tu guaraní ya es otra cosa!"
     },
     {
       "id": "pya_e",
@@ -85,6 +84,21 @@
       "emoji": "⚡",
       "como": "Ganá un duelo acertando las 5 preguntas.",
       "festejo": "Cinco de cinco. Más rápido que colectivo sin frenos.",
+      "verificar": true
+    },
+    {
+      "id": "mboehara",
+      "nombre": "Mbo'ehára",
+      "emoji": "🧑‍🏫",
+      "como": "Que 5 de tus respuestas en el foro sean marcadas como útiles.",
+      "festejo": "Ya sos mbo'ehára: ¡tus respuestas ayudan a toda la comunidad!"
+    },
+    {
+      "id": "nee_pora_comunidad",
+      "nombre": "Ñe'ẽ porã",
+      "emoji": "📜",
+      "como": "Que tu primera corrección de guaraní llegue a 10 me gusta.",
+      "festejo": "Tu corrección ayudó a todos. ¡Eso es ñe'ẽ porã, buena palabra!",
       "verificar": true
     }
   ]

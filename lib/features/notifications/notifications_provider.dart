@@ -7,6 +7,7 @@ import '../../core/services/storage_service.dart';
 import '../../core/utils/dates.dart';
 import '../duels/data/duel_models.dart';
 import '../duels/duel_provider.dart';
+import '../forum/forum_provider.dart';
 import '../league/league_provider.dart';
 import '../progress/progress_provider.dart';
 import 'messages.dart';
@@ -20,6 +21,7 @@ import 'notification_models.dart';
 /// - Racha: en peligro (hoy no practicaste), perdida, activa del día (o
 ///   "kavaju resa" desde 7 días) y meta diaria cumplida.
 /// - Liga: subiste, bajaste o te mantuviste al cerrar la semana.
+/// - Foro: un amigo respondió lo que publicaste o le llegó a 5 likes.
 class NotificationsProvider extends ChangeNotifier {
   NotificationsProvider(
     this._storage, {
@@ -27,6 +29,7 @@ class NotificationsProvider extends ChangeNotifier {
     required this._progress,
     required this._duels,
     required this._league,
+    required this._forum,
     DateTime Function()? clock,
     Random? random,
   }) : _clock = clock ?? DateTime.now,
@@ -41,10 +44,12 @@ class NotificationsProvider extends ChangeNotifier {
       _save();
     }
     sync();
-    for (final source in [_progress, _duels, _league]) {
+    for (final source in _sources) {
       source.addListener(sync);
     }
   }
+
+  List<Listenable> get _sources => [_progress, _duels, _league, _forum];
 
   static const _kItems = 'notifications.items';
   static const _kHandled = 'notifications.handled';
@@ -59,6 +64,7 @@ class NotificationsProvider extends ChangeNotifier {
   final ProgressProvider _progress;
   final DuelProvider _duels;
   final LeagueProvider _league;
+  final ForumProvider _forum;
   final DateTime Function() _clock;
   final Random _random;
 
@@ -79,7 +85,7 @@ class NotificationsProvider extends ChangeNotifier {
 
   @override
   void dispose() {
-    for (final source in [_progress, _duels, _league]) {
+    for (final source in _sources) {
       source.removeListener(sync);
     }
     super.dispose();
@@ -241,6 +247,28 @@ class NotificationsProvider extends ChangeNotifier {
             : MessageKind.leagueStay,
         {'liga': r.to.label, 'emoji': r.to.emoji, 'puesto': r.rank},
       );
+    }
+
+    // --- Foro: respuestas de amigos y likes en lo que publicó el usuario.
+    for (final p in _forum.myPostsComplete) {
+      final tipo = p.isTopic ? 'tema' : 'comentario';
+      for (final r in p.replies.where((r) => !r.isMine)) {
+        changed |= _emit(
+          'forum-reply-${r.id}',
+          NotificationType.forum,
+          MessageKind.forumReply,
+          {'nombre': friendById(r.authorId).name, 'tipo': tipo},
+          at: r.createdAt,
+        );
+      }
+      if (_forum.likesOf(p) >= 5) {
+        changed |= _emit(
+          'forum-likes5-${p.id}',
+          NotificationType.forum,
+          MessageKind.forumLikes,
+          {'cantidad': 5, 'tipo': 'aporte'},
+        );
+      }
     }
 
     if (changed) {

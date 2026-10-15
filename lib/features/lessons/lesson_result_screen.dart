@@ -7,6 +7,11 @@ import 'data/lesson_models.dart';
 import 'lesson_screen.dart';
 import '../../core/widgets/celebration.dart';
 
+import 'package:provider/provider.dart';
+
+import '../forum/forum_provider.dart';
+import '../forum/lesson_comments_screen.dart';
+
 /// Pantalla final: XP ganado, precisión y botón para compartir.
 /// Si se acabaron las vidas, ofrece reintentar.
 class LessonResultScreen extends StatelessWidget {
@@ -147,6 +152,24 @@ class LessonResultScreen extends StatelessWidget {
                       icon: const Icon(Icons.refresh),
                       label: const Text('Reintentar'),
                     ),
+                  if (Provider.of<ForumProvider?>(context)
+                      case final forum?) ...[
+                    const SizedBox(height: 12),
+                    OutlinedButton(
+                      onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => LessonCommentsScreen(
+                            lessonId: lesson.id,
+                            lessonTitle: lesson.title,
+                          ),
+                        ),
+                      ),
+                      child: Text(
+                        '💬 Comentarios '
+                        '(${forum.lessonCommentCount(lesson.id)})',
+                      ),
+                    ),
+                  ],
                   const SizedBox(height: 12),
                   FilledButton(
                     onPressed: () => Navigator.of(context).pop(),

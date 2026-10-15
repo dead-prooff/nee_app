@@ -14,6 +14,10 @@ Probala en el navegador (también en iPhone, desde Safari):
   *"Hendy hína tu racha 🔥"*, *"Hake la nde racha!"*.
 - **Duelos** de 5 preguntas contra amigos, con 10 segundos por pregunta.
 - **Liga semanal** Bronce / Plata / Oro con zonas de ascenso y descenso.
+- **Foro de la comunidad** con temas por categoría (Dudas, Aportes,
+  Correcciones de guaraní, Cultura y Charla libre), likes, "Respuesta
+  útil" y un hilo de comentarios en cada lección, donde las correcciones
+  muy votadas se marcan como "Revisión de la comunidad".
 - **Perfil** con avatares de mitos guaraníes (Pombéro, Kurupí, Luisõ, Jasy
   Jateré y más), foto propia, insignias e invitaciones con código.
 - **Accesible**: lector de pantalla (TalkBack / VoiceOver), contraste WCAG
@@ -38,6 +42,7 @@ No hace falta saber programar:
 | Lecciones y ejercicios | `assets/data/lecciones.json` |
 | Textos de los avisos | `assets/data/mensajes.json` |
 | Insignias | `assets/data/insignias.json` |
+| Temas y comentarios de ejemplo del foro | `assets/data/foro.json` |
 | Audios de las frases | `assets/audio/` (ver `LEEME.txt`) |
 
 Lo marcado con `"verificar": true` tiene guaraní para revisar con un
@@ -47,7 +52,8 @@ sola en unos minutos.
 ## Para desarrollar
 
 Hecha con Flutter. Todo se guarda en el dispositivo (todavía no hay
-servidor: amigos, duelos e invitaciones son simulados).
+servidor: amigos, duelos, invitaciones y las reacciones del foro son
+simulados).
 
 ```
 flutter pub get

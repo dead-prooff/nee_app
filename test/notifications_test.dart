@@ -13,6 +13,8 @@ import 'package:nee_app/features/notifications/notification_models.dart';
 import 'package:nee_app/features/notifications/notifications_provider.dart';
 import 'package:nee_app/features/progress/progress_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:nee_app/features/forum/forum_provider.dart';
+import 'package:flutter/material.dart';
 
 import 'helpers/pump_app.dart';
 
@@ -31,6 +33,8 @@ void main() {
       'emoji',
       'puesto',
       'marcador',
+      'tipo',
+      'cantidad',
     };
 
     test('al menos 4 mensajes por tipo de aviso', () {
@@ -106,17 +110,20 @@ void main() {
     late ProgressProvider progress;
     late DuelProvider duels;
     late LeagueProvider league;
+    late ForumProvider forum;
 
     NotificationsProvider create() {
       progress = ProgressProvider(storage, clock: () => now);
       duels = DuelProvider(storage, clock: () => now);
       league = LeagueProvider(storage, progress, clock: () => now);
+      forum = ForumProvider(storage, seed: testForumSeed(), clock: () => now);
       return NotificationsProvider(
         storage,
         messages: testMessages(),
         progress: progress,
         duels: duels,
         league: league,
+        forum: forum,
         clock: () => now,
         random: Random(1),
       );
@@ -275,20 +282,26 @@ void main() {
     expect(clockLabel(DateTime(2026, 10, 2, 7, 0), now), '02/10, 07:00');
   });
 
-  group('Pestaña Avisos', () {
+  group('Avisos (campanita de Inicio)', () {
     Future<void> openAvisos(WidgetTester tester) async {
       await pumpApp(
         tester,
         prefs: onboardedPrefs,
         clock: () => DateTime(2026, 10, 14, 10),
       );
-      await tester.tap(find.text('Avisos').last);
+      await tester.tap(find.byIcon(Icons.notifications_outlined));
       await tester.pumpAndSettle();
     }
 
-    testWidgets('el globito muestra los no leídos', (tester) async {
-      await openAvisos(tester);
+    testWidgets('la campanita muestra los no leídos', (tester) async {
+      await pumpApp(
+        tester,
+        prefs: onboardedPrefs,
+        clock: () => DateTime(2026, 10, 14, 10),
+      );
       expect(find.byTooltip('Avisos, 4 sin leer'), findsOneWidget);
+      await tester.tap(find.byTooltip('Avisos, 4 sin leer'));
+      await tester.pumpAndSettle();
       expect(find.text('4 sin leer'), findsOneWidget);
     });
 
@@ -308,6 +321,8 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Duelos pendientes'), findsOneWidget);
+      await tester.tap(find.text('Inicio'));
+      await tester.pumpAndSettle();
       expect(find.byTooltip('Avisos, 3 sin leer'), findsOneWidget);
     });
 
@@ -317,8 +332,10 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Todo leído'), findsOneWidget);
-      expect(find.byTooltip('Avisos'), findsOneWidget);
       expect(find.text('Marcar todo como leído'), findsNothing);
+      await tester.pageBack();
+      await tester.pumpAndSettle();
+      expect(find.byTooltip('Avisos'), findsOneWidget);
     });
   });
 }

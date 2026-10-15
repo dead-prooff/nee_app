@@ -144,11 +144,14 @@ void main() {
     expect(find.text('VOS'), findsOneWidget);
     expect(find.bySemanticsLabel(RegExp(r'^Puesto \d+: vos, 18 XP')), findsOne);
 
-    // --- Avisos: hay sin leer y se pueden marcar.
-    await tap(tester, find.text('Avisos').last);
+    // --- Avisos (campanita de Inicio): hay sin leer y se pueden marcar.
+    await tap(tester, find.text('Inicio').last);
+    await tap(tester, find.byIcon(Icons.notifications_outlined));
     expect(find.textContaining('sin leer'), findsOneWidget);
     await tap(tester, find.text('Marcar todo como leído'));
     expect(find.text('Todo leído'), findsOneWidget);
+    await tester.pageBack();
+    await tester.pumpAndSettle();
 
     // --- Perfil e invitar.
     await tap(tester, find.text('Perfil').last);

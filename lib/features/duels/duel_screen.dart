@@ -158,6 +158,8 @@ class _DuelScreenState extends State<DuelScreen>
     final leave = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
+        // Con letra grande el contenido puede no entrar: se scrollea.
+        scrollable: true,
         title: const Text('¿Abandonar el duelo?'),
         content: const Text('El resultado no se va a guardar.'),
         actions: [

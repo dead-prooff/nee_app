@@ -152,6 +152,8 @@ class _DemoModeCard extends StatelessWidget {
     final ok = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
+        // Con letra grande el contenido puede no entrar: se scrollea.
+        scrollable: true,
         title: Text(title),
         content: Text(message),
         actions: [

@@ -6,6 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:nee_app/app.dart';
 import 'package:nee_app/app_scope.dart';
 import 'package:nee_app/core/services/storage_service.dart';
+import 'package:nee_app/features/forum/forum_models.dart';
 import 'package:nee_app/features/notifications/messages.dart';
 import 'package:nee_app/features/profile/badges.dart';
 import 'package:nee_app/features/settings/demo_profile.dart';
@@ -27,6 +28,10 @@ Messages testMessages() =>
 /// Los textos reales de `assets/data/insignias.json`.
 BadgeCatalog testBadgeCatalog() =>
     BadgeCatalog.fromJsonString(File(BadgeCatalog.path).readAsStringSync());
+
+/// El contenido real de `assets/data/foro.json`.
+ForumSeed testForumSeed() =>
+    ForumSeed.fromJsonString(File(ForumSeed.path).readAsStringSync());
 
 /// Levanta la app completa con los providers reales, como en `main()`.
 Future<StorageService> pumpApp(
@@ -50,6 +55,7 @@ Future<StorageService> pumpApp(
       storage: storage,
       messages: testMessages(),
       badgeCatalog: testBadgeCatalog(),
+      forumSeed: testForumSeed(),
       lessonBundle: FileAssetBundle(),
       clock: clock,
       random: Random(0),

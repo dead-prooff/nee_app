@@ -17,6 +17,8 @@ enum MessageKind {
   leagueUp('liga_subiste'),
   leagueDown('liga_bajaste'),
   leagueStay('liga_mantuviste'),
+  forumReply('foro_respuesta'),
+  forumLikes('foro_likes'),
   welcomeLeague('bienvenida_liga'),
   welcomeStreak('bienvenida_racha');
 

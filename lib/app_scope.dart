@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 
 import 'core/services/storage_service.dart';
 import 'features/duels/duel_provider.dart';
+import 'features/forum/forum_models.dart';
+import 'features/forum/forum_provider.dart';
 import 'features/league/league_provider.dart';
 import 'features/lessons/data/lesson_repository.dart';
 import 'features/notifications/messages.dart';
@@ -32,6 +34,7 @@ class AppScope extends StatefulWidget {
     required this.storage,
     required this.messages,
     required this.badgeCatalog,
+    required this.forumSeed,
     required this.child,
     this.lessonBundle,
     this.clock,
@@ -41,6 +44,7 @@ class AppScope extends StatefulWidget {
   final StorageService storage;
   final Messages messages;
   final BadgeCatalog badgeCatalog;
+  final ForumSeed forumSeed;
   final Widget child;
 
   /// Para los tests (en la app se usa rootBundle).
@@ -62,12 +66,14 @@ class _Session {
     progress = ProgressProvider(s, clock: w.clock);
     duels = DuelProvider(s, clock: w.clock);
     league = LeagueProvider(s, progress, clock: w.clock);
+    forum = ForumProvider(s, seed: w.forumSeed, clock: w.clock);
     notifications = NotificationsProvider(
       s,
       messages: w.messages,
       progress: progress,
       duels: duels,
       league: league,
+      forum: forum,
       clock: w.clock,
       random: w.random,
     );
@@ -78,6 +84,7 @@ class _Session {
       duels: duels,
       league: league,
       user: user,
+      forum: forum,
       clock: w.clock,
     );
   }
@@ -87,12 +94,21 @@ class _Session {
   late final ProgressProvider progress;
   late final DuelProvider duels;
   late final LeagueProvider league;
+  late final ForumProvider forum;
   late final NotificationsProvider notifications;
   late final BadgeProvider badges;
 
   /// Primero los que escuchan a otros.
   void dispose() {
-    for (final p in [badges, notifications, league, duels, progress, user]) {
+    for (final p in [
+      badges,
+      notifications,
+      forum,
+      league,
+      duels,
+      progress,
+      user,
+    ]) {
       p.dispose();
     }
     settings.dispose();
@@ -157,6 +173,7 @@ class _AppScopeState extends State<AppScope> implements AppController {
         ChangeNotifierProvider.value(value: s.progress),
         ChangeNotifierProvider.value(value: s.duels),
         ChangeNotifierProvider.value(value: s.league),
+        ChangeNotifierProvider.value(value: s.forum),
         ChangeNotifierProvider.value(value: s.notifications),
         ChangeNotifierProvider.value(value: s.badges),
       ],

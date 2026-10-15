@@ -18,6 +18,8 @@ class LeagueUpDialog extends StatelessWidget {
     final league = result.to;
 
     return AlertDialog(
+      // Con letra grande el contenido puede no entrar: se scrollea.
+      scrollable: true,
       contentPadding: const EdgeInsets.fromLTRB(24, 24, 24, 8),
       content: Column(
         mainAxisSize: MainAxisSize.min,

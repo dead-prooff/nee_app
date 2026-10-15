@@ -147,6 +147,7 @@ class _NotificationTile extends StatelessWidget {
       NotificationType.duel => scheme.secondary,
       NotificationType.streak => colors.fire,
       NotificationType.league => colors.gold,
+      NotificationType.forum => scheme.primary,
     };
 
     return Semantics(
