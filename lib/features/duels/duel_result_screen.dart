@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../../core/app_links.dart';
 import '../../core/theme/app_theme.dart';
 import 'data/duel_models.dart';
 import 'duel_intro_screen.dart';
@@ -40,7 +41,7 @@ class DuelResultScreen extends StatelessWidget {
 
   String get shareText {
     final name = setup.friend.name;
-    return switch (outcome) {
+    final text = switch (outcome) {
       DuelOutcome.win =>
         '¡Le gané $myScore a $rivalScore a $name en un duelo de guaraní '
             'en Ñe\'ẽ! ⚔️🧉 ¿Te animás a desafiarme?',
@@ -51,6 +52,7 @@ class DuelResultScreen extends StatelessWidget {
         '$name me ganó $rivalScore a $myScore en un duelo de guaraní '
             'en Ñe\'ẽ. ¡Quiero la revancha! ⚔️🧉',
     };
+    return '$text $appUrl';
   }
 
   Future<void> _share(BuildContext context) async {

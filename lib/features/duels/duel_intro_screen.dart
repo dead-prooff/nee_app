@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../lessons/data/lesson_repository.dart';
 import '../onboarding/user_provider.dart';
+import '../profile/widgets/avatar_image.dart';
 import '../progress/progress_provider.dart';
 import 'data/duel_models.dart';
 import 'data/duel_questions.dart';
@@ -60,14 +61,10 @@ class _DuelIntroScreenState extends State<DuelIntroScreen> {
     final friend = widget.friend;
     final me = context.select<UserProvider, String?>((u) => u.name) ?? 'Vos';
 
-    Widget player(String emoji, String name) => Expanded(
+    Widget player(Widget avatar, String name) => Expanded(
       child: Column(
         children: [
-          CircleAvatar(
-            radius: 40,
-            backgroundColor: scheme.secondaryContainer,
-            child: Text(emoji, style: const TextStyle(fontSize: 40)),
-          ),
+          avatar,
           const SizedBox(height: 8),
           Text(
             name,
@@ -101,14 +98,17 @@ class _DuelIntroScreenState extends State<DuelIntroScreen> {
                         excludeSemantics: true,
                         child: Row(
                           children: [
-                            player('🙂', me),
+                            player(const MyAvatar(size: 80), me),
                             Text(
                               'VS',
                               style: theme.textTheme.headlineMedium?.copyWith(
                                 color: scheme.secondary,
                               ),
                             ),
-                            player(friend.emoji, friend.name),
+                            player(
+                              AvatarImage(avatarId: friend.avatar, size: 80),
+                              friend.name,
+                            ),
                           ],
                         ),
                       ),

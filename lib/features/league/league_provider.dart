@@ -26,6 +26,11 @@ class LeagueProvider extends ChangeNotifier {
       for (final s in _storage.getStringList(_kResults) ?? const <String>[])
         LeagueResult.fromJson(jsonDecode(s) as Map<String, dynamic>),
     ];
+    _best =
+        League.values
+            .where((l) => l.name == _storage.getString(_kBest))
+            .firstOrNull ??
+        _league;
     _rollover();
     // La tabla depende del XP de la semana: se actualiza al ganar XP.
     _progress.addListener(_onProgress);
@@ -35,6 +40,7 @@ class LeagueProvider extends ChangeNotifier {
   static const _kWeek = 'league.week';
   static const _kClosedWeek = 'league.closedWeek';
   static const _kResults = 'league.results';
+  static const _kBest = 'league.best';
 
   final StorageService _storage;
   final ProgressProvider _progress;
@@ -47,8 +53,12 @@ class LeagueProvider extends ChangeNotifier {
   /// veces cuando termine de verdad.
   String? _closedWeek;
   late List<LeagueResult> _results;
+  late League _best;
 
   League get league => _league;
+
+  /// La liga más alta a la que llegó alguna vez.
+  League get bestLeague => _league.index > _best.index ? _league : _best;
 
   /// Resultados de semanas cerradas, el más reciente primero.
   List<LeagueResult> get results => List.unmodifiable(_results.reversed);
@@ -113,6 +123,10 @@ class LeagueProvider extends ChangeNotifier {
     );
 
     _league = to;
+    if (to.index > _best.index) {
+      _best = to;
+      _storage.setString(_kBest, to.name);
+    }
     _results.add(result);
     _storage.setString(_kLeague, to.name);
     _storage.setStringList(_kResults, [

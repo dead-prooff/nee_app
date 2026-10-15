@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/foundation.dart';
 
 import '../../core/services/storage_service.dart';
@@ -34,6 +36,10 @@ class ProgressProvider extends ChangeNotifier {
     _weekKey = _storage.getString(_kWeekKey);
     _prevWeekXp = _storage.getInt(_kPrevWeekXp) ?? 0;
     _prevWeekKey = _storage.getString(_kPrevWeekKey);
+    _longestStreak = max(_storage.getInt(_kLongest) ?? 0, _streak);
+    _goalDays = _storage.getInt(_kGoalDays) ?? 0;
+    _perfectLessons = _storage.getInt(_kPerfect) ?? 0;
+    _siesta = _storage.getBool(_kSiesta) ?? false;
     _goal = DailyGoal.values.firstWhere(
       (g) => g.name == _storage.getString(_kDailyGoal),
       orElse: () => DailyGoal.regular,
@@ -47,6 +53,10 @@ class ProgressProvider extends ChangeNotifier {
   static const _kStreak = 'progress.streak';
   static const _kLastActive = 'progress.lastActiveDate';
   static const _kDailyGoal = 'progress.dailyGoal';
+  static const _kLongest = 'progress.longestStreak';
+  static const _kGoalDays = 'progress.goalDays';
+  static const _kPerfect = 'progress.perfectLessons';
+  static const _kSiesta = 'progress.siesta';
   static const _kWeekXp = 'progress.weekXp';
   static const _kWeekKey = 'progress.weekKey';
   static const _kPrevWeekXp = 'progress.prevWeekXp';
@@ -62,6 +72,10 @@ class ProgressProvider extends ChangeNotifier {
   late int _streak;
   String? _lastActive;
   late DailyGoal _goal;
+  late int _longestStreak;
+  late int _goalDays;
+  late int _perfectLessons;
+  late bool _siesta;
 
   // XP de la semana actual y de la anterior (para cerrar la liga).
   late int _weekXp;
@@ -96,6 +110,18 @@ class ProgressProvider extends ChangeNotifier {
 
   DailyGoal get goal => _goal;
 
+  /// La racha más larga que tuvo.
+  int get longestStreak => max(_longestStreak, streak);
+
+  /// Cuántos días cumplió la meta diaria.
+  int get goalDays => _goalDays;
+
+  /// Lecciones terminadas sin ningún error.
+  int get perfectLessons => _perfectLessons;
+
+  /// Si alguna vez practicó a la hora de la siesta (13 a 16 h).
+  bool get practicedAtSiesta => _siesta;
+
   /// XP que hay que ganar por día para cumplir la meta.
   int get dailyGoal => _goal.xp;
 
@@ -125,22 +151,31 @@ class ProgressProvider extends ChangeNotifier {
   String? get lastActiveDay => _lastActive;
 
   /// Registra una lección terminada: la marca como completada y suma XP.
-  Future<void> completeLesson(String lessonId, {required int xp}) async {
+  Future<void> completeLesson(
+    String lessonId, {
+    required int xp,
+    bool perfect = false,
+  }) async {
     _completed.add(lessonId);
+    if (perfect) _perfectLessons++;
     await Future.wait([
       _storage.setStringList(_kCompleted, _completed.toList()),
+      _storage.setInt(_kPerfect, _perfectLessons),
       addXp(xp),
     ]);
   }
 
-  /// Suma XP (de una lección o un duelo) y actualiza la racha.
-  Future<void> addXp(int xp) async {
-    final today = _today;
-
+  /// XP de regalo (por ejemplo, el de la invitación): suma al total y a la
+  /// liga, pero no cuenta como práctica para la racha ni la meta del día.
+  Future<void> addBonusXp(int xp) async {
     _totalXp += xp;
-    _xpToday = xpToday + xp;
-    _xpDate = today;
+    _addToWeek(xp);
+    notifyListeners();
+    await _saveWeek();
+    await _storage.setInt(_kTotalXp, _totalXp);
+  }
 
+  void _addToWeek(int xp) {
     final week = weekKey(_clock());
     if (_weekKey != week) {
       // Empezó otra semana: la que terminó pasa a ser "la anterior".
@@ -152,11 +187,33 @@ class ProgressProvider extends ChangeNotifier {
       _weekXp = 0;
     }
     _weekXp += xp;
+  }
+
+  Future<void> _saveWeek() => Future.wait([
+    _storage.setInt(_kWeekXp, _weekXp),
+    _storage.setString(_kWeekKey, _weekKey!),
+    _storage.setInt(_kPrevWeekXp, _prevWeekXp),
+    if (_prevWeekKey != null) _storage.setString(_kPrevWeekKey, _prevWeekKey!),
+  ]);
+
+  /// Suma XP (de una lección o un duelo) y actualiza la racha.
+  Future<void> addXp(int xp) async {
+    final now = _clock();
+    final today = _today;
+    final goalBefore = dailyGoalReached;
+
+    _totalXp += xp;
+    _xpToday = xpToday + xp;
+    _xpDate = today;
+    _addToWeek(xp);
 
     if (_lastActive != today) {
       _streak = _lastActive == _yesterday ? _streak + 1 : 1;
       _lastActive = today;
     }
+    _longestStreak = max(_longestStreak, _streak);
+    if (!goalBefore && dailyGoalReached) _goalDays++;
+    if (now.hour >= 13 && now.hour < 16) _siesta = true;
     notifyListeners();
 
     await Future.wait([
@@ -165,11 +222,10 @@ class ProgressProvider extends ChangeNotifier {
       _storage.setString(_kXpDate, today),
       _storage.setInt(_kStreak, _streak),
       _storage.setString(_kLastActive, today),
-      _storage.setInt(_kWeekXp, _weekXp),
-      _storage.setString(_kWeekKey, week),
-      _storage.setInt(_kPrevWeekXp, _prevWeekXp),
-      if (_prevWeekKey != null)
-        _storage.setString(_kPrevWeekKey, _prevWeekKey!),
+      _storage.setInt(_kLongest, _longestStreak),
+      _storage.setInt(_kGoalDays, _goalDays),
+      _storage.setBool(_kSiesta, _siesta),
+      _saveWeek(),
     ]);
   }
 }

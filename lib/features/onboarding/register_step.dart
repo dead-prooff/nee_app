@@ -13,12 +13,16 @@ class Registration {
     required this.username,
     required this.email,
     required this.method,
+    this.inviteCode,
   });
 
   final String name;
   final String username;
   final String? email;
   final AuthMethod method;
+
+  /// Código de invitación válido que escribió, o null.
+  final String? inviteCode;
 }
 
 /// Formulario de registro con validación en tiempo real (los errores
@@ -45,6 +49,7 @@ class _RegisterStepState extends State<RegisterStep> {
   late final _username = TextEditingController(text: widget.initial?.username);
   late final _email = TextEditingController(text: widget.initial?.email);
   final _password = TextEditingController();
+  late final _invite = TextEditingController(text: widget.initial?.inviteCode);
 
   bool _obscurePassword = true;
   bool _googleLoading = false;
@@ -55,7 +60,19 @@ class _RegisterStepState extends State<RegisterStep> {
     _username.dispose();
     _email.dispose();
     _password.dispose();
+    _invite.dispose();
     super.dispose();
+  }
+
+  String? get _validInvite {
+    final code = _invite.text.trim().toUpperCase();
+    return UserProvider.isValidInviteCode(code) ? code : null;
+  }
+
+  static String? _validateInvite(String? value) {
+    final code = value?.trim() ?? '';
+    if (code.isEmpty || UserProvider.isValidInviteCode(code)) return null;
+    return 'El código es como NEE-WILLY23';
   }
 
   void _submit() {
@@ -67,6 +84,7 @@ class _RegisterStepState extends State<RegisterStep> {
         username: _username.text.trim(),
         email: _email.text.trim(),
         method: AuthMethod.email,
+        inviteCode: _validInvite,
       ),
     );
   }
@@ -84,6 +102,7 @@ class _RegisterStepState extends State<RegisterStep> {
         username: 'invitado_${Random().nextInt(9000) + 1000}',
         email: null,
         method: AuthMethod.google,
+        inviteCode: _validInvite,
       ),
     );
   }
@@ -187,11 +206,38 @@ class _RegisterStepState extends State<RegisterStep> {
                 obscureText: _obscurePassword,
                 enableSuggestions: false,
                 autocorrect: false,
-                textInputAction: TextInputAction.done,
+                textInputAction: TextInputAction.next,
                 autofillHints: const [AutofillHints.newPassword],
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 validator: Validators.password,
-                onFieldSubmitted: (_) => _submit(),
+              ),
+              gap,
+              // Opcional: con un código válido, +50 XP de bienvenida.
+              ValueListenableBuilder(
+                valueListenable: _invite,
+                builder: (context, value, _) => TextFormField(
+                  controller: _invite,
+                  decoration: InputDecoration(
+                    labelText: '¿Tenés un código de invitación? (opcional)',
+                    prefixIcon: const Icon(Icons.card_giftcard),
+                    helperText: _validInvite != null
+                        ? '¡Código válido! Vas a ganar '
+                              '+${UserProvider.inviteBonusXp} XP 🎁'
+                        : 'Si un amigo te invitó, ganan +'
+                              '${UserProvider.inviteBonusXp} XP los dos',
+                    helperMaxLines: 2,
+                  ),
+                  textCapitalization: TextCapitalization.characters,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.deny(RegExp(r'\s')),
+                    _UpperCaseFormatter(),
+                  ],
+                  autocorrect: false,
+                  textInputAction: TextInputAction.done,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: _validateInvite,
+                  onFieldSubmitted: (_) => _submit(),
+                ),
               ),
               const SizedBox(height: 24),
               FilledButton(
@@ -269,4 +315,12 @@ class _LowerCaseFormatter extends TextInputFormatter {
     TextEditingValue oldValue,
     TextEditingValue newValue,
   ) => newValue.copyWith(text: newValue.text.toLowerCase());
+}
+
+class _UpperCaseFormatter extends TextInputFormatter {
+  @override
+  TextEditingValue formatEditUpdate(
+    TextEditingValue oldValue,
+    TextEditingValue newValue,
+  ) => newValue.copyWith(text: newValue.text.toUpperCase());
 }

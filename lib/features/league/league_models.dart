@@ -35,7 +35,7 @@ class LeagueEntry {
   const LeagueEntry({
     required this.rank,
     required this.name,
-    required this.emoji,
+    required this.avatar,
     required this.xp,
     required this.zone,
     this.friend,
@@ -43,7 +43,9 @@ class LeagueEntry {
 
   final int rank;
   final String name;
-  final String emoji;
+
+  /// Avatar del amigo (el del usuario se toma de su perfil).
+  final String avatar;
   final int xp;
   final Zone zone;
 
@@ -91,11 +93,11 @@ List<LeagueEntry> buildStandings({
   required int myXp,
   required String myName,
 }) {
-  final rows = <({String name, String emoji, int xp, Friend? friend})>[
+  final rows = <({String name, String avatar, int xp, Friend? friend})>[
     for (final f in friends)
       (
         name: f.name,
-        emoji: f.emoji,
+        avatar: f.avatar,
         xp: simulatedFriendXp(
           f,
           week: week,
@@ -104,7 +106,7 @@ List<LeagueEntry> buildStandings({
         ),
         friend: f,
       ),
-    (name: myName, emoji: '🙂', xp: myXp, friend: null),
+    (name: myName, avatar: '', xp: myXp, friend: null),
   ];
   // Más XP primero; si empata, el usuario va adelante.
   rows.sort((a, b) {
@@ -118,7 +120,7 @@ List<LeagueEntry> buildStandings({
       LeagueEntry(
         rank: i + 1,
         name: r.name,
-        emoji: r.emoji,
+        avatar: r.avatar,
         xp: r.xp,
         friend: r.friend,
         zone: i < league.promoteCount

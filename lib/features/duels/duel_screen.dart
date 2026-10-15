@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../lessons/widgets/exercise_common.dart';
 import '../onboarding/user_provider.dart';
+import '../profile/widgets/avatar_image.dart';
 import '../progress/progress_provider.dart';
 import 'data/duel_models.dart';
 import 'duel_provider.dart';
@@ -280,7 +281,7 @@ class _Scoreboard extends StatelessWidget {
     };
 
     Widget side({
-      required String emoji,
+      required Widget avatar,
       required String name,
       required int score,
       Widget? status,
@@ -290,9 +291,7 @@ class _Scoreboard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ExcludeSemantics(
-                child: Text(emoji, style: const TextStyle(fontSize: 28)),
-              ),
+              avatar,
               const SizedBox(width: 8),
               Text('$score', style: theme.textTheme.headlineMedium),
             ],
@@ -319,7 +318,7 @@ class _Scoreboard extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              side(emoji: '🙂', name: me, score: myScore),
+              side(avatar: const MyAvatar(size: 36), name: me, score: myScore),
               Padding(
                 padding: const EdgeInsets.only(top: 8),
                 child: Text(
@@ -330,7 +329,7 @@ class _Scoreboard extends StatelessWidget {
                 ),
               ),
               side(
-                emoji: friend.emoji,
+                avatar: AvatarImage(avatarId: friend.avatar, size: 36),
                 name: friend.name,
                 score: rivalScore,
                 status: Padding(

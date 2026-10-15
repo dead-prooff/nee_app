@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../core/theme/app_theme.dart';
 import '../onboarding/user_provider.dart';
+import '../profile/widgets/avatar_image.dart';
 import 'league_models.dart';
 import 'league_provider.dart';
 
@@ -275,13 +276,10 @@ class _EntryRow extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 8),
-            CircleAvatar(
-              radius: 20,
-              backgroundColor: isMe
-                  ? scheme.surface
-                  : scheme.secondaryContainer,
-              child: Text(entry.emoji, style: const TextStyle(fontSize: 20)),
-            ),
+            if (isMe)
+              const MyAvatar(size: 40)
+            else
+              AvatarImage(avatarId: entry.avatar, size: 40),
             const SizedBox(width: 12),
             Expanded(
               child: Row(

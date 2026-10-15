@@ -27,6 +27,8 @@ class DuelProvider extends ChangeNotifier {
       for (final s in _storage.getStringList(_kHistory) ?? const <String>[])
         DuelRecord.fromJson(jsonDecode(s) as Map<String, dynamic>),
     ];
+    _beaten = (_storage.getStringList(_kBeaten) ?? const []).toSet();
+    _perfectWin = _storage.getBool(_kPerfectWin) ?? false;
     _refill();
   }
 
@@ -36,6 +38,8 @@ class DuelProvider extends ChangeNotifier {
   static const _kPending = 'duels.pending';
   static const _kLastRefill = 'duels.lastRefill';
   static const _kHistory = 'duels.history';
+  static const _kBeaten = 'duels.beaten';
+  static const _kPerfectWin = 'duels.perfectWin';
 
   /// Cuántos duelos jugados se recuerdan.
   static const historySize = 20;
@@ -49,11 +53,19 @@ class DuelProvider extends ChangeNotifier {
   late int _losses;
   late List<PendingDuel> _pending;
   late List<DuelRecord> _history;
+  late Set<String> _beaten;
+  late bool _perfectWin;
 
   int get wins => _wins;
   int get draws => _draws;
   int get losses => _losses;
   int get played => _wins + _draws + _losses;
+
+  /// Si alguna vez ganó un duelo acertando todas las preguntas.
+  bool get hasPerfectWin => _perfectWin;
+
+  /// Si alguna vez le ganó un duelo a [friendId].
+  bool hasBeaten(String friendId) => _beaten.contains(friendId);
 
   /// Duelos jugados, el más reciente primero.
   List<DuelRecord> get history => List.unmodifiable(_history.reversed);
@@ -128,6 +140,8 @@ class DuelProvider extends ChangeNotifier {
     switch (outcome) {
       case DuelOutcome.win:
         _wins++;
+        _beaten.add(friend.id);
+        if (myScore == DuelQuestionBuilder.questionCount) _perfectWin = true;
       case DuelOutcome.draw:
         _draws++;
       case DuelOutcome.loss:
@@ -141,6 +155,8 @@ class DuelProvider extends ChangeNotifier {
       _storage.setInt(_kDraws, _draws),
       _storage.setInt(_kLosses, _losses),
       _savePending(),
+      _storage.setStringList(_kBeaten, _beaten.toList()),
+      _storage.setBool(_kPerfectWin, _perfectWin),
       _storage.setStringList(_kHistory, [
         for (final r in _history) jsonEncode(r.toJson()),
       ]),

@@ -7,6 +7,13 @@ import 'helpers/pump_app.dart';
 
 Finder _field(String label) => find.widgetWithText(TextFormField, label);
 
+/// Toca algo que puede estar fuera de la pantalla (scrollea primero).
+Future<void> _tapVisible(WidgetTester tester, Finder finder) async {
+  await tester.ensureVisible(finder);
+  await tester.pumpAndSettle();
+  await tester.tap(finder);
+}
+
 Future<void> _skipIntro(WidgetTester tester) async {
   for (var i = 0; i < 3; i++) {
     await tester.tap(find.byType(FilledButton));
@@ -116,7 +123,7 @@ void main() {
     await pumpApp(tester);
     await _skipIntro(tester);
 
-    await tester.tap(find.text('Crear cuenta'));
+    await _tapVisible(tester, find.text('Crear cuenta'));
     await tester.pumpAndSettle();
     expect(find.text('Escribí tu nombre'), findsOneWidget);
     expect(find.text('Creá una contraseña'), findsOneWidget);
@@ -130,7 +137,7 @@ void main() {
     await _skipIntro(tester);
     await _fillForm(tester);
 
-    await tester.tap(find.text('Crear cuenta'));
+    await _tapVisible(tester, find.text('Crear cuenta'));
     await tester.pumpAndSettle();
     expect(find.text('¿Cuánto guaraní sabés?'), findsOneWidget);
 
@@ -142,6 +149,14 @@ void main() {
 
     await tester.tap(find.text('15 min por día'));
     await tester.pump();
+    await tester.tap(find.text('Continuar'));
+    await tester.pumpAndSettle();
+
+    // Paso de avatar: elegir el Teju Jagua.
+    expect(find.text('Elegí tu avatar'), findsOneWidget);
+    await _tapVisible(tester, find.text('Teju Jagua'));
+    await tester.pumpAndSettle();
+    expect(find.textContaining('guardián de las cuevas'), findsOneWidget);
     await tester.tap(find.text('Empezar a aprender'));
     await tester.pumpAndSettle();
 
@@ -151,6 +166,9 @@ void main() {
     expect(storage.getString('user.username'), 'anapy');
     expect(storage.getString('user.level'), 'jopara');
     expect(storage.getString('progress.dailyGoal'), 'intense');
+    expect(storage.getString('user.avatar'), 'teju_jagua');
+    expect(storage.getString('user.registeredAt'), isNotNull);
+    expect(storage.getInt('progress.totalXp'), isNull, reason: 'sin código');
     // La contraseña no se guarda en ningún lado.
     expect(
       storage.getString('user.password'),
@@ -174,7 +192,7 @@ void main() {
     await pumpApp(tester);
     await _skipIntro(tester);
     await _fillForm(tester);
-    await tester.tap(find.text('Crear cuenta'));
+    await _tapVisible(tester, find.text('Crear cuenta'));
     await tester.pumpAndSettle();
 
     await tester.tap(find.byTooltip('Volver'));
@@ -197,5 +215,74 @@ void main() {
     await tester.pump(RegisterStep.googleDelay);
     await tester.pumpAndSettle();
     expect(find.text('¿Cuánto guaraní sabés?'), findsOneWidget);
+  });
+
+  /// Llena el registro, nivel y meta, y llega al paso de avatar.
+  Future<void> reachAvatarStep(WidgetTester tester, {String? invite}) async {
+    await _skipIntro(tester);
+    await _fillForm(tester);
+    if (invite != null) {
+      await tester.enterText(
+        _field('¿Tenés un código de invitación? (opcional)'),
+        invite,
+      );
+      await tester.pump();
+    }
+    await _tapVisible(tester, find.text('Crear cuenta'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Entiendo algo'));
+    await tester.pump();
+    await tester.tap(find.text('Continuar'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Continuar'));
+    await tester.pumpAndSettle();
+    expect(find.text('Elegí tu avatar'), findsOneWidget);
+  }
+
+  testWidgets('código de invitación válido: +50 XP de bienvenida', (
+    tester,
+  ) async {
+    await pumpApp(tester);
+    await _skipIntro(tester);
+    final field = _field('¿Tenés un código de invitación? (opcional)');
+
+    await tester.enterText(field, 'nee-x');
+    await tester.pump();
+    expect(find.text('El código es como NEE-WILLY23'), findsOneWidget);
+
+    await tester.enterText(field, 'nee-willy23');
+    await tester.pump();
+    expect(find.text('NEE-WILLY23'), findsOneWidget, reason: 'en mayúsculas');
+    expect(find.textContaining('¡Código válido!'), findsOneWidget);
+
+    // De nuevo desde cero, completando todo el flujo.
+    final storage = await pumpApp(tester);
+    await reachAvatarStep(tester, invite: 'NEE-WILLY23');
+    await tester.tap(find.text('Saltar por ahora'));
+    await tester.pumpAndSettle();
+
+    expect(storage.getInt('progress.totalXp'), 50);
+    expect(storage.getString('user.usedInviteCode'), 'NEE-WILLY23');
+    // Saltar el avatar deja el de siempre y no cuenta como racha.
+    expect(storage.getString('user.avatar'), 'kavaju');
+    expect(find.text('0 días de racha'), findsOneWidget);
+  });
+
+  testWidgets('un código con formato inválido no frena el registro', (
+    tester,
+  ) async {
+    final storage = await pumpApp(tester);
+    await _skipIntro(tester);
+    await _fillForm(tester);
+    await tester.enterText(
+      _field('¿Tenés un código de invitación? (opcional)'),
+      'HOLA',
+    );
+    await _tapVisible(tester, find.text('Crear cuenta'));
+    await tester.pumpAndSettle();
+    // Muestra el error y no avanza.
+    expect(find.text('El código es como NEE-WILLY23'), findsOneWidget);
+    expect(find.text('¿Cuánto guaraní sabés?'), findsNothing);
+    expect(storage.getInt('progress.totalXp'), isNull);
   });
 }

@@ -11,6 +11,7 @@ import 'package:nee_app/features/lessons/data/lesson_repository.dart';
 import 'package:nee_app/features/notifications/messages.dart';
 import 'package:nee_app/features/notifications/notifications_provider.dart';
 import 'package:nee_app/features/onboarding/user_provider.dart';
+import 'package:nee_app/features/profile/badges.dart';
 import 'package:nee_app/features/progress/progress_provider.dart';
 import 'package:nee_app/features/settings/settings_provider.dart';
 import 'package:provider/provider.dart';
@@ -29,6 +30,10 @@ const onboardedPrefs = <String, Object>{
 Messages testMessages() =>
     Messages.fromJsonString(File(Messages.path).readAsStringSync());
 
+/// Los textos reales de `assets/data/insignias.json`.
+BadgeCatalog testBadgeCatalog() =>
+    BadgeCatalog.fromJsonString(File(BadgeCatalog.path).readAsStringSync());
+
 /// Levanta la app completa con los providers reales, como en `main()`.
 Future<StorageService> pumpApp(
   WidgetTester tester, {
@@ -42,6 +47,7 @@ Future<StorageService> pumpApp(
   // reabrir la app.
   await tester.pumpWidget(const SizedBox());
 
+  final user = UserProvider(storage, clock: clock);
   final progress = ProgressProvider(storage, clock: clock);
   final duels = DuelProvider(storage, clock: clock);
   final league = LeagueProvider(storage, progress, clock: clock);
@@ -54,6 +60,15 @@ Future<StorageService> pumpApp(
     clock: clock,
     random: Random(0),
   );
+  final badges = BadgeProvider(
+    storage,
+    catalog: testBadgeCatalog(),
+    progress: progress,
+    duels: duels,
+    league: league,
+    user: user,
+    clock: clock,
+  );
 
   await tester.pumpWidget(
     MultiProvider(
@@ -61,11 +76,12 @@ Future<StorageService> pumpApp(
         Provider<StorageService>.value(value: storage),
         Provider(create: (_) => LessonRepository(bundle: FileAssetBundle())),
         ChangeNotifierProvider(create: (_) => SettingsProvider(storage)),
-        ChangeNotifierProvider(create: (_) => UserProvider(storage)),
+        ChangeNotifierProvider.value(value: user),
         ChangeNotifierProvider.value(value: progress),
         ChangeNotifierProvider.value(value: duels),
         ChangeNotifierProvider.value(value: league),
         ChangeNotifierProvider.value(value: notifications),
+        ChangeNotifierProvider.value(value: badges),
       ],
       child: const NeeApp(),
     ),

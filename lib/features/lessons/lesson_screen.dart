@@ -115,6 +115,7 @@ class _LessonScreenState extends State<LessonScreen> {
       context.read<ProgressProvider>().completeLesson(
         widget.lesson.id,
         xp: outcome.xp,
+        perfect: _mistakes == 0,
       );
     }
     Navigator.of(context).pushReplacement(

@@ -1,0 +1,91 @@
+{
+  "_nota": "Textos de las insignias. La condición para ganar cada una está en el código (lib/features/profile/badges.dart) según su \"id\": no cambies los id. Se pueden editar nombre, emoji, como (cómo conseguirla, se muestra cuando está bloqueada) y festejo (se muestra al desbloquearla). Los que tienen \"verificar\": true tienen guaraní que conviene revisar con un hablante nativo.",
+  "insignias": [
+    {
+      "id": "primer_mborayhu",
+      "nombre": "Primer mborayhu",
+      "emoji": "💚",
+      "como": "Completá tu primera lección.",
+      "festejo": "Arrancó el amor por el guaraní. ¡Esto recién empieza!"
+    },
+    {
+      "id": "hendy_hina",
+      "nombre": "Hendy hína",
+      "emoji": "🔥",
+      "como": "Llegá a una racha de 3 días.",
+      "festejo": "Tres días seguidos. Tu fueguito ya está prendido."
+    },
+    {
+      "id": "kavaju_resa",
+      "nombre": "Kavaju resa",
+      "emoji": "🐴",
+      "como": "Llegá a una racha de 7 días.",
+      "festejo": "Una semana entera. Hendy kavaju resa, che ra'a ✨"
+    },
+    {
+      "id": "rey_terere",
+      "nombre": "Rey del tereré",
+      "emoji": "🧉",
+      "como": "Cumplí tu meta diaria 5 veces.",
+      "festejo": "Cinco metas cumplidas. Te ganaste la guampa de honor."
+    },
+    {
+      "id": "mbarete",
+      "nombre": "Mbarete",
+      "emoji": "💪",
+      "como": "Ganá 5 duelos.",
+      "festejo": "Cinco victorias. Ya te tienen miedo en el grupo."
+    },
+    {
+      "id": "dona_rosa",
+      "nombre": "Le ganaste a Doña Rosa",
+      "emoji": "👵",
+      "como": "Ganale un duelo a Doña Rosa.",
+      "festejo": "Le ganaste a la que habla guaraní desde chiquita. ¡Leyenda!"
+    },
+    {
+      "id": "liga_oro",
+      "nombre": "Liga Oro",
+      "emoji": "🥇",
+      "como": "Llegá a la Liga Oro.",
+      "festejo": "Estás en lo más alto. Ahora a defender el trono."
+    },
+    {
+      "id": "che_raa",
+      "nombre": "Che ra'a",
+      "emoji": "🤝",
+      "como": "Invitá a un amigo con tu código.",
+      "festejo": "Aprender con amigos es más lindo. ¡Gracias por sumar!"
+    },
+    {
+      "id": "chipa_caliente",
+      "nombre": "Chipa caliente",
+      "emoji": "🥯",
+      "como": "Terminá una lección sin ningún error.",
+      "festejo": "Perfecta, recién salida del tatakua."
+    },
+    {
+      "id": "jasy_jatere",
+      "nombre": "Jasy Jateré te vio",
+      "emoji": "🌞",
+      "como": "Practicá a la hora de la siesta (de 13 a 16 h).",
+      "festejo": "Estudiando en plena siesta... ¡cuidado que te lleva!"
+    },
+    {
+      "id": "nee_pora",
+      "nombre": "Ñe'ẽ porã",
+      "emoji": "📜",
+      "como": "Completá las 6 lecciones del curso.",
+      "festejo": "Terminaste todas las lecciones. ¡Tu guaraní ya es otra cosa!",
+      "verificar": true
+    },
+    {
+      "id": "pya_e",
+      "nombre": "Pya'e pya'e",
+      "emoji": "⚡",
+      "como": "Ganá un duelo acertando las 5 preguntas.",
+      "festejo": "Cinco de cinco. Más rápido que colectivo sin frenos.",
+      "verificar": true
+    }
+  ]
+}

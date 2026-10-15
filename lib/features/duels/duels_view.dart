@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../core/theme/app_theme.dart';
 import '../../core/utils/dates.dart';
+import '../profile/widgets/avatar_image.dart';
 import 'data/duel_models.dart';
 import 'duel_intro_screen.dart';
 import 'duel_provider.dart';
@@ -171,13 +172,8 @@ class _Avatar extends StatelessWidget {
   final Friend friend;
 
   @override
-  Widget build(BuildContext context) => ExcludeSemantics(
-    child: CircleAvatar(
-      radius: 24,
-      backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
-      child: Text(friend.emoji, style: const TextStyle(fontSize: 24)),
-    ),
-  );
+  Widget build(BuildContext context) =>
+      AvatarImage(avatarId: friend.avatar, size: 48);
 }
 
 class _PendingCard extends StatelessWidget {

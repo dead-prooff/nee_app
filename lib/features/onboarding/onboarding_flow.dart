@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../profile/avatars.dart';
+import '../profile/widgets/avatar_picker.dart';
 import '../progress/progress_provider.dart';
 import 'choice_step.dart';
 import 'intro_pages.dart';
 import 'register_step.dart';
 import 'user_provider.dart';
 
-enum _Step { intro, register, level, goal }
+enum _Step { intro, register, level, goal, avatar }
 
-/// Primera vez que se abre la app: bienvenida, registro, nivel y meta
-/// diaria. Al terminar se guarda todo y la app pasa a la pantalla principal.
+/// Primera vez que se abre la app: bienvenida, registro, nivel, meta
+/// diaria y avatar. Al terminar se guarda todo y la app pasa a la pantalla principal.
 class OnboardingFlow extends StatefulWidget {
   const OnboardingFlow({super.key});
 
@@ -28,16 +30,26 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
 
   void _back() => _go(_Step.values[_step.index - 1]);
 
-  Future<void> _finish(DailyGoal goal) async {
-    _goal = goal;
+  AvatarSelection _avatar = const AvatarSelection(avatarId: defaultAvatarId);
+
+  /// Termina el onboarding. [avatar] es null si se saltó ese paso.
+  Future<void> _finish(AvatarSelection? avatar) async {
     final registration = _registration!;
-    context.read<ProgressProvider>().setDailyGoal(goal);
-    await context.read<UserProvider>().completeOnboarding(
+    final progress = context.read<ProgressProvider>()..setDailyGoal(_goal!);
+    final user = context.read<UserProvider>();
+    // Con código de invitación: +50 XP de bienvenida (simulado).
+    if (registration.inviteCode != null) {
+      await progress.addBonusXp(UserProvider.inviteBonusXp);
+    }
+    await user.completeOnboarding(
       name: registration.name,
       username: registration.username,
       email: registration.email,
       authMethod: registration.method,
       level: _level!,
+      avatarId: avatar?.avatarId,
+      photo: avatar?.photo,
+      inviteCode: registration.inviteCode,
     );
   }
 
@@ -74,7 +86,7 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
       title: 'Elegí tu meta diaria',
       subtitle: 'Podés cambiarla cuando quieras desde Configuración.',
       initial: _goal ?? DailyGoal.regular,
-      buttonLabel: 'Empezar a aprender',
+      buttonLabel: 'Continuar',
       options: [
         for (final goal in DailyGoal.values)
           ChoiceOption(
@@ -89,16 +101,25 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
             badge: '${goal.xp} XP',
           ),
       ],
-      onConfirm: _finish,
+      onConfirm: (goal) {
+        _goal = goal;
+        _go(_Step.avatar);
+      },
+    ),
+    _Step.avatar => _AvatarStep(
+      initial: _avatar,
+      onChanged: (a) => _avatar = a,
+      onDone: () => _finish(_avatar),
+      onSkip: () => _finish(null),
     ),
   };
 
   @override
   Widget build(BuildContext context) {
     final showBar = _step != _Step.intro;
-    // Pasos con barra: registro, nivel y meta (1 a 3).
+    // Pasos con barra: registro, nivel, meta y avatar (1 a 4).
     final stepNumber = _step.index;
-    const steps = 3;
+    const steps = 4;
 
     return PopScope(
       canPop: _step == _Step.intro,
@@ -142,6 +163,73 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
           child: KeyedSubtree(key: ValueKey(_step), child: _content()),
         ),
       ),
+    );
+  }
+}
+
+/// Último paso: elegir avatar (se puede saltar).
+class _AvatarStep extends StatelessWidget {
+  const _AvatarStep({
+    required this.initial,
+    required this.onChanged,
+    required this.onDone,
+    required this.onSkip,
+  });
+
+  final AvatarSelection initial;
+  final ValueChanged<AvatarSelection> onChanged;
+  final VoidCallback onDone;
+  final VoidCallback onSkip;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Expanded(
+          child: ListView(
+            padding: const EdgeInsets.fromLTRB(20, 8, 20, 16),
+            children: [
+              Semantics(
+                header: true,
+                child: Text(
+                  'Elegí tu avatar',
+                  style: theme.textTheme.headlineSmall,
+                ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                'Un mito guaraní, un amigo del campo o tu propia foto.',
+                style: theme.textTheme.bodyLarge?.copyWith(
+                  color: theme.colorScheme.onSurfaceVariant,
+                ),
+              ),
+              const SizedBox(height: 16),
+              AvatarPicker(initial: initial, onChanged: onChanged),
+            ],
+          ),
+        ),
+        SafeArea(
+          top: false,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(20, 8, 20, 12),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                FilledButton(
+                  onPressed: onDone,
+                  child: const Text('Empezar a aprender'),
+                ),
+                TextButton(
+                  onPressed: onSkip,
+                  child: const Text('Saltar por ahora'),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

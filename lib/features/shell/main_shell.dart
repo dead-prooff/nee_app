@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../core/widgets/coming_soon_view.dart';
 import '../duels/duels_view.dart';
 import '../home/home_view.dart';
 import '../league/ranking_view.dart';
 import '../notifications/notification_models.dart';
 import '../notifications/notifications_provider.dart';
 import '../notifications/notifications_view.dart';
-import '../settings/settings_screen.dart';
+import '../profile/profile_view.dart';
+import '../profile/widgets/badge_widgets.dart';
 
 /// Estructura principal con la barra de navegación inferior (5 pestañas).
 class MainShell extends StatefulWidget {
@@ -48,59 +48,52 @@ class _MainShellState extends State<MainShell> {
       const DuelsView(),
       const RankingView(),
       NotificationsView(onOpen: _openFor),
-      ComingSoonView(
-        emoji: '🧉',
-        title: 'Perfil',
-        message: 'Estadísticas, insignias e invitaciones.',
-        action: FilledButton.icon(
-          onPressed: () => Navigator.of(context)
-              .push(MaterialPageRoute(builder: (_) => const SettingsScreen())),
-          icon: const Icon(Icons.settings),
-          label: const Text('Configuración'),
-        ),
-      ),
+      const ProfileView(),
     ];
 
-    return Scaffold(
-      appBar: AppBar(title: Text(_titles[_index])),
-      body: IndexedStack(index: _index, children: pages),
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: _index,
-        onDestinationSelected: _select,
-        destinations: [
-          const NavigationDestination(
-            icon: Icon(Icons.home_outlined),
-            selectedIcon: Icon(Icons.home),
-            label: 'Inicio',
-          ),
-          const NavigationDestination(
-            icon: Icon(Icons.sports_kabaddi_outlined),
-            selectedIcon: Icon(Icons.sports_kabaddi),
-            label: 'Duelos',
-          ),
-          const NavigationDestination(
-            icon: Icon(Icons.emoji_events_outlined),
-            selectedIcon: Icon(Icons.emoji_events),
-            label: 'Ranking',
-          ),
-          NavigationDestination(
-            icon: _UnreadBadge(
-              unread: unread,
-              child: const Icon(Icons.notifications_outlined),
+    // Festeja las insignias nuevas apenas se ganan.
+    return BadgeCelebrationListener(
+      child: Scaffold(
+        appBar: AppBar(title: Text(_titles[_index])),
+        body: IndexedStack(index: _index, children: pages),
+        bottomNavigationBar: NavigationBar(
+          selectedIndex: _index,
+          onDestinationSelected: _select,
+          destinations: [
+            const NavigationDestination(
+              icon: Icon(Icons.home_outlined),
+              selectedIcon: Icon(Icons.home),
+              label: 'Inicio',
             ),
-            selectedIcon: _UnreadBadge(
-              unread: unread,
-              child: const Icon(Icons.notifications),
+            const NavigationDestination(
+              icon: Icon(Icons.sports_kabaddi_outlined),
+              selectedIcon: Icon(Icons.sports_kabaddi),
+              label: 'Duelos',
             ),
-            label: 'Avisos',
-            tooltip: unread == 0 ? 'Avisos' : 'Avisos, $unread sin leer',
-          ),
-          const NavigationDestination(
-            icon: Icon(Icons.person_outline),
-            selectedIcon: Icon(Icons.person),
-            label: 'Perfil',
-          ),
-        ],
+            const NavigationDestination(
+              icon: Icon(Icons.emoji_events_outlined),
+              selectedIcon: Icon(Icons.emoji_events),
+              label: 'Ranking',
+            ),
+            NavigationDestination(
+              icon: _UnreadBadge(
+                unread: unread,
+                child: const Icon(Icons.notifications_outlined),
+              ),
+              selectedIcon: _UnreadBadge(
+                unread: unread,
+                child: const Icon(Icons.notifications),
+              ),
+              label: 'Avisos',
+              tooltip: unread == 0 ? 'Avisos' : 'Avisos, $unread sin leer',
+            ),
+            const NavigationDestination(
+              icon: Icon(Icons.person_outline),
+              selectedIcon: Icon(Icons.person),
+              label: 'Perfil',
+            ),
+          ],
+        ),
       ),
     );
   }

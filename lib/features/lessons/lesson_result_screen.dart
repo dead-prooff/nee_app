@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../../core/app_links.dart';
 import '../../core/theme/app_theme.dart';
 import 'data/lesson_models.dart';
 import 'lesson_screen.dart';
@@ -19,7 +20,7 @@ class LessonResultScreen extends StatelessWidget {
 
   String get _shareText =>
       '¡Terminé la lección "${lesson.title}" en Ñe\'ẽ y gané '
-      '${outcome.xp} XP! 🧉 Aprendé guaraní conmigo.';
+      '${outcome.xp} XP! 🧉 Aprendé guaraní conmigo: $appUrl';
 
   Future<void> _share(BuildContext context) async {
     // En tablets el menú de compartir necesita saber de dónde sale.
