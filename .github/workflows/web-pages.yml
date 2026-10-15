@@ -1,0 +1,69 @@
+# Compila la versión web y la publica en GitHub Pages:
+#   https://<tu-usuario>.github.io/<nombre-del-repo>/
+#
+# Corre en cada push a main (compilar en Linux es gratis en repos públicos)
+# y también a mano desde la pestaña Actions ("Run workflow").
+#
+# Requisito único: en el repo, Settings → Pages → Source: "GitHub Actions".
+
+name: Web (GitHub Pages)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Permisos que necesita el deploy a Pages.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Un solo deploy a la vez; si llega otro push, se espera al que está corriendo.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  # Misma versión que se usa en la PC de desarrollo.
+  FLUTTER_VERSION: '3.47.3'
+
+jobs:
+  build:
+    name: Analyze, tests y compilación web
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+
+      - run: flutter pub get
+      - run: flutter analyze
+      - run: flutter test
+
+      # La app vive en /<nombre-del-repo>/, no en la raíz del dominio.
+      - name: Compilar web
+        run: >
+          flutter build web --release
+          --base-href "/${{ github.event.repository.name }}/"
+          --no-wasm-dry-run
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/web
+
+  deploy:
+    name: Publicar en GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

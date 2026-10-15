@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!--
+    `flutter build web --base-href /nee_app/` reemplaza este valor por la
+    ruta donde se publica (en GitHub Pages: /<nombre-del-repo>/).
+  -->
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Aprendé guaraní y jopara con frases de la vida real.">
+  <meta name="theme-color" content="#1B7F4F">
+
+  <!-- iOS: permite "Agregar a pantalla de inicio" desde Safari -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Ñe'ẽ">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>Ñe'ẽ: aprendé guaraní</title>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    /* Pantalla de carga mientras se descarga la app (en el celular puede
+       tardar unos segundos la primera vez). */
+    html, body { margin: 0; height: 100%; background: #FAF7F0; }
+    #carga {
+      position: fixed; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 12px;
+      font-family: -apple-system, system-ui, sans-serif;
+      color: #1C2421; transition: opacity .3s;
+    }
+    #carga .mate { font-size: 64px; animation: latido 1.2s ease-in-out infinite; }
+    #carga p { margin: 0; font-size: 18px; font-weight: 700; }
+    @keyframes latido { 50% { transform: scale(1.12); } }
+    @media (prefers-reduced-motion: reduce) { #carga .mate { animation: none; } }
+  </style>
+</head>
+<body>
+  <div id="carga" role="status">
+    <div class="mate" aria-hidden="true">🧉</div>
+    <p>Cargando Ñe'ẽ…</p>
+  </div>
+  <script>
+    // Se saca la pantalla de carga cuando Flutter dibuja el primer frame.
+    window.addEventListener('flutter-first-frame', function () {
+      var carga = document.getElementById('carga');
+      if (!carga) return;
+      carga.style.opacity = '0';
+      setTimeout(function () { carga.remove(); }, 300);
+    });
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
