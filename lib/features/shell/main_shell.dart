@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/widgets/coming_soon_view.dart';
-import '../lessons/lessons_home_view.dart';
+import '../home/home_view.dart';
 import '../settings/settings_screen.dart';
 
 /// Estructura principal con la barra de navegación inferior (5 pestañas).
@@ -20,7 +20,7 @@ class _MainShellState extends State<MainShell> {
   @override
   Widget build(BuildContext context) {
     final pages = [
-      const LessonsHomeView(),
+      const HomeView(),
       const ComingSoonView(
         emoji: '⚔️',
         title: 'Duelos',
@@ -41,9 +41,8 @@ class _MainShellState extends State<MainShell> {
         title: 'Perfil',
         message: 'Estadísticas, insignias e invitaciones.',
         action: FilledButton.icon(
-          onPressed: () => Navigator.of(context).push(
-            MaterialPageRoute(builder: (_) => const SettingsScreen()),
-          ),
+          onPressed: () => Navigator.of(context)
+              .push(MaterialPageRoute(builder: (_) => const SettingsScreen())),
           icon: const Icon(Icons.settings),
           label: const Text('Configuración'),
         ),

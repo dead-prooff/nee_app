@@ -34,15 +34,21 @@ class AnswerTile extends StatelessWidget {
 
     final (bg, border, fg) = switch (state) {
       TileState.idle => (scheme.surface, scheme.outline, scheme.onSurface),
-      TileState.selected =>
-        (scheme.primaryContainer, scheme.primary, scheme.onPrimaryContainer),
+      TileState.selected => (
+        scheme.primaryContainer,
+        scheme.primary,
+        scheme.onPrimaryContainer,
+      ),
       TileState.correct || TileState.matched => (
-          feedback.successContainer,
-          feedback.success,
-          feedback.onSuccessContainer,
-        ),
-      TileState.wrong =>
-        (feedback.errorContainer, feedback.error, feedback.onErrorContainer),
+        feedback.successContainer,
+        feedback.success,
+        feedback.onSuccessContainer,
+      ),
+      TileState.wrong => (
+        feedback.errorContainer,
+        feedback.error,
+        feedback.onErrorContainer,
+      ),
     };
     const radius = BorderRadius.all(Radius.circular(16));
 
@@ -142,8 +148,11 @@ class ExerciseHeader extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(Icons.lightbulb_outline,
-                  size: 20, color: scheme.onSurfaceVariant),
+              Icon(
+                Icons.lightbulb_outline,
+                size: 20,
+                color: scheme.onSurfaceVariant,
+              ),
               const SizedBox(width: 8),
               Expanded(
                 child: Text(

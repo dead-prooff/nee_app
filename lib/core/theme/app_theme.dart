@@ -15,6 +15,7 @@ class FeedbackColors extends ThemeExtension<FeedbackColors> {
     required this.onErrorContainer,
     required this.fire,
     required this.gold,
+    required this.onGold,
   });
 
   final Color success;
@@ -26,6 +27,9 @@ class FeedbackColors extends ThemeExtension<FeedbackColors> {
   final Color fire;
   final Color gold;
 
+  /// Íconos y texto sobre [gold] (nodos completados del camino).
+  final Color onGold;
+
   static const light = FeedbackColors(
     success: AppColors.green,
     successContainer: AppColors.greenLight,
@@ -35,6 +39,7 @@ class FeedbackColors extends ThemeExtension<FeedbackColors> {
     onErrorContainer: AppColors.errorDark,
     fire: AppColors.fire,
     gold: AppColors.gold,
+    onGold: AppColors.onGold,
   );
 
   static const dark = FeedbackColors(
@@ -46,6 +51,7 @@ class FeedbackColors extends ThemeExtension<FeedbackColors> {
     onErrorContainer: AppColors.onErrorContainerDark,
     fire: AppColors.fire,
     gold: AppColors.gold,
+    onGold: AppColors.onGold,
   );
 
   @override
@@ -56,14 +62,26 @@ class FeedbackColors extends ThemeExtension<FeedbackColors> {
     if (other == null) return this;
     return FeedbackColors(
       success: Color.lerp(success, other.success, t)!,
-      successContainer: Color.lerp(successContainer, other.successContainer, t)!,
-      onSuccessContainer:
-          Color.lerp(onSuccessContainer, other.onSuccessContainer, t)!,
+      successContainer: Color.lerp(
+        successContainer,
+        other.successContainer,
+        t,
+      )!,
+      onSuccessContainer: Color.lerp(
+        onSuccessContainer,
+        other.onSuccessContainer,
+        t,
+      )!,
       error: Color.lerp(error, other.error, t)!,
       errorContainer: Color.lerp(errorContainer, other.errorContainer, t)!,
-      onErrorContainer: Color.lerp(onErrorContainer, other.onErrorContainer, t)!,
+      onErrorContainer: Color.lerp(
+        onErrorContainer,
+        other.onErrorContainer,
+        t,
+      )!,
       fire: Color.lerp(fire, other.fire, t)!,
       gold: Color.lerp(gold, other.gold, t)!,
+      onGold: Color.lerp(onGold, other.onGold, t)!,
     );
   }
 }
@@ -74,56 +92,56 @@ class AppTheme {
   static const fontFamily = 'Nunito';
 
   static ThemeData get light => _build(
-        ColorScheme.fromSeed(
-          seedColor: AppColors.green,
-          brightness: Brightness.light,
-        ).copyWith(
-          primary: AppColors.green,
-          onPrimary: Colors.white,
-          primaryContainer: AppColors.greenLight,
-          onPrimaryContainer: AppColors.greenDark,
-          secondary: AppColors.orange,
-          onSecondary: Colors.white,
-          secondaryContainer: AppColors.orangeLight,
-          onSecondaryContainer: const Color(0xFF6B2205),
-          surface: AppColors.surface,
-          onSurface: AppColors.text,
-          onSurfaceVariant: AppColors.textMuted,
-          surfaceContainerLowest: AppColors.background,
-          outline: AppColors.outline,
-          outlineVariant: AppColors.outline,
-          error: AppColors.error,
-          onError: Colors.white,
-        ),
-        background: AppColors.background,
-        feedback: FeedbackColors.light,
-      );
+    ColorScheme.fromSeed(
+      seedColor: AppColors.green,
+      brightness: Brightness.light,
+    ).copyWith(
+      primary: AppColors.green,
+      onPrimary: Colors.white,
+      primaryContainer: AppColors.greenLight,
+      onPrimaryContainer: AppColors.greenDark,
+      secondary: AppColors.orange,
+      onSecondary: Colors.white,
+      secondaryContainer: AppColors.orangeLight,
+      onSecondaryContainer: const Color(0xFF6B2205),
+      surface: AppColors.surface,
+      onSurface: AppColors.text,
+      onSurfaceVariant: AppColors.textMuted,
+      surfaceContainerLowest: AppColors.background,
+      outline: AppColors.outline,
+      outlineVariant: AppColors.outline,
+      error: AppColors.error,
+      onError: Colors.white,
+    ),
+    background: AppColors.background,
+    feedback: FeedbackColors.light,
+  );
 
   static ThemeData get dark => _build(
-        ColorScheme.fromSeed(
-          seedColor: AppColors.green,
-          brightness: Brightness.dark,
-        ).copyWith(
-          primary: AppColors.greenDarkMode,
-          onPrimary: AppColors.onGreenDarkMode,
-          primaryContainer: AppColors.successContainerDark,
-          onPrimaryContainer: AppColors.onSuccessContainerDark,
-          secondary: AppColors.orangeDarkMode,
-          onSecondary: AppColors.onOrangeDarkMode,
-          secondaryContainer: const Color(0xFF4A2210),
-          onSecondaryContainer: const Color(0xFFFFDBCB),
-          surface: AppColors.surfaceDark,
-          onSurface: AppColors.textDark,
-          onSurfaceVariant: AppColors.textMutedDark,
-          surfaceContainerLowest: AppColors.backgroundDark,
-          outline: AppColors.outlineDark,
-          outlineVariant: AppColors.outlineDark,
-          error: AppColors.errorDarkMode,
-          onError: const Color(0xFF3B0907),
-        ),
-        background: AppColors.backgroundDark,
-        feedback: FeedbackColors.dark,
-      );
+    ColorScheme.fromSeed(
+      seedColor: AppColors.green,
+      brightness: Brightness.dark,
+    ).copyWith(
+      primary: AppColors.greenDarkMode,
+      onPrimary: AppColors.onGreenDarkMode,
+      primaryContainer: AppColors.successContainerDark,
+      onPrimaryContainer: AppColors.onSuccessContainerDark,
+      secondary: AppColors.orangeDarkMode,
+      onSecondary: AppColors.onOrangeDarkMode,
+      secondaryContainer: const Color(0xFF4A2210),
+      onSecondaryContainer: const Color(0xFFFFDBCB),
+      surface: AppColors.surfaceDark,
+      onSurface: AppColors.textDark,
+      onSurfaceVariant: AppColors.textMutedDark,
+      surfaceContainerLowest: AppColors.backgroundDark,
+      outline: AppColors.outlineDark,
+      outlineVariant: AppColors.outlineDark,
+      error: AppColors.errorDarkMode,
+      onError: const Color(0xFF3B0907),
+    ),
+    background: AppColors.backgroundDark,
+    feedback: FeedbackColors.dark,
+  );
 
   static ThemeData _build(
     ColorScheme scheme, {
@@ -151,10 +169,15 @@ class AppTheme {
 
     return base.copyWith(
       textTheme: text.copyWith(
-        headlineLarge: text.headlineLarge?.copyWith(fontWeight: FontWeight.w800),
-        headlineMedium:
-            text.headlineMedium?.copyWith(fontWeight: FontWeight.w800),
-        headlineSmall: text.headlineSmall?.copyWith(fontWeight: FontWeight.w800),
+        headlineLarge: text.headlineLarge?.copyWith(
+          fontWeight: FontWeight.w800,
+        ),
+        headlineMedium: text.headlineMedium?.copyWith(
+          fontWeight: FontWeight.w800,
+        ),
+        headlineSmall: text.headlineSmall?.copyWith(
+          fontWeight: FontWeight.w800,
+        ),
         titleLarge: text.titleLarge?.copyWith(fontWeight: FontWeight.w800),
         titleMedium: text.titleMedium?.copyWith(fontWeight: FontWeight.w700),
         titleSmall: text.titleSmall?.copyWith(fontWeight: FontWeight.w700),
@@ -227,8 +250,10 @@ class AppTheme {
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: scheme.surface,
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 16,
+        ),
         border: OutlineInputBorder(
           borderRadius: radius,
           borderSide: BorderSide(color: scheme.outline, width: 1.5),
@@ -273,7 +298,9 @@ class AppTheme {
           ),
         ),
       ),
-      snackBarTheme: const SnackBarThemeData(behavior: SnackBarBehavior.floating),
+      snackBarTheme: const SnackBarThemeData(
+        behavior: SnackBarBehavior.floating,
+      ),
       dividerTheme: DividerThemeData(color: scheme.outline, thickness: 1),
     );
   }

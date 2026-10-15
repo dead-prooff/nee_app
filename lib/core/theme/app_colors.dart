@@ -19,6 +19,7 @@ class AppColors {
   /// suficiente para elementos gráficos (WCAG pide 3:1), NO usar en texto.
   static const fire = Color(0xFFE8553D);
   static const gold = Color(0xFFF2B705);
+  static const onGold = Color(0xFF3D2E00); // sobre gold: 7.27
 
   static const background = Color(0xFFFAF7F0); // texto encima: 14.83
   static const surface = Color(0xFFFFFFFF);

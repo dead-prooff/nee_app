@@ -27,8 +27,9 @@ class LessonResultScreen extends StatelessWidget {
     await SharePlus.instance.share(
       ShareParams(
         text: _shareText,
-        sharePositionOrigin:
-            box == null ? null : box.localToGlobal(Offset.zero) & box.size,
+        sharePositionOrigin: box == null
+            ? null
+            : box.localToGlobal(Offset.zero) & box.size,
       ),
     );
   }
@@ -68,9 +69,7 @@ class LessonResultScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        passed
-                            ? lesson.title
-                            : 'No pasa nada, cada intento suma. ¡Probá de nuevo!',
+                        passed ? lesson.title : 'No pasa nada, cada intento suma. ¡Probá de nuevo!',
                         style: theme.textTheme.bodyLarge?.copyWith(
                           color: theme.colorScheme.onSurfaceVariant,
                         ),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 import '../../core/theme/app_theme.dart';
+import '../progress/progress_provider.dart';
 import 'data/lesson_models.dart';
 import 'lesson_result_screen.dart';
 import 'widgets/build_exercise_view.dart';
@@ -109,6 +111,12 @@ class _LessonScreenState extends State<LessonScreen> {
       correct: _completed,
       livesLeft: _lives,
     );
+    if (passed) {
+      context.read<ProgressProvider>().completeLesson(
+        widget.lesson.id,
+        xp: outcome.xp,
+      );
+    }
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
         builder: (_) =>
@@ -149,13 +157,29 @@ class _LessonScreenState extends State<LessonScreen> {
 
     return switch (_current) {
       final ChoiceExercise e => ChoiceExerciseView(
-          key: key, exercise: e, locked: locked, onChanged: onChanged),
+        key: key,
+        exercise: e,
+        locked: locked,
+        onChanged: onChanged,
+      ),
       final BuildExercise e => BuildExerciseView(
-          key: key, exercise: e, locked: locked, onChanged: onChanged),
+        key: key,
+        exercise: e,
+        locked: locked,
+        onChanged: onChanged,
+      ),
       final MatchExercise e => MatchExerciseView(
-          key: key, exercise: e, locked: locked, onChanged: onChanged),
+        key: key,
+        exercise: e,
+        locked: locked,
+        onChanged: onChanged,
+      ),
       final ListenExercise e => ListenExerciseView(
-          key: key, exercise: e, locked: locked, onChanged: onChanged),
+        key: key,
+        exercise: e,
+        locked: locked,
+        onChanged: onChanged,
+      ),
     };
   }
 

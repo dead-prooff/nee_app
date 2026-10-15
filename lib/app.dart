@@ -23,8 +23,10 @@ class NeeApp extends StatelessWidget {
       builder: (context, child) {
         final media = MediaQuery.of(context);
         final systemFactor = media.textScaler.scale(14) / 14;
-        final factor =
-            (systemFactor * settings.textSize.factor).clamp(1.0, 2.0);
+        final factor = (systemFactor * settings.textSize.factor).clamp(
+          1.0,
+          2.0,
+        );
         return MediaQuery(
           data: media.copyWith(textScaler: TextScaler.linear(factor)),
           child: child!,

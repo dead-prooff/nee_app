@@ -62,7 +62,10 @@ class _ListenExerciseViewState extends State<ListenExerciseView> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        ExerciseHeader(instruction: 'Escuchá y elegí lo que oíste', hint: ex.hint),
+        ExerciseHeader(
+          instruction: 'Escuchá y elegí lo que oíste',
+          hint: ex.hint,
+        ),
         const SizedBox(height: 24),
         Center(
           child: Semantics(
@@ -93,14 +96,18 @@ class _ListenExerciseViewState extends State<ListenExerciseView> {
               children: [
                 Row(
                   children: [
-                    Icon(Icons.info_outline,
-                        size: 20, color: scheme.onSurfaceVariant),
+                    Icon(
+                      Icons.info_outline,
+                      size: 20,
+                      color: scheme.onSurfaceVariant,
+                    ),
                     const SizedBox(width: 8),
                     Expanded(
                       child: Text(
                         'Audio de prueba: esta frase todavía no está grabada.',
-                        style: theme.textTheme.bodyMedium
-                            ?.copyWith(color: scheme.onSurfaceVariant),
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          color: scheme.onSurfaceVariant,
+                        ),
                       ),
                     ),
                   ],

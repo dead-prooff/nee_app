@@ -13,14 +13,14 @@ class Unit {
   });
 
   factory Unit.fromJson(Map<String, dynamic> json) => Unit(
-        id: json['id'] as String,
-        title: json['titulo'] as String,
-        emoji: json['emoji'] as String? ?? '📘',
-        lessons: [
-          for (final l in json['lecciones'] as List)
-            Lesson.fromJson(l as Map<String, dynamic>),
-        ],
-      );
+    id: json['id'] as String,
+    title: json['titulo'] as String,
+    emoji: json['emoji'] as String? ?? '📘',
+    lessons: [
+      for (final l in json['lecciones'] as List)
+        Lesson.fromJson(l as Map<String, dynamic>),
+    ],
+  );
 
   final String id;
   final String title;
@@ -37,14 +37,14 @@ class Lesson {
   });
 
   factory Lesson.fromJson(Map<String, dynamic> json) => Lesson(
-        id: json['id'] as String,
-        title: json['titulo'] as String,
-        xp: json['xp'] as int? ?? 10,
-        exercises: [
-          for (final e in json['ejercicios'] as List)
-            Exercise.fromJson(e as Map<String, dynamic>),
-        ],
-      );
+    id: json['id'] as String,
+    title: json['titulo'] as String,
+    xp: json['xp'] as int? ?? 10,
+    exercises: [
+      for (final e in json['ejercicios'] as List)
+        Exercise.fromJson(e as Map<String, dynamic>),
+    ],
+  );
 
   final String id;
   final String title;
@@ -70,34 +70,36 @@ sealed class Exercise {
     final hint = json['pista'] as String?;
     return switch (json['tipo']) {
       'traduccion' => ChoiceExercise(
-          direction: Direction.parse(json['direccion'] as String?),
-          prompt: json['pregunta'] as String,
-          options: List<String>.from(json['opciones'] as List),
-          answer: json['respuesta'] as String,
-          hint: hint,
-        ),
+        direction: Direction.parse(json['direccion'] as String?),
+        prompt: json['pregunta'] as String,
+        options: List<String>.from(json['opciones'] as List),
+        answer: json['respuesta'] as String,
+        hint: hint,
+      ),
       'armar' => BuildExercise(
-          direction: Direction.parse(json['direccion'] as String?),
-          prompt: json['pregunta'] as String,
-          answer: json['respuesta'] as String,
-          extras: List<String>.from(json['extras'] as List? ?? const []),
-          hint: hint,
-        ),
+        direction: Direction.parse(json['direccion'] as String?),
+        prompt: json['pregunta'] as String,
+        answer: json['respuesta'] as String,
+        extras: List<String>.from(json['extras'] as List? ?? const []),
+        hint: hint,
+      ),
       'pares' => MatchExercise(
-          pairs: [
-            for (final p in json['pares'] as List)
-              (guarani: p[0] as String, spanish: p[1] as String),
-          ],
-          hint: hint,
-        ),
+        pairs: [
+          for (final p in json['pares'] as List)
+            (guarani: p[0] as String, spanish: p[1] as String),
+        ],
+        hint: hint,
+      ),
       'escuchar' => ListenExercise(
-          audio: json['audio'] as String,
-          options: List<String>.from(json['opciones'] as List),
-          answer: json['respuesta'] as String,
-          translation: json['traduccion'] as String?,
-          hint: hint,
-        ),
-      final tipo => throw FormatException('Tipo de ejercicio desconocido: $tipo'),
+        audio: json['audio'] as String,
+        options: List<String>.from(json['opciones'] as List),
+        answer: json['respuesta'] as String,
+        translation: json['traduccion'] as String?,
+        hint: hint,
+      ),
+      final tipo => throw FormatException(
+        'Tipo de ejercicio desconocido: $tipo',
+      ),
     };
   }
 

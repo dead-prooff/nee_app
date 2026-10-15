@@ -7,8 +7,9 @@ import 'package:nee_app/features/lessons/data/lesson_models.dart';
 /// Revisa que `lecciones.json` sea coherente, para atrapar errores al editar
 /// el contenido a mano (respuesta que no está entre las opciones, etc.).
 void main() {
-  final json = jsonDecode(File('assets/data/lecciones.json').readAsStringSync())
-      as Map<String, dynamic>;
+  final json = jsonDecode(
+    File('assets/data/lecciones.json').readAsStringSync(),
+  ) as Map<String, dynamic>;
   final units = [
     for (final u in json['unidades'] as List)
       Unit.fromJson(u as Map<String, dynamic>),
@@ -46,14 +47,23 @@ void main() {
             }
           case MatchExercise(:final pairs):
             expect(pairs.length, greaterThanOrEqualTo(3), reason: where);
-            expect(pairs.map((p) => p.guarani).toSet(), hasLength(pairs.length),
-                reason: where);
-            expect(pairs.map((p) => p.spanish).toSet(), hasLength(pairs.length),
-                reason: where);
+            expect(
+              pairs.map((p) => p.guarani).toSet(),
+              hasLength(pairs.length),
+              reason: where,
+            );
+            expect(
+              pairs.map((p) => p.spanish).toSet(),
+              hasLength(pairs.length),
+              reason: where,
+            );
         }
         if (ex is ListenExercise) {
-          expect(ex.audio, matches(RegExp(r'^[a-z0-9_]+\.(mp3|wav|m4a)$')),
-              reason: where);
+          expect(
+            ex.audio,
+            matches(RegExp(r'^[a-z0-9_]+\.(mp3|wav|m4a)$')),
+            reason: where,
+          );
         }
       }
     }

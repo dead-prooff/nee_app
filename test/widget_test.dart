@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:nee_app/app.dart';
 import 'package:nee_app/core/services/storage_service.dart';
 import 'package:nee_app/features/lessons/data/lesson_repository.dart';
+import 'package:nee_app/features/progress/progress_provider.dart';
 import 'package:nee_app/features/settings/settings_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -17,6 +18,7 @@ void main() {
           Provider<StorageService>.value(value: storage),
           Provider(create: (_) => LessonRepository()),
           ChangeNotifierProvider(create: (_) => SettingsProvider(storage)),
+          ChangeNotifierProvider(create: (_) => ProgressProvider(storage)),
         ],
         child: const NeeApp(),
       ),

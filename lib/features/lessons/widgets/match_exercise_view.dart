@@ -100,20 +100,20 @@ class _MatchExerciseViewState extends State<MatchExerciseView> {
     final pairs = widget.exercise.pairs;
 
     Widget column(List<int> order, {required bool isLeft}) => Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            for (final i in order) ...[
-              AnswerTile(
-                label: isLeft ? pairs[i].guarani : pairs[i].spanish,
-                state: _state(i, isLeft: isLeft),
-                onTap: widget.locked || _matched.contains(i)
-                    ? null
-                    : () => isLeft ? _tap(left: i) : _tap(right: i),
-              ),
-              const SizedBox(height: 12),
-            ],
-          ],
-        );
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        for (final i in order) ...[
+          AnswerTile(
+            label: isLeft ? pairs[i].guarani : pairs[i].spanish,
+            state: _state(i, isLeft: isLeft),
+            onTap: widget.locked || _matched.contains(i)
+                ? null
+                : () => isLeft ? _tap(left: i) : _tap(right: i),
+          ),
+          const SizedBox(height: 12),
+        ],
+      ],
+    );
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,

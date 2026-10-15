@@ -17,8 +17,8 @@ class LessonRepository {
   Future<List<Unit>> loadUnits() => _units ??= _load();
 
   Future<List<Unit>> _load() async {
-    final json = jsonDecode(await _bundle.loadString(_path))
-        as Map<String, dynamic>;
+    final json =
+        jsonDecode(await _bundle.loadString(_path)) as Map<String, dynamic>;
     return [
       for (final u in json['unidades'] as List)
         Unit.fromJson(u as Map<String, dynamic>),

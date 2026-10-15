@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:nee_app/core/services/storage_service.dart';
 import 'package:nee_app/core/theme/app_theme.dart';
 import 'package:nee_app/features/lessons/data/lesson_models.dart';
 import 'package:nee_app/features/lessons/lesson_screen.dart';
+import 'package:nee_app/features/progress/progress_provider.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 const _lesson = Lesson(
   id: 'test',
@@ -30,17 +34,24 @@ const _lesson = Lesson(
   ],
 );
 
+late ProgressProvider _progress;
+
 Future<void> _open(WidgetTester tester, {Lesson lesson = _lesson}) async {
+  SharedPreferences.setMockInitialValues({});
+  _progress = ProgressProvider(await StorageService.init());
   await tester.pumpWidget(
-    MaterialApp(
-      theme: AppTheme.light,
-      home: Builder(
-        builder: (context) => Scaffold(
-          body: TextButton(
-            onPressed: () => Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => LessonScreen(lesson: lesson)),
+    ChangeNotifierProvider.value(
+      value: _progress,
+      child: MaterialApp(
+        theme: AppTheme.light,
+        home: Builder(
+          builder: (context) => Scaffold(
+            body: TextButton(
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => LessonScreen(lesson: lesson)),
+              ),
+              child: const Text('abrir'),
             ),
-            child: const Text('abrir'),
           ),
         ),
       ),
@@ -90,6 +101,8 @@ void main() {
     expect(find.text('¡Lección completada!'), findsOneWidget);
     expect(find.text('+15'), findsOneWidget);
     expect(find.text('Compartir'), findsOneWidget);
+    expect(_progress.isCompleted('test'), isTrue);
+    expect(_progress.xpToday, 15);
   });
 
   testWidgets('un error muestra la respuesta correcta y resta una vida', (
@@ -131,5 +144,7 @@ void main() {
     expect(find.text('Te quedaste sin vidas'), findsOneWidget);
     expect(find.text('Reintentar'), findsOneWidget);
     expect(find.text('+0'), findsOneWidget);
+    expect(_progress.isCompleted('uno'), isFalse);
+    expect(_progress.streak, 0);
   });
 }

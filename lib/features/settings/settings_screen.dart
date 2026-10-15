@@ -42,7 +42,10 @@ class SettingsScreen extends StatelessWidget {
                       for (final option in TextSizeOption.values)
                         ButtonSegment(
                           value: option,
-                          label: Text(option.label, textAlign: TextAlign.center),
+                          label: Text(
+                            option.label,
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                     ],
                     selected: {settings.textSize},
@@ -86,10 +89,7 @@ class _SectionTitle extends StatelessWidget {
       padding: const EdgeInsets.only(left: 4, bottom: 8),
       child: Semantics(
         header: true,
-        child: Text(
-          text,
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
+        child: Text(text, style: Theme.of(context).textTheme.titleMedium),
       ),
     );
   }

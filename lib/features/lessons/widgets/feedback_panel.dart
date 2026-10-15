@@ -76,8 +76,9 @@ class FeedbackPanel extends StatelessWidget {
                 autofocus: true,
                 style: FilledButton.styleFrom(
                   backgroundColor: accent,
-                  foregroundColor:
-                      correct ? theme.colorScheme.onPrimary : theme.colorScheme.onError,
+                  foregroundColor: correct
+                      ? theme.colorScheme.onPrimary
+                      : theme.colorScheme.onError,
                 ),
                 child: const Text('Continuar'),
               ),
