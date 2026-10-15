@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/widgets/coming_soon_view.dart';
+import '../lessons/lessons_home_view.dart';
 import '../settings/settings_screen.dart';
 
 /// Estructura principal con la barra de navegación inferior (5 pestañas).
@@ -19,11 +20,7 @@ class _MainShellState extends State<MainShell> {
   @override
   Widget build(BuildContext context) {
     final pages = [
-      const ComingSoonView(
-        emoji: '🌿',
-        title: 'Inicio',
-        message: 'Acá va el camino de lecciones, tu racha y tu XP.',
-      ),
+      const LessonsHomeView(),
       const ComingSoonView(
         emoji: '⚔️',
         title: 'Duelos',

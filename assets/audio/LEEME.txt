@@ -1,1 +1,22 @@
-Archivos de audio por frase (se completan en el paso 2).
+Archivos de audio por frase.
+
+Cada ejercicio "escuchar" de assets/data/lecciones.json indica su archivo en
+el campo "audio" (por ejemplo "ipora.mp3"). Para agregar una grabación real,
+copiá el archivo acá con ese mismo nombre.
+
+Mientras un archivo no exista, la app reproduce placeholder.wav (un tono
+corto) y ofrece mostrar el texto de la frase.
+
+Archivos que faltan grabar:
+- ipora.mp3                (Iporã)
+- mbaeichapa_ndekaaru.mp3  (Mba'éichapa ndeka'aru)
+- jajotopata.mp3           (Jajotopata)
+- tereguahe_pora.mp3       (Tereg̃uahẽ porã)
+- che_jaryi.mp3            (Che jarýi)
+- che_sy_ha_che_ru.mp3     (Che sy ha che ru)
+- mita.mp3                 (Mitã)
+- che_roga.mp3             (Che róga)
+- mandio.mp3               (Mandi'o)
+- aipota_kamby.mp3         (Aipota kamby)
+- poha_nana.mp3            (Pohã ñana)
+- jaha_jau_terere.mp3      (Jaha ja'u tereré)
