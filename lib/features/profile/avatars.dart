@@ -98,7 +98,7 @@ const avatars = [
 ];
 
 /// Avatar del usuario si todavía no eligió ninguno.
-const defaultAvatarId = 'kavaju';
+const defaultAvatarId = 'mate';
 
 AvatarInfo avatarById(String id) => avatars.firstWhere(
   (a) => a.id == id,

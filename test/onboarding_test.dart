@@ -264,7 +264,7 @@ void main() {
     expect(storage.getInt('progress.totalXp'), 50);
     expect(storage.getString('user.usedInviteCode'), 'NEE-WILLY23');
     // Saltar el avatar deja el de siempre y no cuenta como racha.
-    expect(storage.getString('user.avatar'), 'kavaju');
+    expect(storage.getString('user.avatar'), 'mate');
     expect(find.text('0 días de racha'), findsOneWidget);
   });
 
