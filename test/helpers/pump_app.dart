@@ -4,17 +4,11 @@ import 'dart:math';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:nee_app/app.dart';
+import 'package:nee_app/app_scope.dart';
 import 'package:nee_app/core/services/storage_service.dart';
-import 'package:nee_app/features/duels/duel_provider.dart';
-import 'package:nee_app/features/league/league_provider.dart';
-import 'package:nee_app/features/lessons/data/lesson_repository.dart';
 import 'package:nee_app/features/notifications/messages.dart';
-import 'package:nee_app/features/notifications/notifications_provider.dart';
-import 'package:nee_app/features/onboarding/user_provider.dart';
 import 'package:nee_app/features/profile/badges.dart';
-import 'package:nee_app/features/progress/progress_provider.dart';
-import 'package:nee_app/features/settings/settings_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:nee_app/features/settings/demo_profile.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'file_asset_bundle.dart';
@@ -39,50 +33,26 @@ Future<StorageService> pumpApp(
   WidgetTester tester, {
   Map<String, Object> prefs = const {},
   DateTime Function()? clock,
+  bool demo = false,
 }) async {
   SharedPreferences.setMockInitialValues(prefs);
   final storage = await StorageService.init();
+  // Con [demo], arranca con el perfil de ejemplo del Modo demo.
+  if (demo) {
+    await applyDemoProfile(storage, now: (clock ?? DateTime.now)());
+  }
 
   // Desmonta lo anterior para que los providers se creen de nuevo, como al
   // reabrir la app.
   await tester.pumpWidget(const SizedBox());
-
-  final user = UserProvider(storage, clock: clock);
-  final progress = ProgressProvider(storage, clock: clock);
-  final duels = DuelProvider(storage, clock: clock);
-  final league = LeagueProvider(storage, progress, clock: clock);
-  final notifications = NotificationsProvider(
-    storage,
-    messages: testMessages(),
-    progress: progress,
-    duels: duels,
-    league: league,
-    clock: clock,
-    random: Random(0),
-  );
-  final badges = BadgeProvider(
-    storage,
-    catalog: testBadgeCatalog(),
-    progress: progress,
-    duels: duels,
-    league: league,
-    user: user,
-    clock: clock,
-  );
-
   await tester.pumpWidget(
-    MultiProvider(
-      providers: [
-        Provider<StorageService>.value(value: storage),
-        Provider(create: (_) => LessonRepository(bundle: FileAssetBundle())),
-        ChangeNotifierProvider(create: (_) => SettingsProvider(storage)),
-        ChangeNotifierProvider.value(value: user),
-        ChangeNotifierProvider.value(value: progress),
-        ChangeNotifierProvider.value(value: duels),
-        ChangeNotifierProvider.value(value: league),
-        ChangeNotifierProvider.value(value: notifications),
-        ChangeNotifierProvider.value(value: badges),
-      ],
+    AppScope(
+      storage: storage,
+      messages: testMessages(),
+      badgeCatalog: testBadgeCatalog(),
+      lessonBundle: FileAssetBundle(),
+      clock: clock,
+      random: Random(0),
       child: const NeeApp(),
     ),
   );

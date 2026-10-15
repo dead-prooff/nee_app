@@ -97,8 +97,10 @@ class _LeagueHeader extends StatelessWidget {
             Semantics(
               label: 'Ligas: Bronce, Plata y Oro. Estás en ${league.label}',
               excludeSemantics: true,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              child: Wrap(
+                alignment: WrapAlignment.center,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                runSpacing: 8,
                 children: [
                   for (final l in League.values) ...[
                     if (l != League.values.first)
@@ -209,11 +211,15 @@ class _ZoneLabel extends StatelessWidget {
           const SizedBox(width: 8),
           Icon(icon, size: 16, color: color),
           const SizedBox(width: 4),
-          Text(
-            text,
-            style: theme.textTheme.labelLarge?.copyWith(
-              color: color,
-              fontSize: 13,
+          Flexible(
+            flex: 4,
+            child: Text(
+              text,
+              textAlign: TextAlign.center,
+              style: theme.textTheme.labelLarge?.copyWith(
+                color: color,
+                fontSize: 13,
+              ),
             ),
           ),
           const SizedBox(width: 8),

@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/theme/app_theme.dart';
@@ -12,6 +11,7 @@ import '../progress/progress_provider.dart';
 import 'data/duel_models.dart';
 import 'duel_provider.dart';
 import 'duel_result_screen.dart';
+import '../../core/services/haptics.dart';
 
 /// Duelo en curso: 5 preguntas con 10 segundos cada una.
 ///
@@ -94,9 +94,9 @@ class _DuelScreenState extends State<DuelScreen>
     final elapsed = (_clock.value * DuelScreen.questionTime.inMilliseconds)
         .round();
     if (option == _question.answer) {
-      HapticFeedback.selectionClick();
+      Haptics.success(context);
     } else {
-      HapticFeedback.mediumImpact();
+      Haptics.error(context);
     }
     setState(() {
       _myAnswers.add(option);
@@ -440,7 +440,7 @@ class _RevealMessage extends StatelessWidget {
             color: correct ? colors.success : colors.error,
           ),
           const SizedBox(width: 8),
-          Text(text, style: theme.textTheme.titleMedium),
+          Expanded(child: Text(text, style: theme.textTheme.titleMedium)),
         ],
       ),
     );

@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../lessons/data/lesson_models.dart';
 import '../lessons/data/lesson_repository.dart';
 import '../lessons/lesson_screen.dart';
+import '../onboarding/user_provider.dart';
 import '../progress/progress_provider.dart';
 import 'daily_stats_header.dart';
 import 'lesson_path.dart';
@@ -58,6 +59,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     final progress = context.watch<ProgressProvider>();
+    final level = context.select<UserProvider, StartLevel?>((u) => u.level);
 
     return FutureBuilder<List<Unit>>(
       future: _units,
@@ -83,9 +85,12 @@ class _HomeViewState extends State<HomeView> {
         var index = 0; // posición global en el camino
         var previousDone = true; // la primera lección siempre está abierta
         var currentFound = false;
+        // El nivel elegido en el registro abre de entrada las primeras
+        // lecciones (ver StartLevel.unlockedLessons).
+        final openByLevel = level?.unlockedLessons ?? 1;
 
         for (final (u, unit) in units.indexed) {
-          final firstLocked = !previousDone;
+          final firstLocked = !previousDone && index >= openByLevel;
           children.add(
             Padding(
               padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
@@ -105,7 +110,7 @@ class _HomeViewState extends State<HomeView> {
             final NodeState state;
             if (done) {
               state = NodeState.completed;
-            } else if (!previousDone) {
+            } else if (!previousDone && index >= openByLevel) {
               state = NodeState.locked;
             } else if (!currentFound) {
               state = NodeState.current;
@@ -137,19 +142,22 @@ class _HomeViewState extends State<HomeView> {
           children.add(const SizedBox(height: 8));
         }
 
-        return Column(
-          children: [
-            const Padding(
-              padding: EdgeInsets.fromLTRB(16, 4, 16, 8),
-              child: DailyStatsHeader(),
-            ),
-            Expanded(
-              child: ListView(
-                padding: const EdgeInsets.only(top: 8, bottom: 32),
-                children: children,
+        // El encabezado va dentro de la lista: con letra muy grande ocupa
+        // mucho y fijo arriba no dejaría lugar al camino.
+        // Se arma completo (no una lista "perezosa"): el camino es corto y
+        // así el salto automático a la lección que sigue siempre la encuentra.
+        return SingleChildScrollView(
+          padding: const EdgeInsets.only(top: 4, bottom: 32),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const Padding(
+                padding: EdgeInsets.fromLTRB(16, 0, 16, 16),
+                child: DailyStatsHeader(),
               ),
-            ),
-          ],
+              ...children,
+            ],
+          ),
         );
       },
     );

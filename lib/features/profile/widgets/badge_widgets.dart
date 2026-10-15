@@ -110,11 +110,14 @@ class BadgeGrid extends StatelessWidget {
     return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
         maxCrossAxisExtent: 140,
         mainAxisSpacing: 12,
         crossAxisSpacing: 8,
-        childAspectRatio: 0.62,
+        // Medalla + nombre (2 renglones) + cómo conseguirla (3 renglones),
+        // según el tamaño de letra.
+        mainAxisExtent:
+            86 + MediaQuery.textScalerOf(context).scale(12) * 1.45 * 5,
       ),
       itemCount: badges.all.length,
       itemBuilder: (context, i) {
@@ -292,59 +295,4 @@ class BadgeCelebrationDialog extends StatelessWidget {
       ],
     );
   }
-}
-
-/// Muestra el festejo de cada insignia nueva, una por una, donde sea que
-/// esté el usuario (por ejemplo, encima del resultado de una lección).
-class BadgeCelebrationListener extends StatefulWidget {
-  const BadgeCelebrationListener({super.key, required this.child});
-
-  final Widget child;
-
-  @override
-  State<BadgeCelebrationListener> createState() =>
-      _BadgeCelebrationListenerState();
-}
-
-class _BadgeCelebrationListenerState extends State<BadgeCelebrationListener> {
-  BadgeProvider? _badges;
-  bool _showing = false;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    final badges = context.read<BadgeProvider>();
-    if (badges != _badges) {
-      _badges?.removeListener(_maybeShow);
-      _badges = badges..addListener(_maybeShow);
-      _maybeShow();
-    }
-  }
-
-  @override
-  void dispose() {
-    _badges?.removeListener(_maybeShow);
-    super.dispose();
-  }
-
-  void _maybeShow() {
-    if (_showing || _badges?.nextCelebration == null) return;
-    _showing = true;
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      final badge = _badges?.nextCelebration;
-      if (!mounted || badge == null) {
-        _showing = false;
-        return;
-      }
-      await showDialog<void>(
-        context: context,
-        builder: (_) => BadgeCelebrationDialog(badge: badge),
-      );
-      _showing = false;
-      _badges?.celebrationShown(); // dispara _maybeShow para la siguiente
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) => widget.child;
 }

@@ -212,6 +212,8 @@ void main() {
         await answer(tester, 'si$i');
       }
 
+      // Termina el festejo (el XP sube contando).
+      await tester.pumpAndSettle();
       expect(find.text('¡Ganaste!'), findsOneWidget);
       expect(find.text('5 – 2'), findsOneWidget);
       expect(find.text('+15 XP'), findsOneWidget);
@@ -244,6 +246,8 @@ void main() {
       for (var i = 1; i <= 5; i++) {
         await answer(tester, 'no$i');
       }
+      // Termina el festejo (el XP sube contando).
+      await tester.pumpAndSettle();
       expect(find.text('Perdiste'), findsOneWidget);
       expect(find.text('+3 XP'), findsOneWidget);
       expect(duels.pending.map((p) => p.id), isNot(contains(pending.id)));

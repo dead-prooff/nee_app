@@ -8,7 +8,7 @@ import '../notifications/notification_models.dart';
 import '../notifications/notifications_provider.dart';
 import '../notifications/notifications_view.dart';
 import '../profile/profile_view.dart';
-import '../profile/widgets/badge_widgets.dart';
+import 'celebration_listener.dart';
 
 /// Estructura principal con la barra de navegación inferior (5 pestañas).
 class MainShell extends StatefulWidget {
@@ -51,8 +51,8 @@ class _MainShellState extends State<MainShell> {
       const ProfileView(),
     ];
 
-    // Festeja las insignias nuevas apenas se ganan.
-    return BadgeCelebrationListener(
+    // Festeja ascensos de liga e insignias nuevas apenas pasan.
+    return CelebrationListener(
       child: Scaffold(
         appBar: AppBar(title: Text(_titles[_index])),
         body: IndexedStack(index: _index, children: pages),

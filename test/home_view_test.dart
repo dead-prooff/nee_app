@@ -4,6 +4,7 @@ import 'package:nee_app/core/services/storage_service.dart';
 import 'package:nee_app/core/theme/app_theme.dart';
 import 'package:nee_app/features/home/home_view.dart';
 import 'package:nee_app/features/lessons/data/lesson_repository.dart';
+import 'package:nee_app/features/onboarding/user_provider.dart';
 import 'package:nee_app/features/progress/progress_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -25,6 +26,7 @@ Future<void> _pumpHome(
       providers: [
         Provider(create: (_) => LessonRepository(bundle: FileAssetBundle())),
         ChangeNotifierProvider(create: (_) => ProgressProvider(storage)),
+        ChangeNotifierProvider(create: (_) => UserProvider(storage)),
       ],
       child: MaterialApp(
         theme: AppTheme.light,
@@ -126,5 +128,38 @@ void main() {
     );
     expect(find.textContaining('Hendy'), findsNothing);
     expect(find.text('Hacé una lección hoy para no perderla'), findsOneWidget);
+  });
+
+  group('Nivel inicial', () {
+    Future<int> openLessons(WidgetTester tester, String level) async {
+      await _pumpHome(tester, prefs: {'user.level': level});
+      return find
+          .bySemanticsLabel(
+            RegExp(r'^Lección \d+: .*(siguiente lección|disponible)$'),
+          )
+          .evaluate()
+          .length;
+    }
+
+    testWidgets('"Nunca hablé" empieza de cero', (tester) async {
+      expect(await openLessons(tester, 'none'), 1);
+    });
+
+    testWidgets('"Entiendo algo" abre las primeras lecciones', (tester) async {
+      expect(await openLessons(tester, 'some'), 2);
+      expect(find.bySemanticsLabel(RegExp(r'bloqueada$')), findsNWidgets(4));
+    });
+
+    testWidgets('"Hablo jopara" abre la Unidad 1 completa', (tester) async {
+      expect(await openLessons(tester, 'jopara'), 3);
+      expect(
+        find.bySemanticsLabel(
+          RegExp(r'^Lección 3: Mamá, papá y abuelos, disponible$'),
+        ),
+        findsOneWidget,
+      );
+      // Abiertas, pero no completadas: no regala XP ni insignias.
+      expect(find.bySemanticsLabel(RegExp(r'completada$')), findsNothing);
+    });
   });
 }

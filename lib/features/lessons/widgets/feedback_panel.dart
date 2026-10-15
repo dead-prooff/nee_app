@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/theme/app_theme.dart';
+import '../../../core/widgets/celebration.dart';
 
 /// Panel inferior que aparece al comprobar: verde si acertó, rojo si no,
 /// con ícono, texto y (si hace falta) la respuesta correcta.
@@ -28,7 +29,7 @@ class FeedbackPanel extends StatelessWidget {
     final accent = correct ? colors.success : colors.error;
     final title = correct ? '¡Iporã! Correcto' : 'Incorrecto';
 
-    return Semantics(
+    final panel = Semantics(
       liveRegion: true,
       container: true,
       child: Container(
@@ -43,10 +44,12 @@ class FeedbackPanel extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Icon(
-                    correct ? Icons.check_circle : Icons.cancel,
-                    color: accent,
-                    size: 32,
+                  PopIn(
+                    child: Icon(
+                      correct ? Icons.check_circle : Icons.cancel,
+                      color: accent,
+                      size: 32,
+                    ),
                   ),
                   const SizedBox(width: 12),
                   Expanded(
@@ -86,6 +89,17 @@ class FeedbackPanel extends StatelessWidget {
           ),
         ),
       ),
+    );
+
+    // Entra desde abajo (sin animación si se pide reducir movimiento).
+    if (reduceMotion(context)) return panel;
+    return TweenAnimationBuilder<double>(
+      tween: Tween(begin: 1, end: 0),
+      duration: const Duration(milliseconds: 220),
+      curve: Curves.easeOutCubic,
+      builder: (_, t, child) =>
+          FractionalTranslation(translation: Offset(0, t * 0.6), child: child),
+      child: panel,
     );
   }
 }

@@ -54,9 +54,12 @@ class _NotificationsViewState extends State<NotificationsView> {
         ),
         Padding(
           padding: const EdgeInsets.fromLTRB(20, 0, 8, 4),
-          child: Row(
+          child: Wrap(
+            alignment: WrapAlignment.spaceBetween,
+            crossAxisAlignment: WrapCrossAlignment.center,
             children: [
-              Expanded(
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 12),
                 child: Text(
                   unread == 0
                       ? 'Todo leído'

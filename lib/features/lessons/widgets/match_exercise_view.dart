@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../data/lesson_models.dart';
 import 'exercise_common.dart';
+import '../../../core/services/haptics.dart';
 
 /// "Emparejá" cada palabra en guaraní con su traducción.
 ///
@@ -72,7 +72,7 @@ class _MatchExerciseViewState extends State<MatchExerciseView> {
         widget.onChanged(_mistakes == 0);
       }
     } else {
-      HapticFeedback.lightImpact();
+      Haptics.light(context);
       setState(() {
         _mistakes++;
         _wrong = (l, r);

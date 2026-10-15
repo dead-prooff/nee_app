@@ -16,6 +16,17 @@ enum StartLevel {
   final String label;
   final String description;
   final String emoji;
+
+  /// Cuántas de las primeras lecciones del camino quedan abiertas desde el
+  /// principio (sin marcarlas como completadas):
+  /// - Nunca hablé: solo la primera.
+  /// - Entiendo algo: las primeras dos (toda la Unidad 1 queda a mano).
+  /// - Hablo jopara: la Unidad 1 completa y la primera de la Unidad 2.
+  int get unlockedLessons => switch (this) {
+    none => 1,
+    some => 2,
+    jopara => 3,
+  };
 }
 
 /// Cómo se registró el usuario.

@@ -5,6 +5,7 @@ import '../../core/app_links.dart';
 import '../../core/theme/app_theme.dart';
 import 'data/lesson_models.dart';
 import 'lesson_screen.dart';
+import '../../core/widgets/celebration.dart';
 
 /// Pantalla final: XP ganado, precisión y botón para compartir.
 /// Si se acabaron las vidas, ofrece reintentar.
@@ -51,10 +52,12 @@ class LessonResultScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(24),
                   child: Column(
                     children: [
-                      ExcludeSemantics(
-                        child: Text(
-                          passed ? '🎉' : '💔',
-                          style: const TextStyle(fontSize: 72),
+                      PopIn(
+                        child: ExcludeSemantics(
+                          child: Text(
+                            passed ? '🎉' : '💔',
+                            style: const TextStyle(fontSize: 72),
+                          ),
                         ),
                       ),
                       const SizedBox(height: 16),
@@ -84,6 +87,7 @@ class LessonResultScreen extends StatelessWidget {
                               icon: Icons.bolt,
                               iconColor: colors.gold,
                               value: '+${outcome.xp}',
+                              countUp: outcome.xp,
                               label: 'XP ganado',
                             ),
                           ),
@@ -164,12 +168,16 @@ class _StatTile extends StatelessWidget {
     required this.iconColor,
     required this.value,
     required this.label,
+    this.countUp,
   });
 
   final IconData icon;
   final Color iconColor;
   final String value;
   final String label;
+
+  /// Si se indica, el número sube contando hasta este valor.
+  final int? countUp;
 
   @override
   Widget build(BuildContext context) {
@@ -184,7 +192,13 @@ class _StatTile extends StatelessWidget {
             children: [
               Icon(icon, color: iconColor, size: 28),
               const SizedBox(height: 8),
-              Text(value, style: theme.textTheme.headlineSmall),
+              countUp == null
+                  ? Text(value, style: theme.textTheme.headlineSmall)
+                  : CountUp(
+                      value: countUp!,
+                      prefix: '+',
+                      style: theme.textTheme.headlineSmall,
+                    ),
               const SizedBox(height: 4),
               Text(
                 label,

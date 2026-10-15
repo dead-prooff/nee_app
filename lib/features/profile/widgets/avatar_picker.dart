@@ -156,11 +156,13 @@ class _AvatarPickerState extends State<AvatarPicker> {
         GridView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
-          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 112,
             mainAxisSpacing: 8,
             crossAxisSpacing: 8,
-            childAspectRatio: 0.78,
+            // Avatar + hasta dos renglones de nombre, según el tamaño de letra.
+            mainAxisExtent:
+                84 + MediaQuery.textScalerOf(context).scale(13) * 1.4 * 2,
           ),
           itemCount: avatars.length,
           itemBuilder: (context, i) {
@@ -236,14 +238,17 @@ class _AvatarTile extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 4),
-            Text(
-              info.name,
-              textAlign: TextAlign.center,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              style: theme.textTheme.labelLarge?.copyWith(
-                fontSize: 13,
-                color: selected ? scheme.primary : scheme.onSurface,
+            // Se ajusta al alto de la celda (con letra enorme, "…").
+            Flexible(
+              child: Text(
+                info.name,
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: theme.textTheme.labelLarge?.copyWith(
+                  fontSize: 13,
+                  color: selected ? scheme.primary : scheme.onSurface,
+                ),
               ),
             ),
           ],

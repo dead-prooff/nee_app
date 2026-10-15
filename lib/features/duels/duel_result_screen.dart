@@ -5,6 +5,7 @@ import '../../core/app_links.dart';
 import '../../core/theme/app_theme.dart';
 import 'data/duel_models.dart';
 import 'duel_intro_screen.dart';
+import '../../core/widgets/celebration.dart';
 
 /// Resultado del duelo: ganó / perdió / empate, XP, detalle por pregunta y
 /// botones para compartir y pedir revancha.
@@ -82,11 +83,13 @@ class DuelResultScreen extends StatelessWidget {
               child: ListView(
                 padding: const EdgeInsets.all(24),
                 children: [
-                  ExcludeSemantics(
-                    child: Text(
-                      outcome.emoji,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(fontSize: 72),
+                  PopIn(
+                    child: ExcludeSemantics(
+                      child: Text(
+                        outcome.emoji,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(fontSize: 72),
+                      ),
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -151,8 +154,10 @@ class DuelResultScreen extends StatelessWidget {
                         children: [
                           Icon(Icons.bolt, color: colors.gold),
                           const SizedBox(width: 4),
-                          Text(
-                            '+${outcome.xp} XP',
+                          CountUp(
+                            value: outcome.xp,
+                            prefix: '+',
+                            suffix: ' XP',
                             style: theme.textTheme.titleMedium,
                           ),
                         ],

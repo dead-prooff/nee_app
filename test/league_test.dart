@@ -1,5 +1,6 @@
-import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter/material.dart';
 import 'package:nee_app/core/services/storage_service.dart';
 import 'package:nee_app/core/utils/dates.dart';
 import 'package:nee_app/features/league/league_models.dart';
@@ -195,5 +196,31 @@ void main() {
     expect(rows, findsNWidgets(11));
     expect(find.bySemanticsLabel(RegExp(r'^Puesto \d+: vos, 0 XP')), findsOne);
     expect(find.text('VOS'), findsOneWidget);
+  });
+
+  testWidgets('subir de liga muestra el festejo', (tester) async {
+    final now = DateTime(2026, 10, 14, 10);
+    await pumpApp(
+      tester,
+      clock: () => now,
+      prefs: {
+        ...onboardedPrefs,
+        'progress.weekXp': 5000,
+        'progress.weekKey': weekKey(now),
+        'league.week': weekKey(now),
+      },
+    );
+    final league = Provider.of<LeagueProvider>(
+      tester.element(find.byType(Scaffold).first),
+      listen: false,
+    );
+    league.closeWeekNow();
+    await tester.pumpAndSettle();
+
+    expect(find.text('¡Subiste a Liga Plata!'), findsOneWidget);
+    expect(find.text('Terminaste la semana en el puesto 1.'), findsOneWidget);
+    await tester.tap(find.text('¡Vamos!'));
+    await tester.pumpAndSettle();
+    expect(find.text('¡Subiste a Liga Plata!'), findsNothing);
   });
 }

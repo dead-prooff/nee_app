@@ -55,7 +55,19 @@ class LeagueProvider extends ChangeNotifier {
   late List<LeagueResult> _results;
   late League _best;
 
+  /// Ascenso que todavía no se festejó en pantalla.
+  LeagueResult? _promotion;
+
   League get league => _league;
+
+  /// Ascenso para festejar (se muestra una vez), o null.
+  LeagueResult? get promotionToCelebrate => _promotion;
+
+  void promotionCelebrated() {
+    if (_promotion == null) return;
+    _promotion = null;
+    notifyListeners();
+  }
 
   /// La liga más alta a la que llegó alguna vez.
   League get bestLeague => _league.index > _best.index ? _league : _best;
@@ -128,6 +140,7 @@ class LeagueProvider extends ChangeNotifier {
       _storage.setString(_kBest, to.name);
     }
     _results.add(result);
+    if (result.promoted) _promotion = result;
     _storage.setString(_kLeague, to.name);
     _storage.setStringList(_kResults, [
       for (final r in _results) jsonEncode(r.toJson()),

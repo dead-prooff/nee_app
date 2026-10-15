@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../core/services/phrase_audio.dart';
 import '../data/lesson_models.dart';
 import 'exercise_common.dart';
+import '../../settings/settings_provider.dart';
 
 /// "Escuchá y elegí lo que oíste".
 class ListenExerciseView extends StatefulWidget {
@@ -37,7 +39,14 @@ class _ListenExerciseViewState extends State<ListenExerciseView> {
       if (mounted) setState(() => _hasRecording = value);
     });
     // Suena una vez al aparecer, como en cualquier ejercicio de escucha.
-    WidgetsBinding.instance.addPostFrameCallback((_) => _play());
+    // Con "Sonido y vibración" apagado no suena solo: hay que tocar el
+    // parlante.
+    final autoplay =
+        Provider.of<SettingsProvider?>(context, listen: false)?.soundEnabled ??
+        true;
+    if (autoplay) {
+      WidgetsBinding.instance.addPostFrameCallback((_) => _play());
+    }
   }
 
   @override

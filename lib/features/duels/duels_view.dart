@@ -141,7 +141,7 @@ class _SectionTitle extends StatelessWidget {
         header: true,
         child: Row(
           children: [
-            Text(text, style: theme.textTheme.titleMedium),
+            Flexible(child: Text(text, style: theme.textTheme.titleMedium)),
             if (trailing != null) ...[
               const SizedBox(width: 8),
               Container(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/theme/app_theme.dart';
@@ -11,6 +10,7 @@ import 'widgets/choice_exercise_view.dart';
 import 'widgets/feedback_panel.dart';
 import 'widgets/listen_exercise_view.dart';
 import 'widgets/match_exercise_view.dart';
+import '../../core/services/haptics.dart';
 
 /// Resultado de una lección, terminada o perdida por quedarse sin vidas.
 class LessonOutcome {
@@ -72,9 +72,9 @@ class _LessonScreenState extends State<LessonScreen> {
   void _check() {
     final correct = _pending!;
     if (correct) {
-      HapticFeedback.selectionClick();
+      Haptics.success(context);
     } else {
-      HapticFeedback.mediumImpact();
+      Haptics.error(context);
     }
     setState(() {
       _result = correct;

@@ -26,6 +26,16 @@ class StorageService {
 
   Future<void> remove(String key) => _prefs.remove(key);
 
-  /// Borra todo (útil para reiniciar la demo desde Configuración).
+  /// Borra todo.
   Future<void> clear() => _prefs.clear();
+
+  Set<String> get keys => _prefs.getKeys();
+
+  /// Borra las claves que cumplen [test] (por ejemplo, todo menos la
+  /// configuración visual al reiniciar la demo).
+  Future<void> removeWhere(bool Function(String key) test) async {
+    for (final key in keys.where(test).toList()) {
+      await _prefs.remove(key);
+    }
+  }
 }

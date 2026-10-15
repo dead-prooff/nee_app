@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <g transform="translate(184.3 184.3) scale(0.64)">
+  <g transform="translate(33 -23)">
+  <!-- globito de diálogo -->
+  <rect x="120" y="150" width="400" height="260" rx="90" fill="#FFFFFF"/>
+  <path d="M330 400 L400 400 L300 500 Z" fill="#FFFFFF"/>
+  <circle cx="225" cy="280" r="32" fill="#1B7F4F"/>
+  <circle cx="320" cy="280" r="32" fill="#1B7F4F"/>
+  <circle cx="415" cy="280" r="32" fill="#1B7F4F"/>
+  <!-- bombilla -->
+  <path d="M600 560 L790 190" stroke="#DDE3E0" stroke-width="40" stroke-linecap="round"/>
+  <circle cx="790" cy="190" r="30" fill="#DDE3E0"/>
+  <!-- mate -->
+  <path d="M370 560 Q320 900 600 920 Q880 900 830 560 Z" fill="#8B5E3C"/>
+  <path d="M410 640 Q395 760 450 840" stroke="#B07A4E" stroke-width="30" fill="none" stroke-linecap="round"/>
+  <ellipse cx="600" cy="560" rx="232" ry="62" fill="#C9CFCB"/>
+  <ellipse cx="600" cy="560" rx="185" ry="40" fill="#F2B705"/>
+  <ellipse cx="600" cy="562" rx="170" ry="32" fill="#6BA32E"/>
+  <!-- carita -->
+  <circle cx="540" cy="715" r="24" fill="#2A1A10"/>
+  <circle cx="660" cy="715" r="24" fill="#2A1A10"/>
+  <circle cx="548" cy="707" r="8" fill="#FFFFFF"/>
+  <circle cx="668" cy="707" r="8" fill="#FFFFFF"/>
+  <path d="M555 775 Q600 815 645 775" stroke="#2A1A10" stroke-width="16" fill="none" stroke-linecap="round"/>
+  <circle cx="495" cy="765" r="22" fill="#E8553D" opacity="0.45"/>
+  <circle cx="705" cy="765" r="22" fill="#E8553D" opacity="0.45"/>
+  </g>
+  </g>
+</svg>
