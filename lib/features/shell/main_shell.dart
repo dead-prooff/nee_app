@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/widgets/coming_soon_view.dart';
+import '../duels/duels_view.dart';
 import '../home/home_view.dart';
 import '../settings/settings_screen.dart';
 
@@ -21,11 +22,7 @@ class _MainShellState extends State<MainShell> {
   Widget build(BuildContext context) {
     final pages = [
       const HomeView(),
-      const ComingSoonView(
-        emoji: '⚔️',
-        title: 'Duelos',
-        message: 'Desafiá a un amigo a 5 preguntas rápidas.',
-      ),
+      const DuelsView(),
       const ComingSoonView(
         emoji: '🏆',
         title: 'Ranking',

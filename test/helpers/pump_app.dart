@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:nee_app/app.dart';
 import 'package:nee_app/core/services/storage_service.dart';
+import 'package:nee_app/features/duels/duel_provider.dart';
 import 'package:nee_app/features/lessons/data/lesson_repository.dart';
 import 'package:nee_app/features/onboarding/user_provider.dart';
 import 'package:nee_app/features/progress/progress_provider.dart';
@@ -37,6 +38,7 @@ Future<StorageService> pumpApp(
         ChangeNotifierProvider(create: (_) => SettingsProvider(storage)),
         ChangeNotifierProvider(create: (_) => ProgressProvider(storage)),
         ChangeNotifierProvider(create: (_) => UserProvider(storage)),
+        ChangeNotifierProvider(create: (_) => DuelProvider(storage)),
       ],
       child: const NeeApp(),
     ),

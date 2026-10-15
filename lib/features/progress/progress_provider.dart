@@ -91,17 +91,24 @@ class ProgressProvider extends ChangeNotifier {
   /// Si ya hizo al menos una lección hoy.
   bool get practicedToday => _lastActive == _today;
 
-  /// Días seguidos con al menos una lección. Si ayer no practicó (y hoy
-  /// tampoco), la racha se cortó y vale 0.
+  /// Días seguidos con al menos una lección o duelo. Si ayer no practicó
+  /// (y hoy tampoco), la racha se cortó y vale 0.
   int get streak =>
       _lastActive == _today || _lastActive == _yesterday ? _streak : 0;
 
-  /// Registra una lección terminada: suma XP, la marca como completada y
-  /// actualiza la racha.
+  /// Registra una lección terminada: la marca como completada y suma XP.
   Future<void> completeLesson(String lessonId, {required int xp}) async {
+    _completed.add(lessonId);
+    await Future.wait([
+      _storage.setStringList(_kCompleted, _completed.toList()),
+      addXp(xp),
+    ]);
+  }
+
+  /// Suma XP (de una lección o un duelo) y actualiza la racha.
+  Future<void> addXp(int xp) async {
     final today = _today;
 
-    _completed.add(lessonId);
     _totalXp += xp;
     _xpToday = xpToday + xp;
     _xpDate = today;
@@ -113,7 +120,6 @@ class ProgressProvider extends ChangeNotifier {
     notifyListeners();
 
     await Future.wait([
-      _storage.setStringList(_kCompleted, _completed.toList()),
       _storage.setInt(_kTotalXp, _totalXp),
       _storage.setInt(_kXpToday, _xpToday),
       _storage.setString(_kXpDate, today),
