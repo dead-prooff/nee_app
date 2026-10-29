@@ -1,0 +1,195 @@
+{
+  "_nota": "Contenido de ejemplo del foro (lo escriben los amigos simulados). Se puede editar. Autores: lucia, mati, rosa, nico, caro, fede, sofi, tomas, vale, ramon. Categorías: dudas, aportes, correcciones, cultura, charla. Etiquetas de comentarios de lección: opinion, duda, correccion. \"hace_min\" = hace cuántos minutos se publicó (contando desde la primera vez que se abre la app). Lo que tiene \"verificar\": true tiene guaraní que conviene revisar con un hablante nativo. \"respuestas_simuladas\" son las respuestas que los amigos dejan en lo que publica el usuario.",
+
+  "temas": [
+    {
+      "id": "t-mbaeichapa",
+      "autor": "rosa",
+      "categoria": "cultura",
+      "titulo": "¿Por qué decimos \"Mba'éichapa\" y no solo \"hola\"?",
+      "texto": "Mis nietos me preguntan siempre. Mba'éichapa es \"¿cómo estás?\", pero también es la forma de saludar con cariño. En el campo nadie pasa sin preguntarte mba'éichapa 👵🧉",
+      "hace_min": 180,
+      "likes": 24,
+      "respuestas": [
+        { "autor": "lucia", "texto": "¡Qué lindo, Doña Rosa! Yo pensaba que era solo \"hola\" 😅", "hace_min": 160, "likes": 5 },
+        { "autor": "tomas", "texto": "Y se responde \"Iporã, ha nde?\", ¿verdad?", "hace_min": 150, "likes": 3 },
+        { "autor": "rosa", "texto": "Upéicha, che ra'a! Así se hace 💚", "hace_min": 140, "likes": 9 }
+      ]
+    },
+    {
+      "id": "t-che-nde",
+      "autor": "lucia",
+      "categoria": "dudas",
+      "titulo": "¿Cuándo uso \"che\" y cuándo \"nde\"?",
+      "texto": "Me confundo siempre en las lecciones de familia 😩 ¿\"che sy\" es mi mamá y \"nde sy\" tu mamá?",
+      "hace_min": 95,
+      "likes": 11,
+      "respuestas": [
+        { "autor": "ramon", "texto": "Exacto, Lucía. \"Che\" es yo / mi y \"nde\" es vos / tu. Che sy = mi mamá, nde sy = tu mamá.", "hace_min": 80, "likes": 14, "util": true },
+        { "autor": "nico", "texto": "Gracias por preguntar, yo también tenía la duda y me daba vergüenza 🙈", "hace_min": 60, "likes": 4 }
+      ]
+    },
+    {
+      "id": "t-emparejar",
+      "autor": "nico",
+      "categoria": "dudas",
+      "titulo": "Ayuda: no me sale el ejercicio de emparejar 😭",
+      "texto": "Siempre me equivoco con mandi'o y so'o. ¿Algún truco para acordarme?",
+      "hace_min": 40,
+      "likes": 6,
+      "respuestas": [
+        { "autor": "sofi", "texto": "Mandi'o suena a mandioca, ¡fijate en el comienzo! 😉", "hace_min": 35, "likes": 7, "util": true },
+        { "autor": "mati", "texto": "So'o es carne. Yo me acuerdo pensando en el asado del domingo 🥩", "hace_min": 30, "likes": 8 },
+        { "autor": "caro", "texto": "Jajaja el truco del asado funciona", "hace_min": 20, "likes": 2 }
+      ]
+    },
+    {
+      "id": "t-jopara-diario",
+      "autor": "sofi",
+      "categoria": "aportes",
+      "titulo": "Frases en jopara que escucho todos los días",
+      "texto": "Les comparto algunas: \"Vamos a ir ndaje\" (dicen que vamos a ir), \"Ha upéi?\" (¿y entonces?) y \"Hake\" cuando algo está por pasar. ¿Qué otras usan ustedes? 😂",
+      "hace_min": 300,
+      "likes": 19,
+      "verificar": true,
+      "respuestas": [
+        { "autor": "tomas", "texto": "\"Ha upéi?\" es lo que dice mi mamá cuando le cuento algo y quiere más chisme 🤣", "hace_min": 280, "likes": 10 },
+        { "autor": "vale", "texto": "En mi casa todo es \"che ra'a\" para arriba y para abajo 💚", "hace_min": 250, "likes": 4 }
+      ]
+    },
+    {
+      "id": "t-nasales",
+      "autor": "ramon",
+      "categoria": "correcciones",
+      "titulo": "Sobre la ortografía: las vocales nasales y el puso",
+      "texto": "Muchos escriben \"Nee\" en vez de Ñe'ẽ. La tilde nasal (~) cambia la pronunciación: suena por la nariz. Y el puso (') es una pausa cortita, como en mba'e.",
+      "hace_min": 600,
+      "likes": 31,
+      "respuestas": [
+        { "autor": "lucia", "texto": "¡No sabía que el apóstrofo se llama puso! 🤓", "hace_min": 580, "likes": 6 },
+        { "autor": "rosa", "texto": "Bien explicado, profe. Ñe'ẽ es \"palabra\" y también \"idioma\".", "hace_min": 560, "likes": 12, "util": true }
+      ]
+    },
+    {
+      "id": "t-terere-estudio",
+      "autor": "mati",
+      "categoria": "charla",
+      "titulo": "¿Quién más estudia con tereré en la mano? 🧉",
+      "texto": "Hice 3 lecciones seguidas en el recreo. Mi racha está hendy kavaju resa 🐴✨",
+      "hace_min": 25,
+      "likes": 9,
+      "respuestas": [
+        { "autor": "caro", "texto": "Yo con tereré y la radio de fondo 🎶", "hace_min": 22, "likes": 3 },
+        { "autor": "fede", "texto": "Yo en el colectivo, aunque me mareo jaja 🚌", "hace_min": 15, "likes": 5 }
+      ]
+    },
+    {
+      "id": "t-patrimonio",
+      "autor": "caro",
+      "categoria": "cultura",
+      "titulo": "El tereré es Patrimonio de la Humanidad 🧉🌎",
+      "texto": "Desde 2020 la UNESCO reconoció las prácticas y saberes del tereré en la cultura del pohã ñana. ¿Ustedes qué yuyos le ponen?",
+      "hace_min": 1440,
+      "likes": 27,
+      "respuestas": [
+        { "autor": "rosa", "texto": "Menta'i y cedrón kapi'i, como debe ser 👵🌿", "hace_min": 1400, "likes": 15, "verificar": true },
+        { "autor": "vale", "texto": "Yo le pongo jugo de limón y me retan 😅", "hace_min": 1300, "likes": 6 }
+      ]
+    },
+    {
+      "id": "t-racha-noche",
+      "autor": "tomas",
+      "categoria": "aportes",
+      "titulo": "Truco para no perder la racha",
+      "texto": "Si a las 21 h todavía no practiqué, hago una lección cortita antes de dormir. ¡Ya voy 30 días! 🔥",
+      "hace_min": 720,
+      "likes": 13,
+      "respuestas": [
+        { "autor": "nico", "texto": "Yo me olvidé ayer e Ipochy hína mi fueguito 😤", "hace_min": 700, "likes": 7 }
+      ]
+    }
+  ],
+
+  "comentarios": {
+    "u1l1": [
+      { "autor": "rosa", "etiqueta": "correccion", "texto": "En el campo también se escucha \"nde pyhareve\" separado. Las dos formas se entienden, ¡no se hagan problema!", "hace_min": 300, "likes": 14, "verificar": true },
+      { "autor": "lucia", "etiqueta": "duda", "texto": "¿\"Iporã\" también sirve para decir \"lindo\"?", "hace_min": 200, "likes": 4,
+        "respuestas": [ { "autor": "ramon", "texto": "Sí: iporã es bien, lindo, bueno. Depende de cómo lo uses.", "hace_min": 190, "likes": 6 } ] },
+      { "autor": "mati", "etiqueta": "opinion", "texto": "Esta lección me salvó con mi abuela 🥹", "hace_min": 120, "likes": 6 }
+    ],
+    "u1l2": [
+      { "autor": "ramon", "etiqueta": "correccion", "texto": "En la charla también se escucha \"Moõgua piko nde?\". El \"pa\" y el \"piko\" marcan que es una pregunta.", "hace_min": 400, "likes": 11, "verificar": true },
+      { "autor": "nico", "etiqueta": "duda", "texto": "¿Tereg̃uahẽ lleva esa g rara?", "hace_min": 90, "likes": 2,
+        "respuestas": [ { "autor": "rosa", "texto": "Sí, es la g nasal (g̃). Pronunciala suavecito, por la nariz 👃", "hace_min": 80, "likes": 5 } ] }
+    ],
+    "u2l1": [
+      { "autor": "sofi", "etiqueta": "opinion", "texto": "Me encantó aprender \"rohayhu\". Se lo dije a mi mamá y lloró 🥲", "hace_min": 250, "likes": 5 },
+      { "autor": "caro", "etiqueta": "duda", "texto": "¿\"Che ru\" y \"túva\" son lo mismo?", "hace_min": 180, "likes": 3,
+        "respuestas": [ { "autor": "ramon", "texto": "Túva es \"padre\" en general y con \"che\" cambia: che ru, nde ru.", "hace_min": 170, "likes": 7, "verificar": true } ] }
+    ],
+    "u2l2": [
+      { "autor": "rosa", "etiqueta": "correccion", "texto": "\"Ogaygua\" es más bien \"los de la casa\", la familia que vive junta. Está bien usado acá.", "hace_min": 500, "likes": 10, "verificar": true },
+      { "autor": "fede", "etiqueta": "opinion", "texto": "Ya sé decir \"che róga\". Ahora me falta limpiarla 😅", "hace_min": 60, "likes": 3 }
+    ],
+    "u3l1": [
+      { "autor": "vale", "etiqueta": "opinion", "texto": "Ahora pido \"mbujape\" en la despensa y me miran raro jaja 🥖", "hace_min": 150, "likes": 7 },
+      { "autor": "tomas", "etiqueta": "duda", "texto": "¿Chipa también se dice chipa en guaraní?", "hace_min": 100, "likes": 1,
+        "respuestas": [ { "autor": "rosa", "texto": "Chipa es chipa en todos lados, che ra'a. Igual que el cariño 💚", "hace_min": 95, "likes": 4 } ] }
+    ],
+    "u3l2": [
+      { "autor": "rosa", "etiqueta": "correccion", "texto": "\"Ehasa chéve\" es \"pasame\" y está perfecto en jopara. En un guaraní más formal se escucha \"eme'ẽ chéve\" (dame).", "hace_min": 350, "likes": 13, "verificar": true },
+      { "autor": "mati", "etiqueta": "opinion", "texto": "La mejor lección. Le pido revancha de tereré a Doña Rosa 😤🧉", "hace_min": 45, "likes": 9 }
+    ]
+  },
+
+  "respuestas_simuladas": {
+    "correcciones": [
+      "Iporã, che ra'a! Buena corrección, así se escucha en el campo 👵✨",
+      "Gracias por avisar. Hay que cuidar nuestro idioma 💚",
+      "Yo lo digo un poquito distinto, pero las dos formas se entienden 😉",
+      "¡Eso! Ñe'ẽ porã, buena palabra 👏"
+    ],
+    "correccion": [
+      "Iporã, che ra'a! Buena corrección, así se escucha en el campo 👵✨",
+      "Gracias por avisar. Hay que cuidar nuestro idioma 💚",
+      "Yo lo digo un poquito distinto, pero las dos formas se entienden 😉",
+      "¡Eso! Ñe'ẽ porã, buena palabra 👏"
+    ],
+    "dudas": [
+      "Buena pregunta. Yo también me trababa con eso al principio 😅",
+      "Probá repetirlo en voz alta tres veces, a mí me sirvió 🗣️",
+      "Le pregunté a mi abuela y dice que así está bien 👵",
+      "Mirá la lección de nuevo, ahí hay ejemplos que ayudan 📚"
+    ],
+    "duda": [
+      "Buena pregunta. Yo también me trababa con eso al principio 😅",
+      "Probá repetirlo en voz alta tres veces, a mí me sirvió 🗣️",
+      "Le pregunté a mi abuela y dice que así está bien 👵",
+      "Mirá la lección de nuevo, ahí hay ejemplos que ayudan 📚"
+    ],
+    "aportes": [
+      "¡Qué buen aporte! Me lo guardo 📌",
+      "Gracias por compartir, che ra'a 💚",
+      "Lo voy a usar hoy mismo 😂",
+      "Esto tendría que estar en una lección 🙌"
+    ],
+    "cultura": [
+      "Así es, y que no se pierda 🧉",
+      "Me hiciste acordar a mi infancia en el campo 🥹",
+      "Hay que contarle esto a los jóvenes 👏",
+      "Qué lindo leer esto, che ra'a 💚"
+    ],
+    "charla": [
+      "Jajaja me pasa igual 😂",
+      "Ha upéi? Contá más 👀",
+      "Te sigo la racha, no te me escapes 🔥",
+      "Upéicha, así se habla 💪"
+    ],
+    "opinion": [
+      "¡Totalmente de acuerdo! 🙌",
+      "A mí también me gustó mucho 💚",
+      "Jajaja posta 😂",
+      "Upéicha! Así da gusto aprender 🧉"
+    ]
+  }
+}

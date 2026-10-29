@@ -1,0 +1,435 @@
+{
+  "_nota": "Los ejercicios con \"verificar\": true tienen guaraní o jopara que conviene revisar con un hablante nativo antes de publicar (ortografía, mutaciones nasales, uso real). La app ignora este campo.",
+  "unidades": [
+    {
+      "id": "u1",
+      "titulo": "Saludos",
+      "emoji": "👋",
+      "lecciones": [
+        {
+          "id": "u1l1",
+          "titulo": "¡Mba'éichapa!",
+          "xp": 10,
+          "ejercicios": [
+            {
+              "tipo": "traduccion",
+              "direccion": "gn-es",
+              "pregunta": "Mba'éichapa",
+              "opciones": ["¿Cómo estás?", "Gracias", "Buen día", "Nos vemos"],
+              "respuesta": "¿Cómo estás?"
+            },
+            {
+              "tipo": "traduccion",
+              "direccion": "es-gn",
+              "pregunta": "Gracias",
+              "opciones": ["Iporã", "Aguyje", "Heẽ", "Mba'éichapa"],
+              "respuesta": "Aguyje"
+            },
+            {
+              "tipo": "escuchar",
+              "audio": "ipora.mp3",
+              "opciones": ["Aguyje", "Heẽ", "Iporã", "Nahániri"],
+              "respuesta": "Iporã",
+              "traduccion": "Bien"
+            },
+            {
+              "tipo": "armar",
+              "direccion": "es-gn",
+              "pregunta": "Sí, bien, gracias",
+              "respuesta": "Heẽ iporã aguyje",
+              "extras": ["Nahániri", "nde"]
+            },
+            {
+              "tipo": "pares",
+              "pares": [
+                ["Mba'éichapa", "¿Cómo estás?"],
+                ["Iporã", "Bien"],
+                ["Aguyje", "Gracias"],
+                ["Heẽ", "Sí"]
+              ]
+            },
+            {
+              "tipo": "traduccion",
+              "direccion": "gn-es",
+              "pregunta": "Mba'éichapa ndepyhareve",
+              "opciones": ["Buenas noches", "Buen día, ¿cómo estás?", "Buenas tardes", "Muchas gracias"],
+              "respuesta": "Buen día, ¿cómo estás?",
+              "verificar": true
+            },
+            {
+              "tipo": "armar",
+              "direccion": "gn-es",
+              "pregunta": "Iporã, ha nde?",
+              "respuesta": "Bien y vos",
+              "extras": ["gracias", "yo"]
+            },
+            {
+              "tipo": "escuchar",
+              "audio": "mbaeichapa_ndekaaru.mp3",
+              "opciones": ["Mba'éichapa ndepyhareve", "Mba'éichapa ndeka'aru", "Mba'éichapa nde réra?", "Aguyjevete"],
+              "respuesta": "Mba'éichapa ndeka'aru",
+              "traduccion": "Buenas tardes, ¿cómo estás?",
+              "verificar": true
+            }
+          ]
+        },
+        {
+          "id": "u1l2",
+          "titulo": "Presentarse y despedirse",
+          "xp": 10,
+          "ejercicios": [
+            {
+              "tipo": "traduccion",
+              "direccion": "gn-es",
+              "pregunta": "Che réra Ana",
+              "opciones": ["Soy de Ana", "Ana es mi mamá", "Me llamo Ana", "Chau, Ana"],
+              "respuesta": "Me llamo Ana"
+            },
+            {
+              "tipo": "traduccion",
+              "direccion": "gn-es",
+              "pregunta": "Mba'éichapa nde réra?",
+              "opciones": ["¿Cómo estás?", "¿Cómo te llamás?", "¿De dónde sos?", "¿Quién sos?"],
+              "respuesta": "¿Cómo te llamás?"
+            },
+            {
+              "tipo": "escuchar",
+              "audio": "jajotopata.mp3",
+              "opciones": ["Tereg̃uahẽ porã", "Aguyjevete", "Jajotopata", "Nahániri"],
+              "respuesta": "Jajotopata",
+              "traduccion": "Nos vemos",
+              "verificar": true
+            },
+            {
+              "tipo": "armar",
+              "direccion": "es-gn",
+              "pregunta": "Me llamo Pedro",
+              "respuesta": "Che réra Pedro",
+              "extras": ["nde", "Mba'éichapa"]
+            },
+            {
+              "tipo": "pares",
+              "pares": [
+                ["Che réra", "Me llamo"],
+                ["Jajotopata", "Nos vemos"],
+                ["Nahániri", "No"],
+                ["Tereg̃uahẽ porã", "Bienvenido"]
+              ],
+              "verificar": true
+            },
+            {
+              "tipo": "traduccion",
+              "direccion": "es-gn",
+              "pregunta": "¿De dónde sos?",
+              "opciones": ["Mávapa nde?", "Mba'éichapa nde réra?", "Moõguápa nde?", "Mba'éichapa?"],
+              "respuesta": "Moõguápa nde?",
+              "verificar": true
+            },
+            {
+              "tipo": "armar",
+              "direccion": "es-gn",
+              "pregunta": "Soy paraguaya",
+              "respuesta": "Che paraguaygua",
+              "extras": ["nde", "réra"],
+              "verificar": true
+            },
+            {
+              "tipo": "escuchar",
+              "audio": "tereguahe_pora.mp3",
+              "opciones": ["Jajotopata", "Tereg̃uahẽ porã", "Che réra", "Iporãnte"],
+              "respuesta": "Tereg̃uahẽ porã",
+              "traduccion": "Bienvenido/a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u2",
+      "titulo": "Familia",
+      "emoji": "👨‍👩‍👧",
+      "lecciones": [
+        {
+          "id": "u2l1",
+          "titulo": "Mamá, papá y abuelos",
+          "xp": 10,
+          "ejercicios": [
+            {
+              "tipo": "traduccion",
+              "direccion": "gn-es",
+              "pregunta": "Che sy",
+              "opciones": ["Mi papá", "Mi mamá", "Mi abuela", "Mi casa"],
+              "respuesta": "Mi mamá"
+            },
+            {
+              "tipo": "traduccion",
+              "direccion": "es-gn",
+              "pregunta": "Mi papá",
+              "opciones": ["Che sy", "Che róga", "Che ru", "Che réra"],
+              "respuesta": "Che ru"
+            },
+            {
+              "tipo": "escuchar",
+              "audio": "che_jaryi.mp3",
+              "opciones": ["Che sy", "Che jarýi", "Che ru", "Che tamõi"],
+              "respuesta": "Che jarýi",
+              "traduccion": "Mi abuela",
+              "verificar": true
+            },
+            {
+              "tipo": "armar",
+              "direccion": "es-gn",
+              "pregunta": "Mi mamá y mi papá",
+              "respuesta": "Che sy ha che ru",
+              "extras": ["nde", "jarýi"]
+            },
+            {
+              "tipo": "pares",
+              "pares": [
+                ["Sy", "Madre"],
+                ["Túva", "Padre"],
+                ["Jarýi", "Abuela"],
+                ["Tamõi", "Abuelo"]
+              ],
+              "verificar": true
+            },
+            {
+              "tipo": "traduccion",
+              "direccion": "gn-es",
+              "pregunta": "Rohayhu",
+              "opciones": ["Gracias", "Te extraño", "Te quiero", "Bienvenido"],
+              "respuesta": "Te quiero"
+            },
+            {
+              "tipo": "armar",
+              "direccion": "gn-es",
+              "pregunta": "Rohayhu, che sy",
+              "respuesta": "Te quiero mamá",
+              "extras": ["papá", "abuela"]
+            },
+            {
+              "tipo": "escuchar",
+              "audio": "che_sy_ha_che_ru.mp3",
+              "opciones": ["Che sy ha che jarýi", "Che ru ha che tamõi", "Che sy ha che ru", "Che sy ha nde ru"],
+              "respuesta": "Che sy ha che ru",
+              "traduccion": "Mi mamá y mi papá"
+            }
+          ]
+        },
+        {
+          "id": "u2l2",
+          "titulo": "La casa y los chicos",
+          "xp": 10,
+          "ejercicios": [
+            {
+              "tipo": "traduccion",
+              "direccion": "gn-es",
+              "pregunta": "Óga",
+              "opciones": ["Casa", "Familia", "Niño", "Hijo"],
+              "respuesta": "Casa"
+            },
+            {
+              "tipo": "traduccion",
+              "direccion": "es-gn",
+              "pregunta": "Mi casa",
+              "pista": "Ojo: después de \"che\", óga cambia a róga.",
+              "opciones": ["Che óga", "Che róga", "Nde réra", "Che ru"],
+              "respuesta": "Che róga"
+            },
+            {
+              "tipo": "escuchar",
+              "audio": "mita.mp3",
+              "opciones": ["Memby", "Óga", "Mitã", "Sy"],
+              "respuesta": "Mitã",
+              "traduccion": "Niño/a"
+            },
+            {
+              "tipo": "armar",
+              "direccion": "es-gn",
+              "pregunta": "Mi mamá está en casa",
+              "respuesta": "Che sy oĩ ógape",
+              "extras": ["ru", "nde"],
+              "verificar": true
+            },
+            {
+              "tipo": "pares",
+              "pares": [
+                ["Óga", "Casa"],
+                ["Mitã", "Niño/a"],
+                ["Memby", "Hijo/a (de la madre)"],
+                ["Ogaygua", "Familia"]
+              ],
+              "verificar": true
+            },
+            {
+              "tipo": "traduccion",
+              "direccion": "gn-es",
+              "pregunta": "Che ryvy",
+              "pista": "Lo dice un varón.",
+              "opciones": ["Mi abuelo", "Mi hijo", "Mi hermano menor", "Mi papá"],
+              "respuesta": "Mi hermano menor",
+              "verificar": true
+            },
+            {
+              "tipo": "armar",
+              "direccion": "es-gn",
+              "pregunta": "Vivo con mi mamá",
+              "respuesta": "Aiko che sy ndive",
+              "extras": ["ru", "óga"],
+              "verificar": true
+            },
+            {
+              "tipo": "escuchar",
+              "audio": "che_roga.mp3",
+              "opciones": ["Che ru", "Che réra", "Che sy", "Che róga"],
+              "respuesta": "Che róga",
+              "traduccion": "Mi casa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u3",
+      "titulo": "Comida y tereré",
+      "emoji": "🧉",
+      "lecciones": [
+        {
+          "id": "u3l1",
+          "titulo": "En la mesa",
+          "xp": 10,
+          "ejercicios": [
+            {
+              "tipo": "traduccion",
+              "direccion": "gn-es",
+              "pregunta": "Mbujape",
+              "opciones": ["Leche", "Pan", "Carne", "Mandioca"],
+              "respuesta": "Pan"
+            },
+            {
+              "tipo": "traduccion",
+              "direccion": "es-gn",
+              "pregunta": "Leche",
+              "opciones": ["So'o", "Y", "Kamby", "Avati"],
+              "respuesta": "Kamby"
+            },
+            {
+              "tipo": "escuchar",
+              "audio": "mandio.mp3",
+              "opciones": ["Mbujape", "So'o", "Avati", "Mandi'o"],
+              "respuesta": "Mandi'o",
+              "traduccion": "Mandioca"
+            },
+            {
+              "tipo": "armar",
+              "direccion": "es-gn",
+              "pregunta": "Quiero pan",
+              "respuesta": "Aipota mbujape",
+              "extras": ["kamby", "che"]
+            },
+            {
+              "tipo": "pares",
+              "pares": [
+                ["So'o", "Carne"],
+                ["Avati", "Maíz"],
+                ["Kamby", "Leche"],
+                ["Mandi'o", "Mandioca"]
+              ]
+            },
+            {
+              "tipo": "traduccion",
+              "direccion": "gn-es",
+              "pregunta": "Che ñembyahýi",
+              "opciones": ["Tengo sed", "Estoy bien", "Tengo hambre", "Quiero pan"],
+              "respuesta": "Tengo hambre"
+            },
+            {
+              "tipo": "armar",
+              "direccion": "gn-es",
+              "pregunta": "He'ẽ la chipa",
+              "pista": "Jopara: guaraní con el \"la\" del castellano.",
+              "respuesta": "La chipa está rica",
+              "extras": ["pan", "leche"],
+              "verificar": true
+            },
+            {
+              "tipo": "escuchar",
+              "audio": "aipota_kamby.mp3",
+              "opciones": ["Aipota mbujape", "Aipota kamby", "Aipota so'o", "Che ñembyahýi"],
+              "respuesta": "Aipota kamby",
+              "traduccion": "Quiero leche"
+            }
+          ]
+        },
+        {
+          "id": "u3l2",
+          "titulo": "Ronda de tereré",
+          "xp": 10,
+          "ejercicios": [
+            {
+              "tipo": "traduccion",
+              "direccion": "gn-es",
+              "pregunta": "Y ro'ysã",
+              "opciones": ["Agua caliente", "Agua fría", "Leche fría", "Yerba"],
+              "respuesta": "Agua fría"
+            },
+            {
+              "tipo": "traduccion",
+              "direccion": "es-gn",
+              "pregunta": "Vamos a tomar tereré",
+              "opciones": ["Aipota tereré", "Che y'uhéi", "Jaha ja'u tereré", "Aipota y ro'ysã"],
+              "respuesta": "Jaha ja'u tereré"
+            },
+            {
+              "tipo": "escuchar",
+              "audio": "poha_nana.mp3",
+              "opciones": ["Y ro'ysã", "Pohã ñana", "Ka'a", "Kamby"],
+              "respuesta": "Pohã ñana",
+              "traduccion": "Yuyos (hierbas medicinales)"
+            },
+            {
+              "tipo": "armar",
+              "direccion": "es-gn",
+              "pregunta": "Quiero agua fría",
+              "respuesta": "Aipota y ro'ysã",
+              "extras": ["kamby", "haku"]
+            },
+            {
+              "tipo": "pares",
+              "pares": [
+                ["Ka'a", "Yerba"],
+                ["Y", "Agua"],
+                ["Ro'ysã", "Frío"],
+                ["Haku", "Caliente"]
+              ]
+            },
+            {
+              "tipo": "traduccion",
+              "direccion": "gn-es",
+              "pregunta": "Che y'uhéi",
+              "opciones": ["Tengo hambre", "Tengo frío", "Quiero yerba", "Tengo sed"],
+              "respuesta": "Tengo sed",
+              "verificar": true
+            },
+            {
+              "tipo": "armar",
+              "direccion": "gn-es",
+              "pregunta": "Ehasa chéve la guampa",
+              "pista": "Jopara: se mezcla guaraní y castellano.",
+              "respuesta": "Pasame la guampa",
+              "extras": ["el", "yerba"],
+              "verificar": true
+            },
+            {
+              "tipo": "escuchar",
+              "audio": "jaha_jau_terere.mp3",
+              "opciones": ["Aipota y ro'ysã", "Ehasa chéve la guampa", "Che y'uhéi", "Jaha ja'u tereré"],
+              "respuesta": "Jaha ja'u tereré",
+              "traduccion": "Vamos a tomar tereré"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4799 @@
+{
+ "_nota": "Diccionario guaraní-español de Ñe'ẽ. Cada entrada es una palabra. \"formas\": otras formas de la palabra (ej. \"ru\" para \"túva\") para buscarlas y resaltarlas en los ejemplos. Lo que tiene \"verificar\": true conviene revisarlo con un hablante nativo (la entrada o un ejemplo). \"sentido\": 1, 2... separa palabras que se escriben igual pero significan cosas distintas (pa \"pregunta\" y pa \"diez\"). \"revisado\": true = ya la revisó un hablante nativo.",
+ "palabras": [
+  {
+   "gn": "mba'éichapa",
+   "es": [
+    "¿cómo estás?",
+    "hola (saludo)"
+   ],
+   "categoria": "interjección",
+   "tema": "saludos",
+   "ejemplos": [
+    {
+     "gn": "Mba'éichapa, che ra'a?",
+     "es": "¿Cómo estás, amigo?"
+    }
+   ],
+   "nota": "El saludo más común: se responde \"Iporã, ha nde?\"."
+  },
+  {
+   "gn": "iporã",
+   "es": [
+    "bien",
+    "lindo",
+    "bueno"
+   ],
+   "categoria": "adjetivo",
+   "tema": "saludos",
+   "ejemplos": [
+    {
+     "gn": "Iporã, ha nde?",
+     "es": "Bien, ¿y vos?"
+    },
+    {
+     "gn": "Nde róga iporã.",
+     "es": "Tu casa es linda."
+    }
+   ],
+   "formas": [
+    "iporãnte",
+    "iporãite"
+   ]
+  },
+  {
+   "gn": "porã",
+   "es": [
+    "bien",
+    "lindo (después de otra palabra)"
+   ],
+   "categoria": "adverbio",
+   "tema": "saludos",
+   "ejemplos": [
+    {
+     "gn": "Ejapo porã.",
+     "es": "Hacelo bien."
+    },
+    {
+     "gn": "Tereg̃uahẽ porã!",
+     "es": "¡Bienvenido!"
+    }
+   ]
+  },
+  {
+   "gn": "iporãite",
+   "es": [
+    "muy bien",
+    "buenísimo"
+   ],
+   "categoria": "adjetivo",
+   "tema": "saludos",
+   "ejemplos": [
+    {
+     "gn": "Iporãite nde rembiapo!",
+     "es": "¡Muy bien tu trabajo!",
+     "verificar": true
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "aguyje",
+   "es": [
+    "gracias"
+   ],
+   "categoria": "interjección",
+   "tema": "saludos",
+   "ejemplos": [
+    {
+     "gn": "Aguyje, che sy.",
+     "es": "Gracias, mamá."
+    }
+   ]
+  },
+  {
+   "gn": "aguyjevete",
+   "es": [
+    "muchas gracias"
+   ],
+   "categoria": "interjección",
+   "tema": "saludos",
+   "ejemplos": [
+    {
+     "gn": "Aguyjevete nde pytyvõre.",
+     "es": "Muchas gracias por tu ayuda.",
+     "verificar": true
+    }
+   ]
+  },
+  {
+   "gn": "jajotopata",
+   "es": [
+    "nos vemos",
+    "hasta luego"
+   ],
+   "categoria": "interjección",
+   "tema": "saludos",
+   "ejemplos": [
+    {
+     "gn": "Jajotopata ko'ẽrõ!",
+     "es": "¡Nos vemos mañana!"
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "tereg̃uahẽ",
+   "es": [
+    "bienvenido (llegaste)"
+   ],
+   "categoria": "interjección",
+   "tema": "saludos",
+   "ejemplos": [
+    {
+     "gn": "Tereg̃uahẽ porã, che ra'a!",
+     "es": "¡Bienvenido, amigo!"
+    }
+   ],
+   "nota": "Se dice casi siempre junto con \"porã\"."
+  },
+  {
+   "gn": "heẽ",
+   "es": [
+    "sí"
+   ],
+   "categoria": "adverbio",
+   "tema": "saludos",
+   "ejemplos": [
+    {
+     "gn": "Heẽ, aháta.",
+     "es": "Sí, voy a ir."
+    }
+   ]
+  },
+  {
+   "gn": "nahániri",
+   "es": [
+    "no"
+   ],
+   "categoria": "adverbio",
+   "tema": "saludos",
+   "ejemplos": [
+    {
+     "gn": "Nahániri, ndaikuaái.",
+     "es": "No, no sé."
+    }
+   ]
+  },
+  {
+   "gn": "ndaipóri",
+   "es": [
+    "no hay",
+    "no existe"
+   ],
+   "categoria": "verbo",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Ndaipóri kamby.",
+     "es": "No hay leche."
+    }
+   ],
+   "nota": "En la charla también se usa como \"no hay problema\"."
+  },
+  {
+   "gn": "oĩ",
+   "es": [
+    "hay",
+    "está"
+   ],
+   "categoria": "verbo",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Oĩ tereré.",
+     "es": "Hay tereré."
+    },
+    {
+     "gn": "Che sy oĩ ógape.",
+     "es": "Mi mamá está en casa."
+    }
+   ]
+  },
+  {
+   "gn": "chéve",
+   "es": [
+    "a mí",
+    "para mí"
+   ],
+   "categoria": "pronombre",
+   "tema": "personas",
+   "ejemplos": [
+    {
+     "gn": "Ehasa chéve la guampa.",
+     "es": "Pasame la guampa."
+    }
+   ],
+   "nota": "Muy común en jopara."
+  },
+  {
+   "gn": "ndéve",
+   "es": [
+    "a vos",
+    "para vos"
+   ],
+   "categoria": "pronombre",
+   "tema": "personas",
+   "ejemplos": [
+    {
+     "gn": "Ame'ẽ ndéve peteĩ chipa.",
+     "es": "Te doy una chipa."
+    }
+   ]
+  },
+  {
+   "gn": "pyhareve",
+   "es": [
+    "mañana (parte del día)",
+    "temprano"
+   ],
+   "categoria": "sustantivo",
+   "tema": "tiempo",
+   "ejemplos": [
+    {
+     "gn": "Pyhareve aha mbo'ehaópe.",
+     "es": "A la mañana voy a la escuela."
+    }
+   ],
+   "formas": [
+    "ndepyhareve"
+   ]
+  },
+  {
+   "gn": "ka'aru",
+   "es": [
+    "tarde"
+   ],
+   "categoria": "sustantivo",
+   "tema": "tiempo",
+   "ejemplos": [
+    {
+     "gn": "Ka'aru jaha ja'u tereré.",
+     "es": "A la tarde vamos a tomar tereré."
+    }
+   ],
+   "formas": [
+    "ndeka'aru"
+   ]
+  },
+  {
+   "gn": "pyhare",
+   "es": [
+    "noche"
+   ],
+   "categoria": "sustantivo",
+   "tema": "tiempo",
+   "ejemplos": [
+    {
+     "gn": "Pyhare ake.",
+     "es": "De noche duermo."
+    }
+   ]
+  },
+  {
+   "gn": "asaje",
+   "es": [
+    "siesta",
+    "mediodía"
+   ],
+   "categoria": "sustantivo",
+   "tema": "tiempo",
+   "ejemplos": [
+    {
+     "gn": "Asaje ake michĩmi.",
+     "es": "A la siesta duermo un poquito."
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "ko'ẽrõ",
+   "es": [
+    "mañana (el día siguiente)"
+   ],
+   "categoria": "adverbio",
+   "tema": "tiempo",
+   "ejemplos": [
+    {
+     "gn": "Ko'ẽrõ jajotopata.",
+     "es": "Nos vemos mañana."
+    }
+   ]
+  },
+  {
+   "gn": "kuehe",
+   "es": [
+    "ayer"
+   ],
+   "categoria": "adverbio",
+   "tema": "tiempo",
+   "ejemplos": [
+    {
+     "gn": "Kuehe ajapo chipa.",
+     "es": "Ayer hice chipa."
+    }
+   ]
+  },
+  {
+   "gn": "ko'ãga",
+   "es": [
+    "ahora"
+   ],
+   "categoria": "adverbio",
+   "tema": "tiempo",
+   "ejemplos": [
+    {
+     "gn": "Ko'ãga aháta.",
+     "es": "Ahora voy a ir."
+    }
+   ]
+  },
+  {
+   "gn": "ag̃aite",
+   "es": [
+    "enseguida",
+    "ahorita"
+   ],
+   "categoria": "adverbio",
+   "tema": "tiempo",
+   "ejemplos": [
+    {
+     "gn": "Ag̃aite aju.",
+     "es": "Ya vengo."
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "voi",
+   "es": [
+    "temprano",
+    "pronto"
+   ],
+   "categoria": "adverbio",
+   "tema": "tiempo",
+   "ejemplos": [
+    {
+     "gn": "Apu'ã voi.",
+     "es": "Me levanto temprano."
+    }
+   ]
+  },
+  {
+   "gn": "tapia",
+   "es": [
+    "siempre"
+   ],
+   "categoria": "adverbio",
+   "tema": "tiempo",
+   "ejemplos": [
+    {
+     "gn": "Tapia aha ka'aru.",
+     "es": "Siempre voy a la tarde."
+    }
+   ]
+  },
+  {
+   "gn": "ára",
+   "es": [
+    "día",
+    "tiempo (clima)"
+   ],
+   "categoria": "sustantivo",
+   "tema": "tiempo",
+   "ejemplos": [
+    {
+     "gn": "Ko ára iporã.",
+     "es": "Hoy está lindo el día."
+    }
+   ]
+  },
+  {
+   "gn": "ary",
+   "es": [
+    "año"
+   ],
+   "categoria": "sustantivo",
+   "tema": "tiempo",
+   "ejemplos": [
+    {
+     "gn": "Areko 15 ary.",
+     "es": "Tengo 15 años."
+    }
+   ]
+  },
+  {
+   "gn": "jasy",
+   "es": [
+    "luna",
+    "mes"
+   ],
+   "categoria": "sustantivo",
+   "tema": "naturaleza",
+   "ejemplos": [
+    {
+     "gn": "Jasy omimbi pyhare.",
+     "es": "La luna brilla de noche."
+    }
+   ]
+  },
+  {
+   "gn": "kuarahy",
+   "es": [
+    "sol"
+   ],
+   "categoria": "sustantivo",
+   "tema": "naturaleza",
+   "ejemplos": [
+    {
+     "gn": "Kuarahy osẽ.",
+     "es": "Sale el sol."
+    }
+   ]
+  },
+  {
+   "gn": "ama",
+   "es": [
+    "lluvia"
+   ],
+   "categoria": "sustantivo",
+   "tema": "naturaleza",
+   "ejemplos": [
+    {
+     "gn": "Ama oúta.",
+     "es": "Va a venir la lluvia."
+    }
+   ]
+  },
+  {
+   "gn": "oky",
+   "es": [
+    "llueve"
+   ],
+   "categoria": "verbo",
+   "tema": "naturaleza",
+   "ejemplos": [
+    {
+     "gn": "Oky pyhare.",
+     "es": "Llueve de noche."
+    }
+   ]
+  },
+  {
+   "gn": "ro'y",
+   "es": [
+    "frío",
+    "invierno"
+   ],
+   "categoria": "sustantivo",
+   "tema": "tiempo",
+   "ejemplos": [
+    {
+     "gn": "Ko'ãga ro'y.",
+     "es": "Ahora hace frío."
+    }
+   ]
+  },
+  {
+   "gn": "haku",
+   "es": [
+    "caliente",
+    "calor"
+   ],
+   "categoria": "adjetivo",
+   "tema": "descripciones",
+   "ejemplos": [
+    {
+     "gn": "Pe kamby haku.",
+     "es": "Esa leche está caliente."
+    }
+   ]
+  },
+  {
+   "gn": "ro'ysã",
+   "es": [
+    "frío (algo frío)"
+   ],
+   "categoria": "adjetivo",
+   "tema": "tereré",
+   "ejemplos": [
+    {
+     "gn": "Aipota y ro'ysã.",
+     "es": "Quiero agua fría."
+    }
+   ]
+  },
+  {
+   "gn": "yvytu",
+   "es": [
+    "viento"
+   ],
+   "categoria": "sustantivo",
+   "tema": "naturaleza",
+   "ejemplos": [
+    {
+     "gn": "Yvytu hatã.",
+     "es": "El viento es fuerte.",
+     "verificar": true
+    }
+   ]
+  },
+  {
+   "gn": "sy",
+   "es": [
+    "madre, mamá"
+   ],
+   "categoria": "sustantivo",
+   "tema": "familia",
+   "ejemplos": [
+    {
+     "gn": "Che sy ipochy.",
+     "es": "Mi mamá está enojada."
+    }
+   ]
+  },
+  {
+   "gn": "túva",
+   "es": [
+    "padre"
+   ],
+   "categoria": "sustantivo",
+   "tema": "familia",
+   "ejemplos": [
+    {
+     "gn": "Che ru omba'apo.",
+     "es": "Mi papá trabaja."
+    }
+   ],
+   "nota": "Con \"che\" o \"nde\" cambia: che ru (mi papá), nde ru (tu papá).",
+   "formas": [
+    "ru"
+   ]
+  },
+  {
+   "gn": "jarýi",
+   "es": [
+    "abuela"
+   ],
+   "categoria": "sustantivo",
+   "tema": "familia",
+   "ejemplos": [
+    {
+     "gn": "Che jarýi ojapo chipa.",
+     "es": "Mi abuela hace chipa."
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "tamõi",
+   "es": [
+    "abuelo"
+   ],
+   "categoria": "sustantivo",
+   "tema": "familia",
+   "ejemplos": [
+    {
+     "gn": "Che tamõi oñe'ẽ guaraníme.",
+     "es": "Mi abuelo habla en guaraní."
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "memby",
+   "es": [
+    "hijo o hija (de la madre)"
+   ],
+   "categoria": "sustantivo",
+   "tema": "familia",
+   "ejemplos": [
+    {
+     "gn": "Che memby oho mbo'ehaópe.",
+     "es": "Mi hijo va a la escuela."
+    }
+   ],
+   "nota": "Lo dice la madre."
+  },
+  {
+   "gn": "ta'ýra",
+   "es": [
+    "hijo (del padre)"
+   ],
+   "categoria": "sustantivo",
+   "tema": "familia",
+   "ejemplos": [
+    {
+     "gn": "Che ra'y ombosarái.",
+     "es": "Mi hijo juega."
+    }
+   ],
+   "nota": "Lo dice el padre.",
+   "formas": [
+    "ra'y"
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "tajýra",
+   "es": [
+    "hija (del padre)"
+   ],
+   "categoria": "sustantivo",
+   "tema": "familia",
+   "ejemplos": [
+    {
+     "gn": "Che rajy iporã.",
+     "es": "Mi hija es linda."
+    }
+   ],
+   "nota": "Lo dice el padre.",
+   "formas": [
+    "rajy"
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "mitã",
+   "es": [
+    "niño",
+    "niña"
+   ],
+   "categoria": "sustantivo",
+   "tema": "personas",
+   "ejemplos": [
+    {
+     "gn": "Mitã ombosarái.",
+     "es": "El niño juega."
+    }
+   ],
+   "formas": [
+    "mitãnguéra"
+   ]
+  },
+  {
+   "gn": "mitãkuña",
+   "es": [
+    "niña",
+    "chica"
+   ],
+   "categoria": "sustantivo",
+   "tema": "personas",
+   "ejemplos": [
+    {
+     "gn": "Mitãkuña opurahéi.",
+     "es": "La chica canta."
+    }
+   ]
+  },
+  {
+   "gn": "mitãrusu",
+   "es": [
+    "muchacho",
+    "joven"
+   ],
+   "categoria": "sustantivo",
+   "tema": "personas",
+   "ejemplos": [
+    {
+     "gn": "Mitãrusu oñani.",
+     "es": "El muchacho corre."
+    }
+   ]
+  },
+  {
+   "gn": "kuña",
+   "es": [
+    "mujer"
+   ],
+   "categoria": "sustantivo",
+   "tema": "personas",
+   "ejemplos": [
+    {
+     "gn": "Kuña mbarete.",
+     "es": "Mujer fuerte."
+    }
+   ]
+  },
+  {
+   "gn": "kuimba'e",
+   "es": [
+    "hombre"
+   ],
+   "categoria": "sustantivo",
+   "tema": "personas",
+   "ejemplos": [
+    {
+     "gn": "Pe kuimba'e omba'apo.",
+     "es": "Ese hombre trabaja."
+    }
+   ]
+  },
+  {
+   "gn": "ogaygua",
+   "es": [
+    "familia",
+    "los de la casa"
+   ],
+   "categoria": "sustantivo",
+   "tema": "familia",
+   "ejemplos": [
+    {
+     "gn": "Che ogaygua oĩ ko'ápe.",
+     "es": "Mi familia está acá.",
+     "verificar": true
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "ryvy",
+   "es": [
+    "hermano menor (dicho por un varón)"
+   ],
+   "categoria": "sustantivo",
+   "tema": "familia",
+   "ejemplos": [
+    {
+     "gn": "Che ryvy michĩ gueteri.",
+     "es": "Mi hermano menor todavía es chico.",
+     "verificar": true
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "kyvy",
+   "es": [
+    "hermano (dicho por una mujer)"
+   ],
+   "categoria": "sustantivo",
+   "tema": "familia",
+   "ejemplos": [
+    {
+     "gn": "Che kyvy oñani pya'e.",
+     "es": "Mi hermano corre rápido."
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "reindy",
+   "es": [
+    "hermana (dicha por un varón)"
+   ],
+   "categoria": "sustantivo",
+   "tema": "familia",
+   "ejemplos": [
+    {
+     "gn": "Che reindy opurahéi.",
+     "es": "Mi hermana canta."
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "tembireko",
+   "es": [
+    "esposa"
+   ],
+   "categoria": "sustantivo",
+   "tema": "familia",
+   "ejemplos": [
+    {
+     "gn": "Che rembireko iporãiterei.",
+     "es": "Mi esposa es muy linda."
+    },
+    {
+     "gn": "Che rembireko oĩ ógape.",
+     "es": "Mi esposa está en casa."
+    }
+   ],
+   "formas": [
+    "rembireko"
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "ména",
+   "es": [
+    "esposo (de la mujer)"
+   ],
+   "categoria": "sustantivo",
+   "tema": "familia",
+   "ejemplos": [
+    {
+     "gn": "Che ména omba'apo.",
+     "es": "Mi esposo trabaja."
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "angirũ",
+   "es": [
+    "amigo, amiga"
+   ],
+   "categoria": "sustantivo",
+   "tema": "personas",
+   "ejemplos": [
+    {
+     "gn": "Che angirũ oúta.",
+     "es": "Mi amigo va a venir."
+    }
+   ]
+  },
+  {
+   "gn": "karai",
+   "es": [
+    "señor"
+   ],
+   "categoria": "sustantivo",
+   "tema": "personas",
+   "ejemplos": [
+    {
+     "gn": "Karai Ramón ombo'e.",
+     "es": "Don Ramón enseña."
+    }
+   ]
+  },
+  {
+   "gn": "kuñakarai",
+   "es": [
+    "señora"
+   ],
+   "categoria": "sustantivo",
+   "tema": "personas",
+   "ejemplos": [
+    {
+     "gn": "Kuñakarai Rosa ojapo chipa.",
+     "es": "Doña Rosa hace chipa."
+    }
+   ]
+  },
+  {
+   "gn": "mburuvicha",
+   "es": [
+    "jefe",
+    "autoridad"
+   ],
+   "categoria": "sustantivo",
+   "tema": "personas",
+   "ejemplos": [
+    {
+     "gn": "Mburuvicha oñe'ẽ.",
+     "es": "El jefe habla."
+    }
+   ]
+  },
+  {
+   "gn": "mbo'ehára",
+   "es": [
+    "maestro",
+    "maestra",
+    "profe"
+   ],
+   "categoria": "sustantivo",
+   "tema": "personas",
+   "ejemplos": [
+    {
+     "gn": "Mbo'ehára ombo'e guaraní.",
+     "es": "La maestra enseña guaraní."
+    }
+   ]
+  },
+  {
+   "gn": "temimbo'e",
+   "es": [
+    "alumno",
+    "alumna"
+   ],
+   "categoria": "sustantivo",
+   "tema": "personas",
+   "ejemplos": [
+    {
+     "gn": "Temimbo'e oñemoarandu.",
+     "es": "El alumno estudia.",
+     "verificar": true
+    }
+   ]
+  },
+  {
+   "gn": "paraguaygua",
+   "es": [
+    "paraguayo",
+    "paraguaya"
+   ],
+   "categoria": "sustantivo",
+   "tema": "personas",
+   "ejemplos": [
+    {
+     "gn": "Che paraguaygua.",
+     "es": "Soy paraguaya."
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "téra",
+   "es": [
+    "nombre"
+   ],
+   "categoria": "sustantivo",
+   "tema": "personas",
+   "ejemplos": [
+    {
+     "gn": "Che réra Ana.",
+     "es": "Me llamo Ana."
+    },
+    {
+     "gn": "Mba'éichapa nde réra?",
+     "es": "¿Cómo te llamás?"
+    }
+   ],
+   "formas": [
+    "réra"
+   ]
+  },
+  {
+   "gn": "che",
+   "es": [
+    "yo",
+    "mi"
+   ],
+   "categoria": "pronombre",
+   "tema": "personas",
+   "ejemplos": [
+    {
+     "gn": "Che aha.",
+     "es": "Yo voy."
+    },
+    {
+     "gn": "Che róga.",
+     "es": "Mi casa."
+    }
+   ]
+  },
+  {
+   "gn": "nde",
+   "es": [
+    "vos",
+    "tu"
+   ],
+   "categoria": "pronombre",
+   "tema": "personas",
+   "ejemplos": [
+    {
+     "gn": "Iporã, ha nde?",
+     "es": "Bien, ¿y vos?"
+    },
+    {
+     "gn": "Nde réra.",
+     "es": "Tu nombre."
+    }
+   ]
+  },
+  {
+   "gn": "ha'e",
+   "sentido": 1,
+   "es": [
+    "él",
+    "ella"
+   ],
+   "categoria": "pronombre",
+   "tema": "personas",
+   "ejemplos": [
+    {
+     "gn": "Ha'e oho.",
+     "es": "Él se va."
+    }
+   ]
+  },
+  {
+   "gn": "ha'e",
+   "sentido": 2,
+   "es": [
+    "es",
+    "sí, es (para confirmar)"
+   ],
+   "categoria": "verbo",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Pea ha'e!",
+     "es": "¡Eso es!"
+    }
+   ]
+  },
+  {
+   "gn": "ñande",
+   "es": [
+    "nosotros (incluye a quien escucha)"
+   ],
+   "categoria": "pronombre",
+   "tema": "personas",
+   "ejemplos": [
+    {
+     "gn": "Ñande ñañe'ẽ guaraníme.",
+     "es": "Nosotros hablamos en guaraní."
+    }
+   ]
+  },
+  {
+   "gn": "ore",
+   "es": [
+    "nosotros (sin incluir a quien escucha)"
+   ],
+   "categoria": "pronombre",
+   "tema": "personas",
+   "ejemplos": [
+    {
+     "gn": "Ore roho.",
+     "es": "Nosotros nos vamos."
+    }
+   ]
+  },
+  {
+   "gn": "peẽ",
+   "es": [
+    "ustedes"
+   ],
+   "categoria": "pronombre",
+   "tema": "personas",
+   "ejemplos": [
+    {
+     "gn": "Peẽ pepurahéi.",
+     "es": "Ustedes cantan."
+    }
+   ]
+  },
+  {
+   "gn": "ha'ekuéra",
+   "es": [
+    "ellos",
+    "ellas"
+   ],
+   "categoria": "pronombre",
+   "tema": "personas",
+   "ejemplos": [
+    {
+     "gn": "Ha'ekuéra oguata.",
+     "es": "Ellos caminan."
+    }
+   ]
+  },
+  {
+   "gn": "ko",
+   "es": [
+    "este",
+    "esta"
+   ],
+   "categoria": "pronombre",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Ko óga.",
+     "es": "Esta casa."
+    }
+   ]
+  },
+  {
+   "gn": "pe",
+   "es": [
+    "ese",
+    "esa"
+   ],
+   "categoria": "pronombre",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Pe mitã.",
+     "es": "Ese niño."
+    }
+   ]
+  },
+  {
+   "gn": "upe",
+   "es": [
+    "ese",
+    "aquel (ya mencionado)"
+   ],
+   "categoria": "pronombre",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Upe ára oky.",
+     "es": "Ese día llovió."
+    }
+   ]
+  },
+  {
+   "gn": "kóa",
+   "es": [
+    "esto"
+   ],
+   "categoria": "pronombre",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Mba'e piko kóa?",
+     "es": "¿Qué es esto?"
+    }
+   ]
+  },
+  {
+   "gn": "pea",
+   "es": [
+    "eso"
+   ],
+   "categoria": "pronombre",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Pea ha'e!",
+     "es": "¡Eso es!"
+    }
+   ]
+  },
+  {
+   "gn": "mávapa",
+   "es": [
+    "¿quién?"
+   ],
+   "categoria": "pronombre",
+   "tema": "preguntas",
+   "ejemplos": [
+    {
+     "gn": "Mávapa nde?",
+     "es": "¿Quién sos?"
+    }
+   ]
+  },
+  {
+   "gn": "mba'e",
+   "es": [
+    "qué",
+    "cosa"
+   ],
+   "categoria": "pronombre",
+   "tema": "preguntas",
+   "ejemplos": [
+    {
+     "gn": "Mba'e piko rejapo?",
+     "es": "¿Qué hacés?"
+    },
+    {
+     "gn": "Peteĩ mba'e.",
+     "es": "Una cosa."
+    }
+   ]
+  },
+  {
+   "gn": "moõ",
+   "es": [
+    "dónde"
+   ],
+   "categoria": "adverbio",
+   "tema": "preguntas",
+   "ejemplos": [
+    {
+     "gn": "Moõpa reho?",
+     "es": "¿A dónde vas?"
+    },
+    {
+     "gn": "Moõguápa nde?",
+     "es": "¿De dónde sos?"
+    }
+   ],
+   "formas": [
+    "moõpa",
+    "moõguápa"
+   ]
+  },
+  {
+   "gn": "araka'e",
+   "es": [
+    "cuándo"
+   ],
+   "categoria": "adverbio",
+   "tema": "preguntas",
+   "ejemplos": [
+    {
+     "gn": "Araka'épa reju?",
+     "es": "¿Cuándo venís?"
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "mbovy",
+   "es": [
+    "cuánto, cuántos"
+   ],
+   "categoria": "adverbio",
+   "tema": "preguntas",
+   "ejemplos": [
+    {
+     "gn": "Mbovýpa ovale?",
+     "es": "¿Cuánto vale?"
+    }
+   ],
+   "nota": "\"Ovale\" es jopara.",
+   "verificar": true
+  },
+  {
+   "gn": "mba'érepa",
+   "es": [
+    "¿por qué?"
+   ],
+   "categoria": "adverbio",
+   "tema": "preguntas",
+   "ejemplos": [
+    {
+     "gn": "Mba'érepa rejahe'o?",
+     "es": "¿Por qué llorás?"
+    }
+   ]
+  },
+  {
+   "gn": "mba'éicha",
+   "es": [
+    "cómo"
+   ],
+   "categoria": "adverbio",
+   "tema": "preguntas",
+   "ejemplos": [
+    {
+     "gn": "Mba'éicha rejapo?",
+     "es": "¿Cómo lo hacés?"
+    }
+   ]
+  },
+  {
+   "gn": "piko",
+   "es": [
+    "palabra que marca una pregunta"
+   ],
+   "categoria": "partícula",
+   "tema": "preguntas",
+   "ejemplos": [
+    {
+     "gn": "Mba'e piko rejapo?",
+     "es": "¿Qué hacés?"
+    }
+   ],
+   "nota": "Muy común en la charla."
+  },
+  {
+   "gn": "pa",
+   "sentido": 1,
+   "es": [
+    "palabra que marca una pregunta"
+   ],
+   "categoria": "partícula",
+   "tema": "preguntas",
+   "ejemplos": [
+    {
+     "gn": "Rejúpa?",
+     "es": "¿Venís?"
+    }
+   ],
+   "nota": "Va pegada al final de la palabra que se pregunta."
+  },
+  {
+   "gn": "pa",
+   "sentido": 2,
+   "es": [
+    "diez"
+   ],
+   "categoria": "numeral",
+   "tema": "números",
+   "ejemplos": [
+    {
+     "gn": "Areko pa ary.",
+     "es": "Tengo diez años.",
+     "verificar": true
+    }
+   ]
+  },
+  {
+   "gn": "peteĩ",
+   "es": [
+    "uno"
+   ],
+   "categoria": "numeral",
+   "tema": "números",
+   "ejemplos": [
+    {
+     "gn": "Peteĩ chipa.",
+     "es": "Una chipa."
+    }
+   ]
+  },
+  {
+   "gn": "mokõi",
+   "es": [
+    "dos"
+   ],
+   "categoria": "numeral",
+   "tema": "números",
+   "ejemplos": [
+    {
+     "gn": "Mokõi mitã.",
+     "es": "Dos niños."
+    }
+   ]
+  },
+  {
+   "gn": "mbohapy",
+   "es": [
+    "tres"
+   ],
+   "categoria": "numeral",
+   "tema": "números",
+   "ejemplos": [
+    {
+     "gn": "Mbohapy jagua.",
+     "es": "Tres perros."
+    }
+   ]
+  },
+  {
+   "gn": "irundy",
+   "es": [
+    "cuatro"
+   ],
+   "categoria": "numeral",
+   "tema": "números",
+   "ejemplos": [
+    {
+     "gn": "Irundy ára.",
+     "es": "Cuatro días."
+    }
+   ]
+  },
+  {
+   "gn": "po",
+   "sentido": 1,
+   "es": [
+    "mano"
+   ],
+   "categoria": "sustantivo",
+   "tema": "cuerpo",
+   "ejemplos": [
+    {
+     "gn": "Ejohéi nde po.",
+     "es": "Lavate las manos."
+    }
+   ]
+  },
+  {
+   "gn": "po",
+   "sentido": 2,
+   "es": [
+    "cinco"
+   ],
+   "categoria": "numeral",
+   "tema": "números",
+   "ejemplos": [
+    {
+     "gn": "Po mitã oñani.",
+     "es": "Cinco niños corren."
+    }
+   ]
+  },
+  {
+   "gn": "poteĩ",
+   "es": [
+    "seis"
+   ],
+   "categoria": "numeral",
+   "tema": "números",
+   "ejemplos": [
+    {
+     "gn": "Poteĩ ára.",
+     "es": "Seis días."
+    }
+   ],
+   "nota": "En la charla se usan más los números en castellano."
+  },
+  {
+   "gn": "pokõi",
+   "es": [
+    "siete"
+   ],
+   "categoria": "numeral",
+   "tema": "números",
+   "ejemplos": [
+    {
+     "gn": "Pokõi ára.",
+     "es": "Siete días."
+    }
+   ],
+   "nota": "En la charla se usan más los números en castellano."
+  },
+  {
+   "gn": "poapy",
+   "es": [
+    "ocho"
+   ],
+   "categoria": "numeral",
+   "tema": "números",
+   "ejemplos": [
+    {
+     "gn": "Poapy mitã.",
+     "es": "Ocho niños."
+    }
+   ],
+   "nota": "En la charla se usan más los números en castellano."
+  },
+  {
+   "gn": "porundy",
+   "es": [
+    "nueve"
+   ],
+   "categoria": "numeral",
+   "tema": "números",
+   "ejemplos": [
+    {
+     "gn": "Porundy jagua.",
+     "es": "Nueve perros."
+    }
+   ],
+   "nota": "En la charla se usan más los números en castellano."
+  },
+  {
+   "gn": "pytã",
+   "es": [
+    "rojo"
+   ],
+   "categoria": "adjetivo",
+   "tema": "colores",
+   "ejemplos": [
+    {
+     "gn": "Che ao pytã.",
+     "es": "Mi ropa es roja."
+    }
+   ]
+  },
+  {
+   "gn": "hovy",
+   "es": [
+    "azul",
+    "verde oscuro"
+   ],
+   "categoria": "adjetivo",
+   "tema": "colores",
+   "ejemplos": [
+    {
+     "gn": "Yvága hovy.",
+     "es": "El cielo es azul."
+    }
+   ]
+  },
+  {
+   "gn": "hovyũ",
+   "es": [
+    "verde"
+   ],
+   "categoria": "adjetivo",
+   "tema": "colores",
+   "ejemplos": [
+    {
+     "gn": "Ka'a hovyũ.",
+     "es": "La yerba es verde."
+    }
+   ]
+  },
+  {
+   "gn": "sa'yju",
+   "es": [
+    "amarillo"
+   ],
+   "categoria": "adjetivo",
+   "tema": "colores",
+   "ejemplos": [
+    {
+     "gn": "Kuarahy sa'yju.",
+     "es": "El sol es amarillo."
+    }
+   ]
+  },
+  {
+   "gn": "morotĩ",
+   "es": [
+    "blanco"
+   ],
+   "categoria": "adjetivo",
+   "tema": "colores",
+   "ejemplos": [
+    {
+     "gn": "Kamby morotĩ.",
+     "es": "La leche es blanca."
+    }
+   ]
+  },
+  {
+   "gn": "hũ",
+   "es": [
+    "negro"
+   ],
+   "categoria": "adjetivo",
+   "tema": "colores",
+   "ejemplos": [
+    {
+     "gn": "Jagua hũ.",
+     "es": "Perro negro."
+    }
+   ]
+  },
+  {
+   "gn": "jagua",
+   "es": [
+    "perro"
+   ],
+   "categoria": "sustantivo",
+   "tema": "animales",
+   "ejemplos": [
+    {
+     "gn": "Jagua oñani.",
+     "es": "El perro corre."
+    }
+   ]
+  },
+  {
+   "gn": "mbarakaja",
+   "es": [
+    "gato"
+   ],
+   "categoria": "sustantivo",
+   "tema": "animales",
+   "ejemplos": [
+    {
+     "gn": "Mbarakaja oke.",
+     "es": "El gato duerme."
+    }
+   ]
+  },
+  {
+   "gn": "kavaju",
+   "es": [
+    "caballo"
+   ],
+   "categoria": "sustantivo",
+   "tema": "animales",
+   "ejemplos": [
+    {
+     "gn": "Kavaju oñani pya'e.",
+     "es": "El caballo corre rápido."
+    },
+    {
+     "gn": "Hendy kavaju resa.",
+     "es": "Brilla el ojo del caballo (¡está buenísimo!)."
+    }
+   ]
+  },
+  {
+   "gn": "vaka",
+   "es": [
+    "vaca"
+   ],
+   "categoria": "sustantivo",
+   "tema": "animales",
+   "ejemplos": [
+    {
+     "gn": "Vaka ome'ẽ kamby.",
+     "es": "La vaca da leche."
+    }
+   ]
+  },
+  {
+   "gn": "ryguasu",
+   "es": [
+    "gallina"
+   ],
+   "categoria": "sustantivo",
+   "tema": "animales",
+   "ejemplos": [
+    {
+     "gn": "Ryguasu okaru avati.",
+     "es": "La gallina come maíz."
+    }
+   ]
+  },
+  {
+   "gn": "guyra",
+   "es": [
+    "pájaro"
+   ],
+   "categoria": "sustantivo",
+   "tema": "animales",
+   "ejemplos": [
+    {
+     "gn": "Guyra opurahéi.",
+     "es": "El pájaro canta."
+    }
+   ]
+  },
+  {
+   "gn": "pira",
+   "es": [
+    "pez"
+   ],
+   "categoria": "sustantivo",
+   "tema": "animales",
+   "ejemplos": [
+    {
+     "gn": "Pira oĩ ýpe.",
+     "es": "El pez está en el agua."
+    }
+   ]
+  },
+  {
+   "gn": "mbói",
+   "es": [
+    "víbora"
+   ],
+   "categoria": "sustantivo",
+   "tema": "animales",
+   "ejemplos": [
+    {
+     "gn": "Mbói oĩ kokuépe.",
+     "es": "Hay una víbora en la chacra."
+    }
+   ]
+  },
+  {
+   "gn": "tatu",
+   "es": [
+    "armadillo, tatú"
+   ],
+   "categoria": "sustantivo",
+   "tema": "animales",
+   "ejemplos": [
+    {
+     "gn": "Tatu oñemi.",
+     "es": "El tatú se esconde."
+    }
+   ]
+  },
+  {
+   "gn": "kururu",
+   "es": [
+    "sapo"
+   ],
+   "categoria": "sustantivo",
+   "tema": "animales",
+   "ejemplos": [
+    {
+     "gn": "Kururu osapukái pyhare.",
+     "es": "El sapo grita de noche."
+    }
+   ]
+  },
+  {
+   "gn": "ka'i",
+   "es": [
+    "mono"
+   ],
+   "categoria": "sustantivo",
+   "tema": "animales",
+   "ejemplos": [
+    {
+     "gn": "Ka'i ojupi yvyrápe.",
+     "es": "El mono sube al árbol."
+    }
+   ]
+  },
+  {
+   "gn": "jaguarete",
+   "es": [
+    "jaguar, yaguareté"
+   ],
+   "categoria": "sustantivo",
+   "tema": "animales",
+   "ejemplos": [
+    {
+     "gn": "Jaguarete oiko ka'aguýpe.",
+     "es": "El jaguar vive en el monte."
+    }
+   ]
+  },
+  {
+   "gn": "panambi",
+   "es": [
+    "mariposa"
+   ],
+   "categoria": "sustantivo",
+   "tema": "animales",
+   "ejemplos": [
+    {
+     "gn": "Panambi oveve.",
+     "es": "La mariposa vuela."
+    }
+   ]
+  },
+  {
+   "gn": "ñati'ũ",
+   "es": [
+    "mosquito"
+   ],
+   "categoria": "sustantivo",
+   "tema": "animales",
+   "ejemplos": [
+    {
+     "gn": "Ñati'ũ oisu'u.",
+     "es": "El mosquito pica."
+    }
+   ]
+  },
+  {
+   "gn": "kure",
+   "es": [
+    "chancho, cerdo"
+   ],
+   "categoria": "sustantivo",
+   "tema": "animales",
+   "ejemplos": [
+    {
+     "gn": "Kure okaru heta.",
+     "es": "El chancho come mucho."
+    }
+   ]
+  },
+  {
+   "gn": "kavara",
+   "es": [
+    "cabra"
+   ],
+   "categoria": "sustantivo",
+   "tema": "animales",
+   "ejemplos": [
+    {
+     "gn": "Kavara okaru kapi'i.",
+     "es": "La cabra come pasto."
+    }
+   ]
+  },
+  {
+   "gn": "karumbe",
+   "es": [
+    "tortuga"
+   ],
+   "categoria": "sustantivo",
+   "tema": "animales",
+   "ejemplos": [
+    {
+     "gn": "Karumbe oguata mbegue.",
+     "es": "La tortuga camina despacio."
+    }
+   ]
+  },
+  {
+   "gn": "teju",
+   "es": [
+    "lagarto"
+   ],
+   "categoria": "sustantivo",
+   "tema": "animales",
+   "ejemplos": [
+    {
+     "gn": "Teju oĩ kuarahýpe.",
+     "es": "El lagarto está al sol."
+    }
+   ]
+  },
+  {
+   "gn": "jakare",
+   "es": [
+    "yacaré"
+   ],
+   "categoria": "sustantivo",
+   "tema": "animales",
+   "ejemplos": [
+    {
+     "gn": "Jakare oiko ýpe.",
+     "es": "El yacaré vive en el agua."
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "tahýi",
+   "es": [
+    "hormiga"
+   ],
+   "categoria": "sustantivo",
+   "tema": "animales",
+   "ejemplos": [
+    {
+     "gn": "Tahýi omba'apo heta.",
+     "es": "La hormiga trabaja mucho."
+    }
+   ]
+  },
+  {
+   "gn": "ñandu",
+   "sentido": 1,
+   "es": [
+    "araña"
+   ],
+   "categoria": "sustantivo",
+   "tema": "animales",
+   "ejemplos": [
+    {
+     "gn": "Ñandu ojapo ñandutí.",
+     "es": "La araña teje su tela."
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "ñandu",
+   "sentido": 2,
+   "es": [
+    "ñandú (ave)"
+   ],
+   "categoria": "sustantivo",
+   "tema": "animales",
+   "ejemplos": [
+    {
+     "gn": "Ñandu guasu oñani pya'e.",
+     "es": "El ñandú corre rápido.",
+     "verificar": true
+    }
+   ],
+   "nota": "El ave se suele llamar \"ñandu guasu\" (ñandú grande).",
+   "verificar": true
+  },
+  {
+   "gn": "mymba",
+   "es": [
+    "animal doméstico",
+    "mascota"
+   ],
+   "categoria": "sustantivo",
+   "tema": "animales",
+   "ejemplos": [
+    {
+     "gn": "Che mymba ha'e jagua.",
+     "es": "Mi mascota es un perro."
+    }
+   ]
+  },
+  {
+   "gn": "ype",
+   "es": [
+    "pato"
+   ],
+   "categoria": "sustantivo",
+   "tema": "animales",
+   "ejemplos": [
+    {
+     "gn": "Ype oyta ýpe.",
+     "es": "El pato nada en el agua."
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "ovecha",
+   "es": [
+    "oveja"
+   ],
+   "categoria": "sustantivo",
+   "tema": "animales",
+   "ejemplos": [
+    {
+     "gn": "Ovecha oĩ ñúme.",
+     "es": "La oveja está en el campo."
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "akã",
+   "es": [
+    "cabeza"
+   ],
+   "categoria": "sustantivo",
+   "tema": "cuerpo",
+   "ejemplos": [
+    {
+     "gn": "Che akã rasy.",
+     "es": "Me duele la cabeza.",
+     "verificar": true
+    }
+   ]
+  },
+  {
+   "gn": "resa",
+   "es": [
+    "ojo"
+   ],
+   "categoria": "sustantivo",
+   "tema": "cuerpo",
+   "ejemplos": [
+    {
+     "gn": "Hendy kavaju resa.",
+     "es": "Brilla el ojo del caballo."
+    },
+    {
+     "gn": "Che resa hovy.",
+     "es": "Mis ojos son azules.",
+     "verificar": true
+    }
+   ]
+  },
+  {
+   "gn": "juru",
+   "es": [
+    "boca"
+   ],
+   "categoria": "sustantivo",
+   "tema": "cuerpo",
+   "ejemplos": [
+    {
+     "gn": "Eipe'a nde juru.",
+     "es": "Abrí la boca."
+    }
+   ]
+  },
+  {
+   "gn": "tĩ",
+   "es": [
+    "nariz"
+   ],
+   "categoria": "sustantivo",
+   "tema": "cuerpo",
+   "ejemplos": [
+    {
+     "gn": "Nde tĩ pytã.",
+     "es": "Tu nariz está roja."
+    }
+   ]
+  },
+  {
+   "gn": "apysa",
+   "es": [
+    "oreja",
+    "oído"
+   ],
+   "categoria": "sustantivo",
+   "tema": "cuerpo",
+   "ejemplos": [
+    {
+     "gn": "Che apysa rasy.",
+     "es": "Me duele el oído.",
+     "verificar": true
+    }
+   ]
+  },
+  {
+   "gn": "py",
+   "es": [
+    "pie"
+   ],
+   "categoria": "sustantivo",
+   "tema": "cuerpo",
+   "ejemplos": [
+    {
+     "gn": "Ejohéi nde py.",
+     "es": "Lavate los pies."
+    }
+   ]
+  },
+  {
+   "gn": "kuã",
+   "es": [
+    "dedo"
+   ],
+   "categoria": "sustantivo",
+   "tema": "cuerpo",
+   "ejemplos": [
+    {
+     "gn": "Peteĩ kuã.",
+     "es": "Un dedo."
+    }
+   ]
+  },
+  {
+   "gn": "tete",
+   "es": [
+    "cuerpo"
+   ],
+   "categoria": "sustantivo",
+   "tema": "cuerpo",
+   "ejemplos": [
+    {
+     "gn": "Che rete kane'õ.",
+     "es": "Mi cuerpo está cansado.",
+     "verificar": true
+    }
+   ],
+   "formas": [
+    "rete"
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "tova",
+   "es": [
+    "cara"
+   ],
+   "categoria": "sustantivo",
+   "tema": "cuerpo",
+   "ejemplos": [
+    {
+     "gn": "Ejohéi nde rova.",
+     "es": "Lavate la cara."
+    }
+   ],
+   "formas": [
+    "rova"
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "áva",
+   "es": [
+    "pelo",
+    "cabello"
+   ],
+   "categoria": "sustantivo",
+   "tema": "cuerpo",
+   "ejemplos": [
+    {
+     "gn": "Nde áva pytã.",
+     "es": "Tu pelo es rojizo."
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "korasõ",
+   "es": [
+    "corazón"
+   ],
+   "categoria": "sustantivo",
+   "tema": "cuerpo",
+   "ejemplos": [
+    {
+     "gn": "Che korasõ vy'a.",
+     "es": "Mi corazón está feliz.",
+     "verificar": true
+    }
+   ]
+  },
+  {
+   "gn": "hasy",
+   "es": [
+    "doler",
+    "difícil",
+    "enfermo"
+   ],
+   "categoria": "adjetivo",
+   "tema": "cuerpo",
+   "ejemplos": [
+    {
+     "gn": "Hasy piko guaraní?",
+     "es": "¿Es difícil el guaraní?"
+    },
+    {
+     "gn": "Che rasy.",
+     "es": "Estoy enfermo.",
+     "verificar": true
+    }
+   ],
+   "formas": [
+    "rasy"
+   ]
+  },
+  {
+   "gn": "mbujape",
+   "es": [
+    "pan"
+   ],
+   "categoria": "sustantivo",
+   "tema": "comida",
+   "ejemplos": [
+    {
+     "gn": "Aipota mbujape.",
+     "es": "Quiero pan."
+    }
+   ]
+  },
+  {
+   "gn": "kamby",
+   "es": [
+    "leche"
+   ],
+   "categoria": "sustantivo",
+   "tema": "comida",
+   "ejemplos": [
+    {
+     "gn": "Aipota kamby.",
+     "es": "Quiero leche."
+    }
+   ]
+  },
+  {
+   "gn": "so'o",
+   "es": [
+    "carne"
+   ],
+   "categoria": "sustantivo",
+   "tema": "comida",
+   "ejemplos": [
+    {
+     "gn": "So'o he'ẽ.",
+     "es": "La carne está rica.",
+     "verificar": true
+    }
+   ]
+  },
+  {
+   "gn": "mandi'o",
+   "es": [
+    "mandioca"
+   ],
+   "categoria": "sustantivo",
+   "tema": "comida",
+   "ejemplos": [
+    {
+     "gn": "Ha'u mandi'o.",
+     "es": "Como mandioca."
+    }
+   ]
+  },
+  {
+   "gn": "avati",
+   "es": [
+    "maíz"
+   ],
+   "categoria": "sustantivo",
+   "tema": "comida",
+   "ejemplos": [
+    {
+     "gn": "Ryguasu okaru avati.",
+     "es": "La gallina come maíz."
+    }
+   ]
+  },
+  {
+   "gn": "chipa",
+   "es": [
+    "chipa"
+   ],
+   "categoria": "sustantivo",
+   "tema": "comida",
+   "ejemplos": [
+    {
+     "gn": "He'ẽ la chipa.",
+     "es": "La chipa está rica."
+    }
+   ],
+   "nota": "\"He'ẽ la chipa\" es jopara: guaraní con el \"la\" del castellano."
+  },
+  {
+   "gn": "mbeju",
+   "es": [
+    "mbeju"
+   ],
+   "categoria": "sustantivo",
+   "tema": "comida",
+   "ejemplos": [
+    {
+     "gn": "Che sy ojapo mbeju.",
+     "es": "Mi mamá hace mbeju."
+    }
+   ]
+  },
+  {
+   "gn": "y",
+   "es": [
+    "agua"
+   ],
+   "categoria": "sustantivo",
+   "tema": "comida",
+   "ejemplos": [
+    {
+     "gn": "Aipota y ro'ysã.",
+     "es": "Quiero agua fría."
+    }
+   ],
+   "formas": [
+    "ýpe"
+   ]
+  },
+  {
+   "gn": "tembi'u",
+   "es": [
+    "comida"
+   ],
+   "categoria": "sustantivo",
+   "tema": "comida",
+   "ejemplos": [
+    {
+     "gn": "Tembi'u he'ẽ.",
+     "es": "La comida está rica.",
+     "verificar": true
+    }
+   ]
+  },
+  {
+   "gn": "he'ẽ",
+   "es": [
+    "dulce",
+    "rico (sabroso)"
+   ],
+   "categoria": "adjetivo",
+   "tema": "comida",
+   "ejemplos": [
+    {
+     "gn": "He'ẽ la chipa.",
+     "es": "La chipa está rica."
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "narã",
+   "es": [
+    "naranja"
+   ],
+   "categoria": "sustantivo",
+   "tema": "comida",
+   "ejemplos": [
+    {
+     "gn": "Ha'u narã.",
+     "es": "Como naranja."
+    }
+   ]
+  },
+  {
+   "gn": "kumanda",
+   "es": [
+    "poroto"
+   ],
+   "categoria": "sustantivo",
+   "tema": "comida",
+   "ejemplos": [
+    {
+     "gn": "Kumanda he'ẽ.",
+     "es": "El poroto está rico.",
+     "verificar": true
+    }
+   ]
+  },
+  {
+   "gn": "manduvi",
+   "es": [
+    "maní"
+   ],
+   "categoria": "sustantivo",
+   "tema": "comida",
+   "ejemplos": [
+    {
+     "gn": "Ha'u manduvi.",
+     "es": "Como maní."
+    }
+   ]
+  },
+  {
+   "gn": "eíra",
+   "es": [
+    "miel"
+   ],
+   "categoria": "sustantivo",
+   "tema": "comida",
+   "ejemplos": [
+    {
+     "gn": "Eíra he'ẽ.",
+     "es": "La miel es dulce."
+    }
+   ]
+  },
+  {
+   "gn": "juky",
+   "es": [
+    "sal"
+   ],
+   "categoria": "sustantivo",
+   "tema": "comida",
+   "ejemplos": [
+    {
+     "gn": "Emoĩ juky.",
+     "es": "Poné sal."
+    }
+   ]
+  },
+  {
+   "gn": "aipota",
+   "es": [
+    "quiero"
+   ],
+   "categoria": "verbo",
+   "tema": "comida",
+   "ejemplos": [
+    {
+     "gn": "Aipota mbujape.",
+     "es": "Quiero pan."
+    },
+    {
+     "gn": "Aipota tereré.",
+     "es": "Quiero tereré."
+    }
+   ]
+  },
+  {
+   "gn": "ñembyahýi",
+   "es": [
+    "hambre"
+   ],
+   "categoria": "sustantivo",
+   "tema": "comida",
+   "ejemplos": [
+    {
+     "gn": "Che ñembyahýi.",
+     "es": "Tengo hambre."
+    }
+   ]
+  },
+  {
+   "gn": "y'uhéi",
+   "es": [
+    "sed"
+   ],
+   "categoria": "sustantivo",
+   "tema": "comida",
+   "ejemplos": [
+    {
+     "gn": "Che y'uhéi.",
+     "es": "Tengo sed."
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "karu",
+   "es": [
+    "comer (la comida)"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Jaha jakaru.",
+     "es": "Vamos a comer."
+    }
+   ],
+   "formas": [
+    "jakaru",
+    "okaru"
+   ]
+  },
+  {
+   "gn": "ho'u",
+   "es": [
+    "come",
+    "toma (bebe)"
+   ],
+   "categoria": "verbo",
+   "tema": "comida",
+   "ejemplos": [
+    {
+     "gn": "Ha'e ho'u tereré.",
+     "es": "Él toma tereré."
+    }
+   ],
+   "nota": "Ha'u (yo), re'u (vos), ho'u (él/ella), ja'u (nosotros).",
+   "formas": [
+    "ha'u"
+   ]
+  },
+  {
+   "gn": "ja'u",
+   "es": [
+    "comamos",
+    "tomemos",
+    "comemos"
+   ],
+   "categoria": "verbo",
+   "tema": "tereré",
+   "ejemplos": [
+    {
+     "gn": "Jaha ja'u tereré.",
+     "es": "Vamos a tomar tereré."
+    }
+   ]
+  },
+  {
+   "gn": "tereré",
+   "es": [
+    "tereré (yerba con agua fría)"
+   ],
+   "categoria": "sustantivo",
+   "tema": "tereré",
+   "ejemplos": [
+    {
+     "gn": "Jaha ja'u tereré.",
+     "es": "Vamos a tomar tereré."
+    }
+   ],
+   "nota": "Patrimonio Cultural Inmaterial de la Humanidad (UNESCO, 2020)."
+  },
+  {
+   "gn": "ka'a",
+   "es": [
+    "yerba mate",
+    "planta",
+    "monte"
+   ],
+   "categoria": "sustantivo",
+   "tema": "tereré",
+   "ejemplos": [
+    {
+     "gn": "Emoĩ ka'a guampápe.",
+     "es": "Poné yerba en la guampa."
+    }
+   ]
+  },
+  {
+   "gn": "guampa",
+   "es": [
+    "guampa (vaso para el tereré)"
+   ],
+   "categoria": "sustantivo",
+   "tema": "tereré",
+   "ejemplos": [
+    {
+     "gn": "Ehasa chéve la guampa.",
+     "es": "Pasame la guampa."
+    }
+   ],
+   "nota": "Palabra del castellano muy usada en jopara."
+  },
+  {
+   "gn": "pohã",
+   "es": [
+    "remedio",
+    "medicina"
+   ],
+   "categoria": "sustantivo",
+   "tema": "tereré",
+   "ejemplos": [
+    {
+     "gn": "Pohã ñana.",
+     "es": "Yuyos medicinales."
+    },
+    {
+     "gn": "Ahekáta pohã.",
+     "es": "Voy a buscar remedio."
+    }
+   ]
+  },
+  {
+   "gn": "ñana",
+   "es": [
+    "yuyo",
+    "hierba"
+   ],
+   "categoria": "sustantivo",
+   "tema": "tereré",
+   "ejemplos": [
+    {
+     "gn": "Pohã ñana.",
+     "es": "Yuyos medicinales (para el tereré)."
+    }
+   ]
+  },
+  {
+   "gn": "kapi'i",
+   "es": [
+    "pasto"
+   ],
+   "categoria": "sustantivo",
+   "tema": "naturaleza",
+   "ejemplos": [
+    {
+     "gn": "Kavara okaru kapi'i.",
+     "es": "La cabra come pasto."
+    }
+   ]
+  },
+  {
+   "gn": "óga",
+   "es": [
+    "casa"
+   ],
+   "categoria": "sustantivo",
+   "tema": "casa",
+   "ejemplos": [
+    {
+     "gn": "Ko óga iporã.",
+     "es": "Esta casa es linda."
+    },
+    {
+     "gn": "Che róga.",
+     "es": "Mi casa."
+    }
+   ],
+   "formas": [
+    "róga",
+    "ógape"
+   ]
+  },
+  {
+   "gn": "mbo'ehao",
+   "es": [
+    "escuela"
+   ],
+   "categoria": "sustantivo",
+   "tema": "lugares",
+   "ejemplos": [
+    {
+     "gn": "Pyhareve aha mbo'ehaópe.",
+     "es": "A la mañana voy a la escuela."
+    }
+   ]
+  },
+  {
+   "gn": "tape",
+   "es": [
+    "camino"
+   ],
+   "categoria": "sustantivo",
+   "tema": "lugares",
+   "ejemplos": [
+    {
+     "gn": "Pe tape ipukú.",
+     "es": "Ese camino es largo."
+    }
+   ]
+  },
+  {
+   "gn": "táva",
+   "es": [
+    "pueblo",
+    "ciudad"
+   ],
+   "categoria": "sustantivo",
+   "tema": "lugares",
+   "ejemplos": [
+    {
+     "gn": "Táva guasu.",
+     "es": "Ciudad grande."
+    }
+   ]
+  },
+  {
+   "gn": "tetã",
+   "es": [
+    "país"
+   ],
+   "categoria": "sustantivo",
+   "tema": "lugares",
+   "ejemplos": [
+    {
+     "gn": "Che tetã ha'e Paraguay.",
+     "es": "Mi país es Paraguay."
+    }
+   ]
+  },
+  {
+   "gn": "kokue",
+   "es": [
+    "chacra"
+   ],
+   "categoria": "sustantivo",
+   "tema": "lugares",
+   "ejemplos": [
+    {
+     "gn": "Che ru omba'apo kokuépe.",
+     "es": "Mi papá trabaja en la chacra."
+    }
+   ]
+  },
+  {
+   "gn": "ka'aguy",
+   "es": [
+    "monte",
+    "bosque"
+   ],
+   "categoria": "sustantivo",
+   "tema": "naturaleza",
+   "ejemplos": [
+    {
+     "gn": "Jaguarete oiko ka'aguýpe.",
+     "es": "El jaguar vive en el monte."
+    }
+   ]
+  },
+  {
+   "gn": "ysyry",
+   "es": [
+    "arroyo",
+    "río"
+   ],
+   "categoria": "sustantivo",
+   "tema": "naturaleza",
+   "ejemplos": [
+    {
+     "gn": "Mitãnguéra ojahu ysyrýpe.",
+     "es": "Los chicos se bañan en el arroyo."
+    }
+   ]
+  },
+  {
+   "gn": "yvy",
+   "es": [
+    "tierra",
+    "suelo"
+   ],
+   "categoria": "sustantivo",
+   "tema": "naturaleza",
+   "ejemplos": [
+    {
+     "gn": "Yvy pytã.",
+     "es": "Tierra roja."
+    }
+   ]
+  },
+  {
+   "gn": "yvága",
+   "es": [
+    "cielo"
+   ],
+   "categoria": "sustantivo",
+   "tema": "naturaleza",
+   "ejemplos": [
+    {
+     "gn": "Yvága hovy.",
+     "es": "El cielo es azul."
+    }
+   ]
+  },
+  {
+   "gn": "yvyra",
+   "es": [
+    "árbol",
+    "madera"
+   ],
+   "categoria": "sustantivo",
+   "tema": "naturaleza",
+   "ejemplos": [
+    {
+     "gn": "Yvyra yvate.",
+     "es": "Árbol alto."
+    }
+   ]
+  },
+  {
+   "gn": "yvoty",
+   "es": [
+    "flor"
+   ],
+   "categoria": "sustantivo",
+   "tema": "naturaleza",
+   "ejemplos": [
+    {
+     "gn": "Yvoty iporã.",
+     "es": "La flor es linda."
+    }
+   ]
+  },
+  {
+   "gn": "ita",
+   "es": [
+    "piedra"
+   ],
+   "categoria": "sustantivo",
+   "tema": "naturaleza",
+   "ejemplos": [
+    {
+     "gn": "Ita pohýi.",
+     "es": "La piedra es pesada."
+    }
+   ]
+  },
+  {
+   "gn": "tata",
+   "es": [
+    "fuego"
+   ],
+   "categoria": "sustantivo",
+   "tema": "naturaleza",
+   "ejemplos": [
+    {
+     "gn": "Tata hendy.",
+     "es": "El fuego arde."
+    }
+   ]
+  },
+  {
+   "gn": "ñu",
+   "es": [
+    "campo"
+   ],
+   "categoria": "sustantivo",
+   "tema": "lugares",
+   "ejemplos": [
+    {
+     "gn": "Vaka oĩ ñúme.",
+     "es": "La vaca está en el campo."
+    }
+   ]
+  },
+  {
+   "gn": "okẽ",
+   "es": [
+    "puerta"
+   ],
+   "categoria": "sustantivo",
+   "tema": "casa",
+   "ejemplos": [
+    {
+     "gn": "Embotypa okẽ.",
+     "es": "Cerrá la puerta."
+    }
+   ]
+  },
+  {
+   "gn": "ovetã",
+   "es": [
+    "ventana"
+   ],
+   "categoria": "sustantivo",
+   "tema": "casa",
+   "ejemplos": [
+    {
+     "gn": "Eipe'a ovetã.",
+     "es": "Abrí la ventana."
+    }
+   ]
+  },
+  {
+   "gn": "apyka",
+   "es": [
+    "silla",
+    "asiento"
+   ],
+   "categoria": "sustantivo",
+   "tema": "casa",
+   "ejemplos": [
+    {
+     "gn": "Eguapy apykápe.",
+     "es": "Sentate en la silla."
+    }
+   ]
+  },
+  {
+   "gn": "tupa",
+   "es": [
+    "cama"
+   ],
+   "categoria": "sustantivo",
+   "tema": "casa",
+   "ejemplos": [
+    {
+     "gn": "Aha tupápe.",
+     "es": "Me voy a la cama."
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "kuatia",
+   "es": [
+    "papel",
+    "carta"
+   ],
+   "categoria": "sustantivo",
+   "tema": "casa",
+   "ejemplos": [
+    {
+     "gn": "Ehai kuatiápe.",
+     "es": "Escribí en el papel."
+    }
+   ]
+  },
+  {
+   "gn": "aranduka",
+   "es": [
+    "libro"
+   ],
+   "categoria": "sustantivo",
+   "tema": "casa",
+   "ejemplos": [
+    {
+     "gn": "Amoñe'ẽ aranduka.",
+     "es": "Leo un libro."
+    }
+   ]
+  },
+  {
+   "gn": "ao",
+   "es": [
+    "ropa"
+   ],
+   "categoria": "sustantivo",
+   "tema": "casa",
+   "ejemplos": [
+    {
+     "gn": "Che ao ky'a.",
+     "es": "Mi ropa está sucia."
+    }
+   ]
+  },
+  {
+   "gn": "pirapire",
+   "es": [
+    "plata",
+    "dinero"
+   ],
+   "categoria": "sustantivo",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Ndarekói pirapire.",
+     "es": "No tengo plata."
+    }
+   ]
+  },
+  {
+   "gn": "guaraní",
+   "es": [
+    "idioma guaraní"
+   ],
+   "categoria": "sustantivo",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Añe'ẽ guaraníme.",
+     "es": "Hablo en guaraní."
+    }
+   ],
+   "formas": [
+    "guaraníme"
+   ]
+  },
+  {
+   "gn": "ñandutí",
+   "es": [
+    "ñandutí (encaje paraguayo; tela de araña)"
+   ],
+   "categoria": "sustantivo",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Che jarýi ojapo ñandutí.",
+     "es": "Mi abuela teje ñandutí."
+    }
+   ]
+  },
+  {
+   "gn": "arete",
+   "es": [
+    "fiesta"
+   ],
+   "categoria": "sustantivo",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Ko'ẽrõ oĩ arete.",
+     "es": "Mañana hay fiesta."
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "tembiapo",
+   "es": [
+    "trabajo",
+    "tarea"
+   ],
+   "categoria": "sustantivo",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Amohu'ã che rembiapo.",
+     "es": "Terminé mi tarea."
+    }
+   ],
+   "formas": [
+    "rembiapo"
+   ]
+  },
+  {
+   "gn": "mba'asy",
+   "es": [
+    "enfermedad"
+   ],
+   "categoria": "sustantivo",
+   "tema": "cuerpo",
+   "ejemplos": [
+    {
+     "gn": "Mba'asy vai.",
+     "es": "Una enfermedad fea.",
+     "verificar": true
+    }
+   ]
+  },
+  {
+   "gn": "guata",
+   "es": [
+    "caminar"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Aguata ka'aru.",
+     "es": "Camino a la tarde."
+    }
+   ]
+  },
+  {
+   "gn": "ñani",
+   "es": [
+    "correr"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Jagua oñani pya'e.",
+     "es": "El perro corre rápido."
+    }
+   ]
+  },
+  {
+   "gn": "ke",
+   "es": [
+    "dormir"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Ake pyhare.",
+     "es": "De noche duermo."
+    }
+   ]
+  },
+  {
+   "gn": "jahu",
+   "es": [
+    "bañarse"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Ajahu pyhareve.",
+     "es": "Me baño a la mañana."
+    }
+   ]
+  },
+  {
+   "gn": "purahéi",
+   "es": [
+    "cantar",
+    "canción"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Opurahéi porã.",
+     "es": "Canta lindo."
+    },
+    {
+     "gn": "Ahendu peteĩ purahéi.",
+     "es": "Escucho una canción."
+    }
+   ]
+  },
+  {
+   "gn": "jeroky",
+   "es": [
+    "bailar"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Jajeroky polka.",
+     "es": "Bailemos polka."
+    }
+   ]
+  },
+  {
+   "gn": "mba'apo",
+   "es": [
+    "trabajar",
+    "trabajo"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Che ru omba'apo.",
+     "es": "Mi papá trabaja."
+    }
+   ]
+  },
+  {
+   "gn": "ñe'ẽ",
+   "es": [
+    "hablar",
+    "palabra",
+    "idioma"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Oñe'ẽ guaraníme.",
+     "es": "Habla en guaraní."
+    },
+    {
+     "gn": "Ñe'ẽ porã.",
+     "es": "Buena palabra."
+    }
+   ]
+  },
+  {
+   "gn": "hai",
+   "es": [
+    "escribir"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Ahai che réra.",
+     "es": "Escribo mi nombre."
+    }
+   ]
+  },
+  {
+   "gn": "moñe'ẽ",
+   "es": [
+    "leer"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Amoñe'ẽ aranduka.",
+     "es": "Leo un libro."
+    }
+   ]
+  },
+  {
+   "gn": "hecha",
+   "es": [
+    "ver"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Rohecha ko'ẽrõ.",
+     "es": "Te veo mañana."
+    }
+   ],
+   "nota": "Aecha = veo.",
+   "formas": [
+    "aecha"
+   ]
+  },
+  {
+   "gn": "hendu",
+   "es": [
+    "escuchar",
+    "oír"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Ahendu purahéi.",
+     "es": "Escucho música."
+    }
+   ]
+  },
+  {
+   "gn": "jaha",
+   "es": [
+    "¡vamos!"
+   ],
+   "categoria": "interjección",
+   "tema": "jopara",
+   "ejemplos": [
+    {
+     "gn": "Jaha ja'u tereré.",
+     "es": "Vamos a tomar tereré."
+    }
+   ],
+   "nota": "Muy común para invitar."
+  },
+  {
+   "gn": "eju",
+   "es": [
+    "¡vení!"
+   ],
+   "categoria": "interjección",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Eju ko'ápe.",
+     "es": "Vení acá."
+    }
+   ]
+  },
+  {
+   "gn": "japo",
+   "es": [
+    "hacer"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Ajapo chipa.",
+     "es": "Hago chipa."
+    }
+   ]
+  },
+  {
+   "gn": "iko",
+   "es": [
+    "vivir",
+    "estar"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Aiko che sy ndive.",
+     "es": "Vivo con mi mamá."
+    }
+   ],
+   "formas": [
+    "aiko",
+    "oiko"
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "ñembo'e",
+   "es": [
+    "rezar",
+    "oración"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Che jarýi oñembo'e pyhare.",
+     "es": "Mi abuela reza de noche."
+    }
+   ]
+  },
+  {
+   "gn": "ndaikuaái",
+   "es": [
+    "no sé"
+   ],
+   "categoria": "verbo",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Nahániri, ndaikuaái.",
+     "es": "No, no sé."
+    }
+   ]
+  },
+  {
+   "gn": "mbo'e",
+   "es": [
+    "enseñar"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Che jarýi ombo'e guaraní.",
+     "es": "Mi abuela enseña guaraní."
+    }
+   ]
+  },
+  {
+   "gn": "pytyvõ",
+   "es": [
+    "ayudar",
+    "ayuda"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Epytyvõ chéve.",
+     "es": "Ayudame."
+    }
+   ]
+  },
+  {
+   "gn": "hayhu",
+   "es": [
+    "amar",
+    "querer"
+   ],
+   "categoria": "verbo",
+   "tema": "sentimientos",
+   "ejemplos": [
+    {
+     "gn": "Rohayhu, che sy.",
+     "es": "Te quiero, mamá."
+    }
+   ]
+  },
+  {
+   "gn": "rohayhu",
+   "es": [
+    "te quiero",
+    "te amo"
+   ],
+   "categoria": "verbo",
+   "tema": "sentimientos",
+   "ejemplos": [
+    {
+     "gn": "Rohayhu, che sy.",
+     "es": "Te quiero, mamá."
+    }
+   ],
+   "nota": "Muy usado con la familia."
+  },
+  {
+   "gn": "jupi",
+   "es": [
+    "subir"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Ka'i ojupi yvyrápe.",
+     "es": "El mono sube al árbol."
+    }
+   ],
+   "formas": [
+    "jajupi"
+   ]
+  },
+  {
+   "gn": "guejy",
+   "es": [
+    "bajar"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Eguejy pya'e.",
+     "es": "Bajá rápido."
+    }
+   ]
+  },
+  {
+   "gn": "ñemi",
+   "es": [
+    "esconderse"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Tatu oñemi.",
+     "es": "El tatú se esconde."
+    }
+   ]
+  },
+  {
+   "gn": "heka",
+   "es": [
+    "buscar"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Ahekáta pohã.",
+     "es": "Voy a buscar remedio."
+    }
+   ]
+  },
+  {
+   "gn": "me'ẽ",
+   "es": [
+    "dar"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Vaka ome'ẽ kamby.",
+     "es": "La vaca da leche."
+    }
+   ]
+  },
+  {
+   "gn": "jogua",
+   "es": [
+    "comprar"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Ajoguáta mbujape.",
+     "es": "Voy a comprar pan."
+    }
+   ]
+  },
+  {
+   "gn": "ñemu",
+   "es": [
+    "vender"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Oñemu chipa.",
+     "es": "Vende chipa."
+    }
+   ]
+  },
+  {
+   "gn": "juhu",
+   "es": [
+    "encontrar"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Ajuhu che angirũ.",
+     "es": "Encontré a mi amigo."
+    }
+   ]
+  },
+  {
+   "gn": "kañy",
+   "es": [
+    "perderse",
+    "desaparecer"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Okañy che jagua.",
+     "es": "Se perdió mi perro."
+    }
+   ]
+  },
+  {
+   "gn": "sapukái",
+   "es": [
+    "gritar",
+    "grito"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Kururu osapukái pyhare.",
+     "es": "El sapo grita de noche."
+    }
+   ]
+  },
+  {
+   "gn": "puka",
+   "es": [
+    "reír"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Opuka heta.",
+     "es": "Se ríe mucho."
+    }
+   ]
+  },
+  {
+   "gn": "pukavy",
+   "es": [
+    "sonreír"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Mitã opukavy.",
+     "es": "El niño sonríe."
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "jahe'o",
+   "es": [
+    "llorar"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Mitã ojahe'o.",
+     "es": "El niño llora."
+    }
+   ]
+  },
+  {
+   "gn": "ñepyrũ",
+   "es": [
+    "empezar"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Ñañepyrũ ko'ãga.",
+     "es": "Empecemos ahora."
+    }
+   ]
+  },
+  {
+   "gn": "mohu'ã",
+   "es": [
+    "terminar"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Amohu'ã che rembiapo.",
+     "es": "Terminé mi tarea."
+    }
+   ]
+  },
+  {
+   "gn": "ha'ã",
+   "es": [
+    "intentar",
+    "probar"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Eha'ã jey.",
+     "es": "Intentá de nuevo."
+    }
+   ]
+  },
+  {
+   "gn": "ikatu",
+   "es": [
+    "se puede",
+    "es posible"
+   ],
+   "categoria": "verbo",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Ikatu reju?",
+     "es": "¿Podés venir?"
+    }
+   ]
+  },
+  {
+   "gn": "ndaikatúi",
+   "es": [
+    "no puedo",
+    "no se puede"
+   ],
+   "categoria": "verbo",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Ndaikatúi aha.",
+     "es": "No puedo ir."
+    }
+   ]
+  },
+  {
+   "gn": "hasa",
+   "es": [
+    "pasar"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Ehasa chéve la guampa.",
+     "es": "Pasame la guampa."
+    }
+   ]
+  },
+  {
+   "gn": "guapy",
+   "es": [
+    "sentarse"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Eguapy ko'ápe.",
+     "es": "Sentate acá."
+    }
+   ]
+  },
+  {
+   "gn": "pu'ã",
+   "es": [
+    "levantarse"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Apu'ã voi.",
+     "es": "Me levanto temprano."
+    }
+   ]
+  },
+  {
+   "gn": "mondo",
+   "es": [
+    "enviar, mandar"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Amondo peteĩ kuatia.",
+     "es": "Mando una carta."
+    }
+   ]
+  },
+  {
+   "gn": "hechauka",
+   "es": [
+    "mostrar"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Ehechauka chéve.",
+     "es": "Mostrame."
+    }
+   ]
+  },
+  {
+   "gn": "jerure",
+   "es": [
+    "pedir"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Ajerure pytyvõ.",
+     "es": "Pido ayuda."
+    }
+   ]
+  },
+  {
+   "gn": "mbohovái",
+   "es": [
+    "responder"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Embohovái chéve.",
+     "es": "Respondeme."
+    }
+   ]
+  },
+  {
+   "gn": "porandu",
+   "es": [
+    "preguntar",
+    "pregunta"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Aporandu peteĩ mba'e.",
+     "es": "Pregunto una cosa."
+    }
+   ]
+  },
+  {
+   "gn": "javy",
+   "es": [
+    "equivocarse"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Ajavy jey.",
+     "es": "Me equivoqué otra vez."
+    }
+   ]
+  },
+  {
+   "gn": "ñomongeta",
+   "es": [
+    "conversar"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Jañomongeta tereré rupi.",
+     "es": "Charlemos tomando tereré.",
+     "verificar": true
+    }
+   ]
+  },
+  {
+   "gn": "johéi",
+   "es": [
+    "lavar"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Ejohéi nde po.",
+     "es": "Lavate las manos."
+    }
+   ]
+  },
+  {
+   "gn": "mano",
+   "es": [
+    "morir"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Omano la nde racha 💀",
+     "es": "Se murió tu racha 💀"
+    }
+   ],
+   "nota": "\"Omano la nde racha\" es jopara.",
+   "formas": [
+    "omano"
+   ]
+  },
+  {
+   "gn": "ho'a",
+   "es": [
+    "caer"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Ho'a la nde liga.",
+     "es": "Se cayó tu liga.",
+     "verificar": true
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "ipe'a",
+   "es": [
+    "abrir"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Eipe'a okẽ.",
+     "es": "Abrí la puerta."
+    }
+   ],
+   "formas": [
+    "eipe'a"
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "mbotypa",
+   "es": [
+    "cerrar"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Embotypa okẽ.",
+     "es": "Cerrá la puerta."
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "veve",
+   "es": [
+    "volar"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Panambi oveve.",
+     "es": "La mariposa vuela."
+    }
+   ]
+  },
+  {
+   "gn": "mimbi",
+   "es": [
+    "brillar"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Jasy omimbi pyhare.",
+     "es": "La luna brilla de noche."
+    }
+   ]
+  },
+  {
+   "gn": "hendy",
+   "es": [
+    "arder",
+    "brillar",
+    "estar encendido"
+   ],
+   "categoria": "verbo",
+   "tema": "acciones",
+   "ejemplos": [
+    {
+     "gn": "Tata hendy.",
+     "es": "El fuego arde."
+    },
+    {
+     "gn": "Hendy hína tu racha 🔥",
+     "es": "Tu racha está encendida 🔥"
+    }
+   ],
+   "nota": "\"Hendy hína\" se usa para algo que está a full, prendido."
+  },
+  {
+   "gn": "ñembotavy",
+   "es": [
+    "hacerse el tonto"
+   ],
+   "categoria": "verbo",
+   "tema": "jopara",
+   "ejemplos": [
+    {
+     "gn": "Ani reñembotavy!",
+     "es": "¡No te hagas el tonto!"
+    }
+   ],
+   "nota": "Entre amigos."
+  },
+  {
+   "gn": "jehu",
+   "es": [
+    "pasar",
+    "suceder"
+   ],
+   "categoria": "verbo",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Mba'e piko ojehu?",
+     "es": "¿Qué pasa?",
+     "verificar": true
+    }
+   ],
+   "formas": [
+    "ojehu"
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "vy'a",
+   "es": [
+    "alegría",
+    "estar contento"
+   ],
+   "categoria": "sustantivo",
+   "tema": "sentimientos",
+   "ejemplos": [
+    {
+     "gn": "Che vy'a.",
+     "es": "Estoy contento."
+    }
+   ]
+  },
+  {
+   "gn": "ñembyasy",
+   "es": [
+    "tristeza",
+    "estar triste"
+   ],
+   "categoria": "sustantivo",
+   "tema": "sentimientos",
+   "ejemplos": [
+    {
+     "gn": "Che ñembyasy.",
+     "es": "Estoy triste."
+    }
+   ]
+  },
+  {
+   "gn": "pochy",
+   "es": [
+    "enojado",
+    "enojo"
+   ],
+   "categoria": "adjetivo",
+   "tema": "sentimientos",
+   "ejemplos": [
+    {
+     "gn": "Ipochy hína tu fueguito 😤",
+     "es": "Tu fueguito está enojado 😤"
+    }
+   ],
+   "nota": "Muy común en jopara.",
+   "formas": [
+    "ipochy"
+   ]
+  },
+  {
+   "gn": "kyhyje",
+   "es": [
+    "miedo"
+   ],
+   "categoria": "sustantivo",
+   "tema": "sentimientos",
+   "ejemplos": [
+    {
+     "gn": "Che kyhyje.",
+     "es": "Tengo miedo."
+    }
+   ]
+  },
+  {
+   "gn": "kane'õ",
+   "es": [
+    "cansado",
+    "cansancio"
+   ],
+   "categoria": "adjetivo",
+   "tema": "sentimientos",
+   "ejemplos": [
+    {
+     "gn": "Che kane'õ.",
+     "es": "Estoy cansado."
+    }
+   ]
+  },
+  {
+   "gn": "rory",
+   "es": [
+    "alegre",
+    "contento"
+   ],
+   "categoria": "adjetivo",
+   "tema": "sentimientos",
+   "ejemplos": [
+    {
+     "gn": "Nde rory pa?",
+     "es": "¿Estás contento?",
+     "verificar": true
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "mandu'a",
+   "es": [
+    "acordarse"
+   ],
+   "categoria": "verbo",
+   "tema": "sentimientos",
+   "ejemplos": [
+    {
+     "gn": "Che mandu'a nderehe.",
+     "es": "Me acuerdo de vos."
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "resarái",
+   "es": [
+    "olvidarse"
+   ],
+   "categoria": "verbo",
+   "tema": "sentimientos",
+   "ejemplos": [
+    {
+     "gn": "Che resarái.",
+     "es": "Me olvidé."
+    }
+   ]
+  },
+  {
+   "gn": "kuerái",
+   "es": [
+    "estar harto",
+    "cansarse de algo"
+   ],
+   "categoria": "adjetivo",
+   "tema": "sentimientos",
+   "ejemplos": [
+    {
+     "gn": "Che kuerái.",
+     "es": "Estoy harto."
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "guasu",
+   "es": [
+    "grande"
+   ],
+   "categoria": "adjetivo",
+   "tema": "descripciones",
+   "ejemplos": [
+    {
+     "gn": "Táva guasu.",
+     "es": "Ciudad grande."
+    }
+   ]
+  },
+  {
+   "gn": "tuicha",
+   "es": [
+    "grande"
+   ],
+   "categoria": "adjetivo",
+   "tema": "descripciones",
+   "ejemplos": [
+    {
+     "gn": "Tuicha mba'e.",
+     "es": "Es algo importante.",
+     "verificar": true
+    }
+   ]
+  },
+  {
+   "gn": "michĩ",
+   "es": [
+    "chico",
+    "pequeño"
+   ],
+   "categoria": "adjetivo",
+   "tema": "descripciones",
+   "ejemplos": [
+    {
+     "gn": "Jagua michĩ.",
+     "es": "Perro chico."
+    }
+   ]
+  },
+  {
+   "gn": "michĩmi",
+   "es": [
+    "un poquito"
+   ],
+   "categoria": "adverbio",
+   "tema": "descripciones",
+   "ejemplos": [
+    {
+     "gn": "Asaje ake michĩmi.",
+     "es": "A la siesta duermo un poquito."
+    }
+   ]
+  },
+  {
+   "gn": "pyahu",
+   "es": [
+    "nuevo"
+   ],
+   "categoria": "adjetivo",
+   "tema": "descripciones",
+   "ejemplos": [
+    {
+     "gn": "Ao pyahu.",
+     "es": "Ropa nueva."
+    }
+   ]
+  },
+  {
+   "gn": "tuja",
+   "es": [
+    "viejo (persona)"
+   ],
+   "categoria": "adjetivo",
+   "tema": "descripciones",
+   "ejemplos": [
+    {
+     "gn": "Che tamõi ituja.",
+     "es": "Mi abuelo es viejito."
+    }
+   ],
+   "formas": [
+    "ituja"
+   ]
+  },
+  {
+   "gn": "mbarete",
+   "es": [
+    "fuerte"
+   ],
+   "categoria": "adjetivo",
+   "tema": "descripciones",
+   "ejemplos": [
+    {
+     "gn": "Kuña mbarete.",
+     "es": "Mujer fuerte."
+    }
+   ],
+   "nota": "En jopara también es \"genial\", \"lo más\"."
+  },
+  {
+   "gn": "pya'e",
+   "es": [
+    "rápido"
+   ],
+   "categoria": "adverbio",
+   "tema": "descripciones",
+   "ejemplos": [
+    {
+     "gn": "Oñani pya'e.",
+     "es": "Corre rápido."
+    },
+    {
+     "gn": "Pya'e! Ñañepyrũ.",
+     "es": "¡Rápido! Empecemos."
+    }
+   ]
+  },
+  {
+   "gn": "mbegue",
+   "es": [
+    "despacio"
+   ],
+   "categoria": "adverbio",
+   "tema": "descripciones",
+   "ejemplos": [
+    {
+     "gn": "Karumbe oguata mbegue.",
+     "es": "La tortuga camina despacio."
+    }
+   ]
+  },
+  {
+   "gn": "mbeguekatu",
+   "es": [
+    "despacito"
+   ],
+   "categoria": "adverbio",
+   "tema": "descripciones",
+   "ejemplos": [
+    {
+     "gn": "Eñe'ẽ mbeguekatu.",
+     "es": "Hablá despacito."
+    }
+   ]
+  },
+  {
+   "gn": "yvate",
+   "es": [
+    "alto"
+   ],
+   "categoria": "adjetivo",
+   "tema": "descripciones",
+   "ejemplos": [
+    {
+     "gn": "Yvyra yvate.",
+     "es": "Árbol alto."
+    }
+   ]
+  },
+  {
+   "gn": "karape",
+   "es": [
+    "bajo",
+    "petiso"
+   ],
+   "categoria": "adjetivo",
+   "tema": "descripciones",
+   "ejemplos": [
+    {
+     "gn": "Mitã karape.",
+     "es": "Niño petiso."
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "pukú",
+   "es": [
+    "largo"
+   ],
+   "categoria": "adjetivo",
+   "tema": "descripciones",
+   "ejemplos": [
+    {
+     "gn": "Pe tape ipukú.",
+     "es": "Ese camino es largo."
+    }
+   ],
+   "formas": [
+    "ipukú"
+   ]
+  },
+  {
+   "gn": "mbyky",
+   "es": [
+    "corto"
+   ],
+   "categoria": "adjetivo",
+   "tema": "descripciones",
+   "ejemplos": [
+    {
+     "gn": "Ao mbyky.",
+     "es": "Ropa corta."
+    }
+   ]
+  },
+  {
+   "gn": "pohýi",
+   "es": [
+    "pesado"
+   ],
+   "categoria": "adjetivo",
+   "tema": "descripciones",
+   "ejemplos": [
+    {
+     "gn": "Ita pohýi.",
+     "es": "La piedra es pesada."
+    }
+   ]
+  },
+  {
+   "gn": "vevúi",
+   "es": [
+    "liviano"
+   ],
+   "categoria": "adjetivo",
+   "tema": "descripciones",
+   "ejemplos": [
+    {
+     "gn": "Kuatia vevúi.",
+     "es": "El papel es liviano."
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "hatã",
+   "es": [
+    "duro",
+    "firme",
+    "fuerte"
+   ],
+   "categoria": "adjetivo",
+   "tema": "descripciones",
+   "ejemplos": [
+    {
+     "gn": "Ko ita hatã.",
+     "es": "Esta piedra es dura."
+    }
+   ]
+  },
+  {
+   "gn": "vai",
+   "es": [
+    "feo",
+    "malo"
+   ],
+   "categoria": "adjetivo",
+   "tema": "descripciones",
+   "ejemplos": [
+    {
+     "gn": "Ko ára vai.",
+     "es": "Hoy es un día feo."
+    }
+   ]
+  },
+  {
+   "gn": "ky'a",
+   "es": [
+    "sucio"
+   ],
+   "categoria": "adjetivo",
+   "tema": "descripciones",
+   "ejemplos": [
+    {
+     "gn": "Che ao ky'a.",
+     "es": "Mi ropa está sucia."
+    }
+   ]
+  },
+  {
+   "gn": "potĩ",
+   "es": [
+    "limpio"
+   ],
+   "categoria": "adjetivo",
+   "tema": "descripciones",
+   "ejemplos": [
+    {
+     "gn": "Che róga potĩ.",
+     "es": "Mi casa está limpia."
+    }
+   ]
+  },
+  {
+   "gn": "kyra",
+   "es": [
+    "gordo"
+   ],
+   "categoria": "adjetivo",
+   "tema": "descripciones",
+   "ejemplos": [
+    {
+     "gn": "Kure kyra.",
+     "es": "Chancho gordo."
+    }
+   ]
+  },
+  {
+   "gn": "piru",
+   "es": [
+    "flaco"
+   ],
+   "categoria": "adjetivo",
+   "tema": "descripciones",
+   "ejemplos": [
+    {
+     "gn": "Jagua piru.",
+     "es": "Perro flaco."
+    }
+   ]
+  },
+  {
+   "gn": "arandu",
+   "es": [
+    "sabio",
+    "sabiduría"
+   ],
+   "categoria": "adjetivo",
+   "tema": "descripciones",
+   "ejemplos": [
+    {
+     "gn": "Che jarýi arandu.",
+     "es": "Mi abuela es sabia."
+    }
+   ]
+  },
+  {
+   "gn": "tavy",
+   "es": [
+    "tonto"
+   ],
+   "categoria": "adjetivo",
+   "tema": "jopara",
+   "ejemplos": [
+    {
+     "gn": "Ani nde tavy!",
+     "es": "¡No seas tonto!",
+     "verificar": true
+    }
+   ],
+   "nota": "Entre amigos."
+  },
+  {
+   "gn": "vyro",
+   "es": [
+    "tonto, zonzo"
+   ],
+   "categoria": "adjetivo",
+   "tema": "jopara",
+   "ejemplos": [
+    {
+     "gn": "Ani nde vyro!",
+     "es": "¡No seas zonzo!",
+     "verificar": true
+    }
+   ],
+   "nota": "Entre amigos; muy común en jopara.",
+   "verificar": true
+  },
+  {
+   "gn": "añete",
+   "es": [
+    "verdad",
+    "de verdad"
+   ],
+   "categoria": "adverbio",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Añete piko?",
+     "es": "¿En serio?"
+    }
+   ]
+  },
+  {
+   "gn": "japu",
+   "es": [
+    "mentira",
+    "mentir"
+   ],
+   "categoria": "sustantivo",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Japu nde!",
+     "es": "¡Mentiroso!",
+     "verificar": true
+    }
+   ]
+  },
+  {
+   "gn": "heta",
+   "es": [
+    "mucho",
+    "muchos"
+   ],
+   "categoria": "adverbio",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Opuka heta.",
+     "es": "Se ríe mucho."
+    }
+   ]
+  },
+  {
+   "gn": "sa'i",
+   "es": [
+    "poco"
+   ],
+   "categoria": "adverbio",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Sa'i ha'u.",
+     "es": "Como poco."
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "opaite",
+   "es": [
+    "se terminó todo, se acabó completamente"
+   ],
+   "categoria": "verbo",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Ajapo tortilla ógape ha opaite.",
+     "es": "Hice tortilla en casa y se acabó completamente."
+    }
+   ],
+   "nota": "Muy común en jopara. Viene de 'opa' (se acabó) + '-ite' (completamente).",
+   "revisado": true
+  },
+  {
+   "gn": "ko'ápe",
+   "es": [
+    "acá"
+   ],
+   "categoria": "adverbio",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Eju ko'ápe.",
+     "es": "Vení acá."
+    }
+   ]
+  },
+  {
+   "gn": "pépe",
+   "es": [
+    "ahí"
+   ],
+   "categoria": "adverbio",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Pépe oĩ.",
+     "es": "Ahí está."
+    }
+   ]
+  },
+  {
+   "gn": "amo",
+   "es": [
+    "allá"
+   ],
+   "categoria": "adverbio",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Amo oĩ che róga.",
+     "es": "Allá está mi casa."
+    }
+   ]
+  },
+  {
+   "gn": "ndive",
+   "es": [
+    "con"
+   ],
+   "categoria": "posposición",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Aiko che sy ndive.",
+     "es": "Vivo con mi mamá."
+    }
+   ],
+   "nota": "Va después de la palabra: che sy ndive."
+  },
+  {
+   "gn": "peve",
+   "es": [
+    "hasta"
+   ],
+   "categoria": "posposición",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Ko'ẽrõ peve.",
+     "es": "Hasta mañana."
+    }
+   ]
+  },
+  {
+   "gn": "guive",
+   "es": [
+    "desde"
+   ],
+   "categoria": "posposición",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Ko'ãga guive.",
+     "es": "Desde ahora."
+    }
+   ]
+  },
+  {
+   "gn": "rehe",
+   "es": [
+    "por",
+    "de (acordarse de alguien)"
+   ],
+   "categoria": "posposición",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Che mandu'a nderehe.",
+     "es": "Me acuerdo de vos."
+    }
+   ],
+   "formas": [
+    "nderehe"
+   ]
+  },
+  {
+   "gn": "ha",
+   "es": [
+    "y"
+   ],
+   "categoria": "conjunción",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Che sy ha che ru.",
+     "es": "Mi mamá y mi papá."
+    }
+   ]
+  },
+  {
+   "gn": "térã",
+   "es": [
+    "o"
+   ],
+   "categoria": "conjunción",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Kamby térã tereré?",
+     "es": "¿Leche o tereré?"
+    }
+   ]
+  },
+  {
+   "gn": "avei",
+   "es": [
+    "también"
+   ],
+   "categoria": "adverbio",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Che avei.",
+     "es": "Yo también."
+    }
+   ]
+  },
+  {
+   "gn": "jey",
+   "es": [
+    "de nuevo",
+    "otra vez"
+   ],
+   "categoria": "adverbio",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Eha'ã jey.",
+     "es": "Intentá de nuevo."
+    }
+   ]
+  },
+  {
+   "gn": "hína",
+   "es": [
+    "(está ...-ando: acción en curso)"
+   ],
+   "categoria": "partícula",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Hendy hína tu racha 🔥",
+     "es": "Tu racha está encendida 🔥"
+    }
+   ]
+  },
+  {
+   "gn": "ndaje",
+   "es": [
+    "dicen que"
+   ],
+   "categoria": "partícula",
+   "tema": "jopara",
+   "ejemplos": [
+    {
+     "gn": "Oúta ndaje.",
+     "es": "Dicen que va a venir."
+    }
+   ],
+   "nota": "Para contar lo que otros dicen; también para chismes."
+  },
+  {
+   "gn": "ani",
+   "es": [
+    "no (para prohibir o pedir que no)"
+   ],
+   "categoria": "adverbio",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Ani rejahe'o.",
+     "es": "No llores."
+    }
+   ]
+  },
+  {
+   "gn": "gueteri",
+   "es": [
+    "todavía"
+   ],
+   "categoria": "adverbio",
+   "tema": "palabras útiles",
+   "ejemplos": [
+    {
+     "gn": "Che ryvy michĩ gueteri.",
+     "es": "Mi hermano todavía es chico.",
+     "verificar": true
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "hake",
+   "es": [
+    "¡cuidado!",
+    "¡ojo! (algo está por pasar)"
+   ],
+   "categoria": "interjección",
+   "tema": "jopara",
+   "ejemplos": [
+    {
+     "gn": "Hake la nde racha! 🔥",
+     "es": "¡Ojo con tu racha! 🔥"
+    }
+   ],
+   "nota": "Muy común en jopara."
+  },
+  {
+   "gn": "upéicha",
+   "es": [
+    "así",
+    "¡eso!"
+   ],
+   "categoria": "interjección",
+   "tema": "jopara",
+   "ejemplos": [
+    {
+     "gn": "Upéicha, che ra'a!",
+     "es": "¡Eso, amigo!"
+    }
+   ],
+   "nota": "Para festejar o dar la razón."
+  },
+  {
+   "gn": "péicha",
+   "es": [
+    "así",
+    "de esta manera"
+   ],
+   "categoria": "adverbio",
+   "tema": "jopara",
+   "ejemplos": [
+    {
+     "gn": "Ejapo péicha.",
+     "es": "Hacelo así."
+    }
+   ]
+  },
+  {
+   "gn": "upéi",
+   "es": [
+    "después",
+    "entonces"
+   ],
+   "categoria": "adverbio",
+   "tema": "jopara",
+   "ejemplos": [
+    {
+     "gn": "Ha upéi?",
+     "es": "¿Y entonces?"
+    },
+    {
+     "gn": "Upéi jaha.",
+     "es": "Después vamos."
+    }
+   ]
+  },
+  {
+   "gn": "chake",
+   "es": [
+    "¡cuidado!",
+    "¡atención!"
+   ],
+   "categoria": "interjección",
+   "tema": "jopara",
+   "ejemplos": [
+    {
+     "gn": "Chake! Oúta ama.",
+     "es": "¡Cuidado! Va a llover.",
+     "verificar": true
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "aichejáranga",
+   "es": [
+    "¡pobrecito!"
+   ],
+   "categoria": "interjección",
+   "tema": "jopara",
+   "ejemplos": [
+    {
+     "gn": "Aichejáranga, okañy ijagua.",
+     "es": "¡Pobrecito, se le perdió el perro!",
+     "verificar": true
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "ra'a",
+   "es": [
+    "amigo (en \"che ra'a\")"
+   ],
+   "categoria": "sustantivo",
+   "tema": "jopara",
+   "ejemplos": [
+    {
+     "gn": "Upéicha, che ra'a!",
+     "es": "¡Eso, amigo!"
+    }
+   ],
+   "nota": "Casi siempre como \"che ra'a\".",
+   "verificar": true
+  },
+  {
+   "gn": "kachiãi",
+   "es": [
+    "desprolijo",
+    "desarreglado"
+   ],
+   "categoria": "adjetivo",
+   "tema": "jopara",
+   "ejemplos": [
+    {
+     "gn": "Nde ao kachiãi.",
+     "es": "Tu ropa está desarreglada.",
+     "verificar": true
+    }
+   ],
+   "verificar": true
+  },
+  {
+   "gn": "pirevai",
+   "es": [
+    "malhumorado",
+    "enojón"
+   ],
+   "categoria": "adjetivo",
+   "tema": "jopara",
+   "ejemplos": [
+    {
+     "gn": "Ani nde pirevai.",
+     "es": "No seas malhumorado.",
+     "verificar": true
+    }
+   ],
+   "verificar": true
+  }
+ ]
+}
